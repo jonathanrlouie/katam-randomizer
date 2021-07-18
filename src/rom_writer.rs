@@ -1,12 +1,12 @@
 use std::fs::File;
 use crate::{
-    common::{DoorDataMaps, StringID},
+    common::WriteData,
     error::Error,
 };
 use anyhow;
 
 pub trait RomWriter {
-    fn write_addresses(&mut self, bytes: &[u8], addresses: &[usize]) -> anyhow::Result<()>;
+    fn write_data(&mut self, data: &[WriteData]) -> anyhow::Result<()>;
 }
 
 pub struct Rom {
@@ -28,16 +28,24 @@ impl Rom {
     fn write_bytes(&self, buffer: &mut [u8], bytes: &[u8], address: usize) -> Validated<(), error::Error> {
         bytes.iter().enumerate().map(|(index, byte)| {
             self.write_byte(buffer, *byte, address + index)
-        }.collect::<Validated<(), error::Error>>()
+        }).collect::<Validated<(), error::Error>>()
     }
 
+    fn write_addresses(buffer: &mut [u8], bytes: &[u8], addresses: &[usize]) -> Validated<(), error::Error> {
+        addresses
+            .into_iter()
+            .map(|address| self.write_bytes(buffer, bytes, *address))
+            .collect();
+    }
 }
 
 impl RomWriter for Rom {
-    fn write_addresses(&mut self, bytes: &[u8], addresses: &[usize]) -> anyhow::Result<()> {
+    fn write_data(&mut self, data: &[WriteData]) -> anyhow::Result<()> {
         let mut buffer = Vec::new();
         self.rom_file.read_to_end(&mut buffer)?;
-        addresses.into_iter().map(|address| self.write_bytes(&mut buffer, bytes, *address)).collect().to_result()?;
+        data.into_iter().map(|wd| {
+            self.write_addresses(&mut buffer, &wd.bytes, &wd.target_addresses)
+        }).collect().to_result()?;
         self.rom_file.write_all(&buffer)?;
         Ok(())
     }

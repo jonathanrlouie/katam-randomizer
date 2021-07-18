@@ -17,6 +17,7 @@ mod config;
 mod error;
 mod graph;
 mod randomizer;
+mod rng;
 mod rom_writer;
 
 #[derive(Debug, FromForm)]
@@ -29,11 +30,12 @@ struct Submit<'v> {
 async fn submit(mut form: Form<Submit<'_>>) -> anyhow::Result<NamedFile> {
     let rom_path = format!("{}{}", relative!("/rom"), "katam_rom.gba");
     form.rom_file.persist_to(&rom_path).await?;
-    let rom_file = OpenOptions::new().write(true).open(&rom_path)?;
+    let rom_file = OpenOptions::new().read(true).write(true).open(&rom_path)?;
     // TODO: Don't take a form; convert into a custom data type that we can mock first
     let config: KatamConfig = KatamConfig::load_config(form);
+    let rng = KatamRng::new(config.get_seed());
     let rom = Rom::new(rom_file);
-    randomizer::randomize_game(config, rom)?;
+    randomizer::randomize_game(config, rng, rom)?;
 
     let path = Path::new(relative!("/frontend/index.html"));
     NamedFile::open(path).await

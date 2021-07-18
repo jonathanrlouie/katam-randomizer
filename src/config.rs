@@ -1,21 +1,23 @@
 use std::collections::HashSet;
-use crate::randomizer::Randomizer;
+use crate::{common::Setting, error::Result};
 use anyhow;
+
+pub trait Config {
+    fn get_settings(&self) -> anyhow::Result<Settings>;
+}
+
 
 pub struct KatamConfig;
 
-pub trait Config {
-    fn load_config() -> anyhow::Result<Self> where Self: Sized;
-    fn get_randomizer(&self) -> Randomizer;
+impl KatamConfig {
+    fn load_config() -> anyhow::Result<Self> {
+        Ok(KatamConfig)
+    }
 }
 
 impl Config for KatamConfig {
-    fn load_config() -> anyhow::Result<KatamConfig> {
-        Ok(KatamConfig)
-    }
 
-    // Return multiple randomizers so they can be composed
-    fn get_randomizers(&self) -> HashSet<Randomizer> {
-        HashSet::new(Randomizer::Entrance)
+    fn get_settings(&self) -> Settings {
+        Settings::new(&[Setting::Cosmetic])
     }
 }
