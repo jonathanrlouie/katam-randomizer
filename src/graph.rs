@@ -3,7 +3,7 @@ use petgraph;
 
 pub struct GameGraph;
 
-struct Beatable;
+pub struct Beatable;
 
 type EdgeIndex = usize;
 type NodeID = usize;
