@@ -1,26 +1,23 @@
+use rand::{self, Rng, SeedableRng};
+
 pub trait RNG {
-    fn get_bool(&mut self) -> bool;
-    fn get_number(&mut self) -> u32;
+    fn get_bool(&mut self, p: f64) -> bool;
 }
 
 pub struct KatamRng {
-    rng: rand::StdRng;
+    rng: rand::rngs::StdRng
 }
 
 impl KatamRng {
     pub fn new(seed: u64) -> Self {
         Self {
-            rng: rand::StdRng::new(seed)
+            rng: rand::rngs::StdRng::seed_from_u64(seed)
         }
     }
 }
 
 impl RNG for KatamRng {
-    fn get_bool(&mut self) -> bool {
-        self.rng.get_bool()
-    }
-
-    fn get_number(&mut self) -> u32 {
-        self.rng.get_number()
+    fn get_bool(&mut self, p: f64) -> bool {
+        self.rng.gen_bool(p)
     }
 }

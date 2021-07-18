@@ -1,4 +1,3 @@
-use crate::error;
 use petgraph;
 
 pub struct GameGraph;
@@ -15,5 +14,5 @@ pub trait Graph {
     fn edge_indices(&self) -> Vec<EdgeIndex>;
     fn add_edge(&mut self, node1: NodeID, node2: NodeID) -> EdgeIndex;
     fn remove_edge(&mut self, e: EdgeIndex) -> Option<()>;
-    fn game_beatable(&self) -> Result<Beatable, error::Error>;
+    fn game_beatable(&self) -> anyhow::Result<Beatable>; //TODO: return custom error
 }
