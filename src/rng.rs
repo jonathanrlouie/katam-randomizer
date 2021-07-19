@@ -5,13 +5,13 @@ pub trait RNG {
 }
 
 pub struct KatamRng {
-    rng: rand::rngs::StdRng
+    rng: rand::rngs::StdRng,
 }
 
 impl KatamRng {
     pub fn new(seed: u64) -> Self {
         Self {
-            rng: rand::rngs::StdRng::seed_from_u64(seed)
+            rng: rand::rngs::StdRng::seed_from_u64(seed),
         }
     }
 }

@@ -1,16 +1,13 @@
 #[macro_use]
 extern crate rocket;
 
-use anyhow;
 use rocket::{
     form::{Form, FromForm},
     fs::{relative, FileServer, NamedFile, TempFile},
     http::ContentType,
 };
-use std::{
-    fs::OpenOptions,
-    path::Path
-};
+use std::{fs::OpenOptions, path::Path};
+use thiserror::Error;
 
 mod common;
 mod config;
@@ -27,8 +24,25 @@ struct Submit<'v> {
     rom_file: TempFile<'v>,
 }
 
+#[derive(Responder, Debug, Error)]
+#[error("Internal server error")]
+enum Error {
+    InternalServerError(String),
+}
+
+impl From<anyhow::Error> for Error {
+    fn from(e: anyhow::Error) -> Self {
+        Error::InternalServerError("internal server error".to_string())
+    }
+}
+
 #[post("/", data = "<form>")]
-async fn submit(mut form: Form<Submit<'_>>) -> anyhow::Result<NamedFile> {
+async fn submit(form: Form<Submit<'_>>) -> Result<NamedFile, Error> {
+    let result = submit_rom(form).await;
+    result.map_err(|err| err.into())
+}
+
+async fn submit_rom(mut form: Form<Submit<'_>>) -> anyhow::Result<NamedFile> {
     let rom_path = format!("{}{}", relative!("/rom"), "katam_rom.gba");
     form.rom_file.persist_to(&rom_path).await?;
     let rom_file = OpenOptions::new().read(true).write(true).open(&rom_path)?;
@@ -39,7 +53,8 @@ async fn submit(mut form: Form<Submit<'_>>) -> anyhow::Result<NamedFile> {
     randomizer::randomize_game(config, rng, rom)?;
 
     let path = Path::new(relative!("/frontend/index.html"));
-    NamedFile::open(path).await
+    let index_file = NamedFile::open(path).await?;
+    Ok(index_file)
 }
 
 #[rocket::launch]

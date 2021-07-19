@@ -1,5 +1,4 @@
-use crate::{common::{Setting, Settings, NonUniqueSettingsError}};
-use anyhow;
+use crate::common::{NonUniqueSettingsError, Settings};
 
 pub trait Config {
     fn get_settings(&self) -> Result<Settings, NonUniqueSettingsError>;
@@ -16,7 +15,7 @@ impl KatamConfig {
 
 impl Config for KatamConfig {
     fn get_settings(&self) -> Result<Settings, NonUniqueSettingsError> {
-        Settings::new(&[])
+        Settings::new(Vec::new())
     }
 
     fn get_seed(&self) -> u64 {
