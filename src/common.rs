@@ -68,7 +68,7 @@ impl Settings {
         setting_keys.sort();
         setting_keys.dedup();
 
-        if !setting_keys.is_empty() {
+        if setting_keys.len() == settings.len() {
             Ok(Self { settings })
         } else {
             Err(NonUniqueSettingsError {
