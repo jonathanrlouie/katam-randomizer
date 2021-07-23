@@ -43,17 +43,21 @@ pub fn randomize_game(
     mut rng: impl RNG,
     mut rom: impl RomWriter,
 ) -> anyhow::Result<()> {
-    use Setting::EntranceShuffle;
     let settings = config.get_settings()?;
     let validated_write_data = settings
         .into_iter()
-        .map(|setting| match setting {
-            EntranceShuffle { ty, data } => shuffle_entrances(&mut rng, ty, data),
-        })
+        .map(|setting| process_setting(setting, &mut rng))
         .collect::<Validated<Vec<WriteData>, RandomizerError>>();
     let write_data = validated_write_data.into_result()?;
     rom.write_data(&write_data)?;
     Ok(())
+}
+
+fn process_setting(setting: Setting, rng: &mut impl RNG) -> Validated<WriteData, RandomizerError> {
+    use Setting::*;
+    match setting {
+        EntranceShuffle { ty, data } => shuffle_entrances(rng, ty, data),
+    }
 }
 
 fn shuffle_entrances(
@@ -65,4 +69,43 @@ fn shuffle_entrances(
         bytes: vec![],
         target_addresses: vec![],
     })
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::common::{Settings, NonUniqueSettingsError};
+
+    struct MockConfig;
+
+    impl Config for MockConfig {
+        fn get_settings(&self) -> Result<Settings, NonUniqueSettingsError> {
+            Settings::new(Vec::new())
+        }
+
+        fn get_seed(&self) -> u64 {
+            0
+        }
+    }
+
+    struct MockRng;
+
+    impl RNG for MockRng {
+        fn get_bool(&mut self, p: f64) -> bool {
+            true
+        }
+    }
+
+    struct MockRomWriter;
+
+    impl RomWriter for MockRomWriter {
+        fn write_data(&mut self, data: &[WriteData]) -> anyhow::Result<()> {
+            Ok(())
+        }
+    }
+
+    #[test]
+    fn test_business_logic() -> anyhow::Result<()> {
+        randomize_game(MockConfig, MockRng, MockRomWriter)
+    }
 }

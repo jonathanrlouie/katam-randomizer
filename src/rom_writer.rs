@@ -127,8 +127,14 @@ mod tests {
             Ok(_) => panic!("Writing bytes succeeded, but should not have."),
             Err(err) => {
                 assert_eq!(err.byte_write_errors.len(), 2);
-                assert_eq!(err.byte_write_errors[0].to_string(), "Error writing byte 0x03 at address 4");
-                assert_eq!(err.byte_write_errors[1].to_string(), "Error writing byte 0x87 at address 5");
+                assert_eq!(
+                    err.byte_write_errors[0].to_string(),
+                    "Error writing byte 0x03 at address 4"
+                );
+                assert_eq!(
+                    err.byte_write_errors[1].to_string(),
+                    "Error writing byte 0x87 at address 5"
+                );
             }
         }
     }
@@ -143,7 +149,10 @@ mod tests {
             Ok(_) => panic!("Writing bytes succeeded, but should not have."),
             Err(err) => {
                 assert_eq!(err.byte_write_errors.len(), 1);
-                assert_eq!(err.byte_write_errors[0].to_string(), "Error writing byte 0x87 at address 4");
+                assert_eq!(
+                    err.byte_write_errors[0].to_string(),
+                    "Error writing byte 0x87 at address 4"
+                );
             }
         }
     }
