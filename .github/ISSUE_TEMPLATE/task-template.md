@@ -10,5 +10,3 @@ assignees: ''
 Description:
 
 Acceptance Criteria:
-
-Story Points:
