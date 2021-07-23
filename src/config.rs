@@ -1,11 +1,24 @@
-pub struct Config;
+use crate::common::{NonUniqueSettingsError, Settings};
 
-pub trait LoadConfig {
-    fn load_config() -> Self;
+pub trait Config {
+    fn get_settings(&self) -> Result<Settings, NonUniqueSettingsError>;
+    fn get_seed(&self) -> u64;
 }
 
-impl LoadConfig for Config {
-    fn load_config() -> Self {
-        Config
+pub struct KatamConfig;
+
+impl KatamConfig {
+    pub fn load_config() -> anyhow::Result<Self> {
+        unimplemented!()
+    }
+}
+
+impl Config for KatamConfig {
+    fn get_settings(&self) -> Result<Settings, NonUniqueSettingsError> {
+        unimplemented!()
+    }
+
+    fn get_seed(&self) -> u64 {
+        unimplemented!()
     }
 }
