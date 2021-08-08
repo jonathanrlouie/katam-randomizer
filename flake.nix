@@ -20,7 +20,14 @@
         }) { inherit pkgs; };
       in {
         packages.playground = project.rootCrate.build;
-        devShell = pkgs.mkShell { buildInputs = [ project.rootCrate.build ]; };
+        devShell = pkgs.mkShell { buildInputs = [
+          pkgs.cargo
+          pkgs.clippy
+          pkgs.rustfmt
+          pkgs.rust-analyzer
+          pkgs.spago
+          pkgs.purescript
+        ]; };
       }
     );
 }
