@@ -20,13 +20,14 @@
         }) { inherit pkgs; };
       in {
         packages.playground = project.rootCrate.build;
-        devShell = pkgs.mkShell { buildInputs = [
-          pkgs.cargo
-          pkgs.clippy
-          pkgs.rustfmt
-          pkgs.rust-analyzer
-          pkgs.spago
-          pkgs.purescript
+        devShell = pkgs.mkShell { buildInputs = with pkgs; [
+          cargo
+          clippy
+          rustfmt
+          rust-analyzer
+          spago
+          purescript
+          bash
         ]; };
       }
     );
