@@ -46,17 +46,17 @@ pub trait RomWriter {
     fn write_data(&mut self, data: &[WriteData]) -> anyhow::Result<()>;
 }
 
-pub struct Rom {
-    rom_file: File,
+pub struct Rom<'a> {
+    rom_file: &'a mut File,
 }
 
-impl Rom {
-    pub fn new(rom_file: File) -> Self {
+impl<'a> Rom<'a> {
+    pub fn new(rom_file: &'a mut File) -> Self {
         Self { rom_file }
     }
 }
 
-impl RomWriter for Rom {
+impl<'a> RomWriter for Rom<'a> {
     fn write_data(&mut self, data: &[WriteData]) -> anyhow::Result<()> {
         let mut buffer = Vec::new();
         self.rom_file.read_to_end(&mut buffer)?;
