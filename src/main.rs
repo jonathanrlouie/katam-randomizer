@@ -17,7 +17,7 @@ mod randomizer;
 mod rng;
 mod rom_writer;
 
-use config::Config;
+use config::{Config, EntranceData, EntranceShuffleType};
 
 const RANDOMIZED_ROM_NAME: &str = "katam_randomized.gba";
 
@@ -25,6 +25,17 @@ const RANDOMIZED_ROM_NAME: &str = "katam_randomized.gba";
 struct Submit<'v> {
     #[field(validate = ext(ContentType::Binary))]
     rom_file: TempFile<'v>,
+    seed: u64,
+    entrance_shuffle_type: EntranceShuffleType,
+}
+
+impl Into<Config> for Form<Submit<'_>> {
+    fn into(self) -> Config {
+        Config {
+            seed: self.seed,
+            entrance_shuffle: self.entrance_shuffle_type,
+        }
+    }
 }
 
 #[derive(Responder)]
@@ -56,9 +67,8 @@ async fn submit_rom(mut form: Form<Submit<'_>>) -> anyhow::Result<RomResponder<'
     let rom_path = format!("{}{}", relative!("/rom"), "katam_rom.gba");
     form.rom_file.persist_to(&rom_path).await?;
     let mut rom_file = OpenOptions::new().read(true).write(true).open(&rom_path)?;
-    // TODO: Don't take a form; convert into a custom data type that we can mock first
-    let config = config::KatamConfig::load_config()?;
-    let rng = rng::KatamRng::new(config.get_seed());
+    let config: Config = form.into();
+    let rng = rng::KatamRng::new(config.seed);
     let rom = rom_writer::Rom::new(&mut rom_file);
     randomizer::randomize_game(config, rng, rom)?;
 

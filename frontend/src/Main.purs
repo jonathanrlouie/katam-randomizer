@@ -35,6 +35,18 @@ render _ =
     [ HP.action "/api/submit/", HP.method HP.POST, HP.enctype MTC.multipartFormData ]
     [ HH.label_ [ HH.text "ROM File to Upload: " ]
     , HH.input [ HP.type_ HP.InputFile, HP.name "rom_file" ]      
+    , HH.div_
+      [ HH.label_ [ HH.text "Seed:" ]
+      , HH.input [ HP.type_ HP.InputText, HP.name "seed" ]
+      ]
+    , HH.div_
+      [ HH.input [ HP.id "std", HP.type_ HP.InputRadio, HP.name "entrance_shuffle_type", HP.value "Standard" ]      
+      , HH.label [ HP.for "std" ] [ HH.text "Standard Shuffle" ]
+      , HH.br_
+      , HH.input [ HP.id "chaos", HP.type_ HP.InputRadio, HP.name "entrance_shuffle_type", HP.value "Chaos" ]      
+      , HH.label [ HP.for "chaos" ] [ HH.text "Chaos Shuffle" ]
+      , HH.br_
+      ]
     , HH.input [ HP.type_ HP.InputSubmit, HP.value "Submit" ]
     ]
 

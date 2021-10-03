@@ -3445,7 +3445,9 @@ var PS = {};
       throw new Error("Failed pattern match at DOM.HTML.Indexed.InputType (line 28, column 19 - line 50, column 22): " + [ v.constructor.name ]);
   };
   exports["InputFile"] = InputFile;
+  exports["InputRadio"] = InputRadio;
   exports["InputSubmit"] = InputSubmit;
+  exports["InputText"] = InputText;
   exports["renderInputType"] = renderInputType;
 })(PS);
 (function(exports) {
@@ -6740,8 +6742,17 @@ var PS = {};
   };                   
   var label = element("label");
   var label_ = label([  ]);
+  var div = element("div");
+  var div_ = div([  ]);      
+  var br = function (props) {
+      return element("br")(props)([  ]);
+  };
+  var br_ = br([  ]);
+  exports["br_"] = br_;
+  exports["div_"] = div_;
   exports["form"] = form;
   exports["input"] = input;
+  exports["label"] = label;
   exports["label_"] = label_;
 })(PS);
 (function($PS) {
@@ -6759,8 +6770,12 @@ var PS = {};
   var value = prop(Halogen_HTML_Core.isPropString)("value");
   var name = prop(Halogen_HTML_Core.isPropString)("name");
   var method = prop(Halogen_HTML_Core.isPropFormMethod)("method");
+  var id = prop(Halogen_HTML_Core.isPropString)("id");
+  var $$for = prop(Halogen_HTML_Core.isPropString)("htmlFor");
   var enctype = prop(Halogen_HTML_Core.isPropMediaType)("enctype");
   var action = prop(Halogen_HTML_Core.isPropString)("action");
+  exports["for"] = $$for;
+  exports["id"] = id;
   exports["name"] = name;
   exports["method"] = method;
   exports["action"] = action;
@@ -7356,7 +7371,7 @@ var PS = {};
   var Halogen_HTML_Properties = $PS["Halogen.HTML.Properties"];
   var Halogen_VDom_Driver = $PS["Halogen.VDom.Driver"];                
   var render = function (v) {
-      return Halogen_HTML_Elements.form([ Halogen_HTML_Properties.action("/api/submit/"), Halogen_HTML_Properties.method(DOM_HTML_Indexed_FormMethod.POST.value), Halogen_HTML_Properties.enctype(Data_MediaType_Common.multipartFormData) ])([ Halogen_HTML_Elements.label_([ Halogen_HTML_Core.text("ROM File to Upload: ") ]), Halogen_HTML_Elements.input([ Halogen_HTML_Properties.type_(Halogen_HTML_Core.isPropInputType)(DOM_HTML_Indexed_InputType.InputFile.value), Halogen_HTML_Properties.name("rom_file") ]), Halogen_HTML_Elements.input([ Halogen_HTML_Properties.type_(Halogen_HTML_Core.isPropInputType)(DOM_HTML_Indexed_InputType.InputSubmit.value), Halogen_HTML_Properties.value("Submit") ]) ]);
+      return Halogen_HTML_Elements.form([ Halogen_HTML_Properties.action("/api/submit/"), Halogen_HTML_Properties.method(DOM_HTML_Indexed_FormMethod.POST.value), Halogen_HTML_Properties.enctype(Data_MediaType_Common.multipartFormData) ])([ Halogen_HTML_Elements.label_([ Halogen_HTML_Core.text("ROM File to Upload: ") ]), Halogen_HTML_Elements.input([ Halogen_HTML_Properties.type_(Halogen_HTML_Core.isPropInputType)(DOM_HTML_Indexed_InputType.InputFile.value), Halogen_HTML_Properties.name("rom_file") ]), Halogen_HTML_Elements.div_([ Halogen_HTML_Elements.label_([ Halogen_HTML_Core.text("Seed:") ]), Halogen_HTML_Elements.input([ Halogen_HTML_Properties.type_(Halogen_HTML_Core.isPropInputType)(DOM_HTML_Indexed_InputType.InputText.value), Halogen_HTML_Properties.name("seed") ]) ]), Halogen_HTML_Elements.div_([ Halogen_HTML_Elements.input([ Halogen_HTML_Properties.id("std"), Halogen_HTML_Properties.type_(Halogen_HTML_Core.isPropInputType)(DOM_HTML_Indexed_InputType.InputRadio.value), Halogen_HTML_Properties.name("entrance_shuffle_type"), Halogen_HTML_Properties.value("Standard") ]), Halogen_HTML_Elements.label([ Halogen_HTML_Properties["for"]("std") ])([ Halogen_HTML_Core.text("Standard Shuffle") ]), Halogen_HTML_Elements.br_, Halogen_HTML_Elements.input([ Halogen_HTML_Properties.id("chaos"), Halogen_HTML_Properties.type_(Halogen_HTML_Core.isPropInputType)(DOM_HTML_Indexed_InputType.InputRadio.value), Halogen_HTML_Properties.name("entrance_shuffle_type"), Halogen_HTML_Properties.value("Chaos") ]), Halogen_HTML_Elements.label([ Halogen_HTML_Properties["for"]("chaos") ])([ Halogen_HTML_Core.text("Chaos Shuffle") ]), Halogen_HTML_Elements.br_ ]), Halogen_HTML_Elements.input([ Halogen_HTML_Properties.type_(Halogen_HTML_Core.isPropInputType)(DOM_HTML_Indexed_InputType.InputSubmit.value), Halogen_HTML_Properties.value("Submit") ]) ]);
   };
   var initialState = function (v) {
       return Data_Unit.unit;

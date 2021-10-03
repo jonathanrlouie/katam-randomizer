@@ -21,6 +21,7 @@
       in {
         packages.playground = project.rootCrate.build;
         devShell = pkgs.mkShell { buildInputs = with pkgs; [
+          rustc
           cargo
           clippy
           rustfmt
