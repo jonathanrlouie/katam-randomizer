@@ -1,8 +1,5 @@
 use rand::{self, Rng, SeedableRng};
 
-pub trait RNG {
-    fn get_bool(&mut self, p: f64) -> bool;
-}
 
 pub struct KatamRng {
     rng: rand::rngs::StdRng,

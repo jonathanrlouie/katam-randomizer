@@ -1,4 +1,8 @@
-use crate::common::{Address, IntoResult, WriteData};
+use crate::{
+    common::{Address, IntoResult},
+    graph::Graph,
+    randomizer::RomWriter,
+};
 use itertools::Itertools;
 use std::{
     fmt,
@@ -42,9 +46,6 @@ impl IntoResult<(), WriteAddressesError> for Validated<(), ByteWriteError> {
     }
 }
 
-pub trait RomWriter {
-    fn write_data(&mut self, data: &[WriteData]) -> anyhow::Result<()>;
-}
 
 pub struct Rom<'a> {
     rom_file: &'a mut File,
@@ -56,11 +57,11 @@ impl<'a> Rom<'a> {
     }
 }
 
-impl<'a> RomWriter for Rom<'a> {
-    fn write_data(&mut self, data: &[WriteData]) -> anyhow::Result<()> {
+impl<'a, N, E> RomWriter<N, E> for Rom<'a> {
+    fn write_data(&mut self, data: impl Graph<N, E>) -> anyhow::Result<()> {
         let mut buffer = Vec::new();
         self.rom_file.read_to_end(&mut buffer)?;
-        data.iter()
+        self.data.iter()
             .map(|wd| write_addresses(&mut buffer, &wd.bytes, &wd.target_addresses))
             .collect::<Validated<(), ByteWriteError>>()
             .into_result()?;
