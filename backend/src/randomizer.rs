@@ -42,10 +42,13 @@ pub fn randomize_katam<N, E, G: Graph<N, E>>(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use config::Config;
 
-    struct MockConfig;
+    const MOCK_CONFIG: Config = config::Config {
+        seed: 0,
+        entrance_shuffle: EntranceShuffleType::Standard
+    };
 
-    const MOCK_CONFIG: MockConfig = MockConfig;
     struct MockRng;
 
     impl RNG for MockRng {
