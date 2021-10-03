@@ -1,18 +1,13 @@
 use petgraph;
+use crate::randomizer::Graph;
 
 pub struct GameGraph;
 
-pub struct Beatable;
-
-type EdgeIndex = usize;
-type NodeID = usize;
-
-pub trait Graph {
-    fn from_edges(edges: &[(NodeID, NodeID)]) -> Self;
-    fn edge_count(&self) -> usize;
-    fn edge_endpoints(&self, e: EdgeIndex) -> Option<(NodeID, NodeID)>;
-    fn edge_indices(&self) -> Vec<EdgeIndex>;
-    fn add_edge(&mut self, node1: NodeID, node2: NodeID) -> EdgeIndex;
-    fn remove_edge(&mut self, e: EdgeIndex) -> Option<()>;
-    fn game_beatable(&self) -> anyhow::Result<Beatable>; //TODO: return custom error
+impl Graph<u32, u32> for GameGraph {
+    fn edge_count(&self) -> usize { 0 }
+    fn edge_endpoints(&self, e: u32) -> Option<(u32, u32)> { None }
+    fn edge_indices(&self) -> Vec<u32> { vec![] }
+    fn add_edge(&mut self, node1: u32, node2: u32) -> u32 { 0 }
+    fn remove_edge(&mut self, e: u32) -> Option<()> { None }
 }
+
