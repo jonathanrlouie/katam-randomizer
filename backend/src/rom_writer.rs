@@ -1,7 +1,6 @@
 use crate::{
     common::{Address, IntoResult},
-    graph::Graph,
-    randomizer::RomWriter,
+    randomizer::{RomWriter, Graph},
 };
 use itertools::Itertools;
 use std::{
@@ -57,8 +56,10 @@ impl<'a> Rom<'a> {
     }
 }
 
-impl<'a, N, E> RomWriter<N, E> for Rom<'a> {
-    fn write_data(&mut self, data: impl Graph<N, E>) -> anyhow::Result<()> {
+impl<'a> RomWriter for Rom<'a> {
+    fn write_data<N, E>(&mut self, data: impl Graph<N, E>) -> anyhow::Result<()> {
+        Ok(())
+        /*
         let mut buffer = Vec::new();
         self.rom_file.read_to_end(&mut buffer)?;
         self.data.iter()
@@ -67,6 +68,7 @@ impl<'a, N, E> RomWriter<N, E> for Rom<'a> {
             .into_result()?;
         self.rom_file.write_all(&buffer)?;
         Ok(())
+        */
     }
 }
 

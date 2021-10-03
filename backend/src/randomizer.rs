@@ -11,7 +11,7 @@ pub trait RomWriter {
     fn write_data<N, E>(&mut self, data: impl Graph<N, E>) -> anyhow::Result<()>;
 }
 
-pub trait KatamAlgorithms<N, E> {
+pub trait RandoAlgorithms<N, E> {
     fn standard_shuffle(&self, graph: &mut impl Graph<N, E>) -> anyhow::Result<()>;
     fn chaos_shuffle(&self, graph: &mut impl Graph<N, E>) -> anyhow::Result<()>;
 }
@@ -28,14 +28,15 @@ pub fn randomize_katam<N, E, G: Graph<N, E>>(
     config: config::Config, 
     mut rng: impl RNG,
     mut rom_writer: impl RomWriter,
-    algorithms: impl KatamAlgorithms<N, E>,
-    graph: G,
+    algorithms: impl RandoAlgorithms<N, E>,
+    mut graph: G,
     ) -> anyhow::Result<()> {
-    match config.entrance_randomizer {
+    match config.entrance_shuffle {
         EntranceShuffleType::Standard => algorithms.standard_shuffle(&mut graph),
         EntranceShuffleType::Chaos => algorithms.chaos_shuffle(&mut graph)
     }?;
     rom_writer.write_data(graph)?;
+    Ok(())
 }
 
 #[cfg(test)]
@@ -54,7 +55,7 @@ mod tests {
     }
 
     struct MockAlgorithms;
-    impl<N, E> KatamAlgorithms<N, E> for MockAlgorithms {
+    impl<N, E> RandoAlgorithms<N, E> for MockAlgorithms {
         fn standard_shuffle(&self, graph: &mut impl Graph<N, E>) -> anyhow::Result<()> {
             Ok(())
         }

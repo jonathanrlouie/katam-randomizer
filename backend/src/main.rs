@@ -10,6 +10,7 @@ use rocket::{
 use std::{fs::{OpenOptions, File}, path::Path};
 use thiserror::Error;
 
+mod algorithm;
 mod common;
 mod config;
 mod graph;
@@ -70,7 +71,9 @@ async fn submit_rom(mut form: Form<Submit<'_>>) -> anyhow::Result<RomResponder<'
     let config: Config = form.into();
     let rng = rng::KatamRng::new(config.seed);
     let rom = rom_writer::Rom::new(&mut rom_file);
-    randomizer::randomize_game(config, rng, rom)?;
+    let algorithms = algorithm::KatamAlgorithms;
+    let graph = graph::GameGraph;
+    randomizer::randomize_katam(config, rng, rom, algorithms, graph)?;
 
     let content_disposition = Header::new(
         "Content-Disposition", format!("attachment; filename=\"{}\"", RANDOMIZED_ROM_NAME));
