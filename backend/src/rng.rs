@@ -1,5 +1,5 @@
-use rand::{self, Rng, SeedableRng};
 use crate::randomizer::RNG;
+use rand::{self, Rng, SeedableRng};
 
 pub struct KatamRng {
     rng: rand::rngs::StdRng,

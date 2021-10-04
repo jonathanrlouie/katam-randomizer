@@ -1,15 +1,22 @@
-use crate::{
-    common::{Address, IntoResult},
-    randomizer::{RomWriter, Graph},
-};
+use crate::randomizer::{self, Graph, KatamRandoError, RomWriter};
 use itertools::Itertools;
-use std::{
-    fmt,
-    fs::File,
-    io::{Read, Write},
-};
+use std::{collections::HashMap, fmt, fs::File};
 use thiserror::Error;
 use validated::Validated::{self, Fail, Good};
+
+type Address = usize;
+type StringID = String;
+type Destination = [u8; 4];
+
+pub struct WriteData {
+    pub bytes: Vec<u8>,
+    pub target_addresses: Vec<usize>,
+}
+
+pub struct DoorDataMaps {
+    pub start_map: HashMap<StringID, Vec<Address>>,
+    pub end_map: HashMap<StringID, Destination>,
+}
 
 #[derive(Error, Debug)]
 #[error("Error writing byte {byte:#04x} at address {address}")]
@@ -34,9 +41,12 @@ impl fmt::Display for WriteAddressesError {
     }
 }
 
-impl IntoResult<(), WriteAddressesError> for Validated<(), ByteWriteError> {
-    fn into_result(self) -> Result<(), WriteAddressesError> {
-        match self {
+// newtype to avoid trait coherence problems
+struct RomValidated<T, E>(Validated<T, E>);
+
+impl From<RomValidated<(), ByteWriteError>> for Result<(), WriteAddressesError> {
+    fn from(validated: RomValidated<(), ByteWriteError>) -> Self {
+        match validated.0 {
             Good(_) => Ok(()),
             Fail(errs) => Err(WriteAddressesError {
                 byte_write_errors: errs.into(),
@@ -44,7 +54,6 @@ impl IntoResult<(), WriteAddressesError> for Validated<(), ByteWriteError> {
         }
     }
 }
-
 
 pub struct Rom<'a> {
     rom_file: &'a mut File,
@@ -57,15 +66,15 @@ impl<'a> Rom<'a> {
 }
 
 impl<'a> RomWriter for Rom<'a> {
-    fn write_data<N, E>(&mut self, data: impl Graph<N, E>) -> anyhow::Result<()> {
+    fn write_data<N, E>(&mut self, data: impl Graph<N, E>) -> randomizer::Result<()> {
         Ok(())
         /*
         let mut buffer = Vec::new();
         self.rom_file.read_to_end(&mut buffer)?;
-        self.data.iter()
+        RomValidated(self.data.iter()
             .map(|wd| write_addresses(&mut buffer, &wd.bytes, &wd.target_addresses))
-            .collect::<Validated<(), ByteWriteError>>()
-            .into_result()?;
+            .collect::<Validated<(), ByteWriteError>>())
+            .into()?;
         self.rom_file.write_all(&buffer)?;
         Ok(())
         */
@@ -110,12 +119,11 @@ mod tests {
         let mut buffer = [0x00, 0x01, 0x22, 0xAD];
         let bytes = [0x03, 0x87];
         let addresses = [0];
-        let result = write_addresses(&mut buffer, &bytes, &addresses)
-            .into_result()
-            .map_err(|_| {
-                "Error occurred when writing bytes to addresses, but no error was expected."
-                    .to_string()
-            })?;
+        let result: Result<(), WriteAddressesError> =
+            RomValidated(write_addresses(&mut buffer, &bytes, &addresses)).into();
+        result.map_err(|_| {
+            "Error occurred when writing bytes to addresses, but no error was expected.".to_string()
+        })?;
         assert_eq!([0x03, 0x87, 0x22, 0xAD], buffer);
         Ok(())
     }
@@ -125,7 +133,7 @@ mod tests {
         let mut buffer = [0x00, 0x01, 0x22, 0xAD];
         let bytes = [0x03, 0x87];
         let addresses = [4];
-        let result = write_addresses(&mut buffer, &bytes, &addresses).into_result();
+        let result = RomValidated(write_addresses(&mut buffer, &bytes, &addresses)).into();
         match result {
             Ok(_) => panic!("Writing bytes succeeded, but should not have."),
             Err(err) => {
@@ -147,7 +155,7 @@ mod tests {
         let mut buffer = [0x00, 0x01, 0x22, 0xAD];
         let bytes = [0x03, 0x87];
         let addresses = [3];
-        let result = write_addresses(&mut buffer, &bytes, &addresses).into_result();
+        let result = RomValidated(write_addresses(&mut buffer, &bytes, &addresses)).into();
         match result {
             Ok(_) => panic!("Writing bytes succeeded, but should not have."),
             Err(err) => {
@@ -165,12 +173,11 @@ mod tests {
         let mut buffer = [0x00, 0x01, 0x22, 0xAD];
         let bytes = [0x03, 0x87];
         let addresses = [0, 2];
-        let result = write_addresses(&mut buffer, &bytes, &addresses)
-            .into_result()
-            .map_err(|_| {
-                "Error occurred when writing bytes to addresses, but no error was expected."
-                    .to_string()
-            })?;
+        let result: Result<(), WriteAddressesError> =
+            RomValidated(write_addresses(&mut buffer, &bytes, &addresses)).into();
+        result.map_err(|_| {
+            "Error occurred when writing bytes to addresses, but no error was expected.".to_string()
+        })?;
         assert_eq!([0x03, 0x87, 0x03, 0x87], buffer);
         Ok(())
     }
@@ -180,12 +187,11 @@ mod tests {
         let mut buffer = [0x00, 0x01, 0x22, 0xAD];
         let bytes = [0x03, 0x87];
         let addresses = [0, 1];
-        let result = write_addresses(&mut buffer, &bytes, &addresses)
-            .into_result()
-            .map_err(|_| {
-                "Error occurred when writing bytes to addresses, but no error was expected."
-                    .to_string()
-            })?;
+        let result: Result<(), WriteAddressesError> =
+            RomValidated(write_addresses(&mut buffer, &bytes, &addresses)).into();
+        result.map_err(|_| {
+            "Error occurred when writing bytes to addresses, but no error was expected.".to_string()
+        })?;
         assert_eq!([0x03, 0x03, 0x87, 0xAD], buffer);
         Ok(())
     }

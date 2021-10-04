@@ -7,7 +7,10 @@ use rocket::{
     http::{ContentType, Header},
     response::content,
 };
-use std::{fs::{OpenOptions, File}, path::Path};
+use std::{
+    fs::{File, OpenOptions},
+    path::Path,
+};
 use thiserror::Error;
 
 mod algorithm;
@@ -30,11 +33,11 @@ struct Submit<'v> {
     entrance_shuffle_type: EntranceShuffleType,
 }
 
-impl Into<Config> for Form<Submit<'_>> {
-    fn into(self) -> Config {
+impl From<Form<Submit<'_>>> for Config {
+    fn from(form: Form<Submit<'_>>) -> Self {
         Config {
-            seed: self.seed,
-            entrance_shuffle: self.entrance_shuffle_type,
+            seed: form.seed,
+            entrance_shuffle: form.entrance_shuffle_type,
         }
     }
 }
@@ -43,7 +46,7 @@ impl Into<Config> for Form<Submit<'_>> {
 #[response(content_type = "binary")]
 struct RomResponder<'a> {
     file: File,
-    content_disposition: Header<'a>
+    content_disposition: Header<'a>,
 }
 
 #[derive(Responder, Debug, Error)]
@@ -76,10 +79,12 @@ async fn submit_rom(mut form: Form<Submit<'_>>) -> anyhow::Result<RomResponder<'
     randomizer::randomize_katam(config, rng, rom, algorithms, graph)?;
 
     let content_disposition = Header::new(
-        "Content-Disposition", format!("attachment; filename=\"{}\"", RANDOMIZED_ROM_NAME));
+        "Content-Disposition",
+        format!("attachment; filename=\"{}\"", RANDOMIZED_ROM_NAME),
+    );
     Ok(RomResponder {
         file: rom_file,
-        content_disposition
+        content_disposition,
     })
 }
 

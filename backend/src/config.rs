@@ -16,4 +16,3 @@ pub struct Config {
     pub seed: u64,
     pub entrance_shuffle: EntranceShuffleType,
 }
-
