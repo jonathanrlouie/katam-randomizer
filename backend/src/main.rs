@@ -14,7 +14,6 @@ use std::{
 use thiserror::Error;
 
 mod algorithm;
-mod common;
 mod config;
 mod graph;
 mod randomizer;
