@@ -1,4 +1,7 @@
-use crate::config::{self, EntranceShuffleType};
+use crate::{
+    algorithm,
+    config::{self, EntranceShuffleType}
+};
 use thiserror::Error;
 
 #[derive(Error, Debug)]
@@ -19,11 +22,6 @@ pub trait RomWriter {
     fn write_data<N, E>(&mut self, data: impl Graph<N, E>) -> Result<()>;
 }
 
-pub trait RandoAlgorithms<N, E> {
-    fn standard_shuffle(&self, graph: &mut impl Graph<N, E>) -> Result<()>;
-    fn chaos_shuffle(&self, graph: &mut impl Graph<N, E>) -> Result<()>;
-}
-
 pub trait Graph<NodeID, EdgeIndex> {
     fn edge_count(&self) -> usize;
     fn edge_endpoints(&self, e: EdgeIndex) -> Option<(NodeID, NodeID)>;
@@ -36,12 +34,11 @@ pub fn randomize_katam<N, E, G: Graph<N, E>>(
     config: config::Config,
     mut rng: impl RNG,
     mut rom_writer: impl RomWriter,
-    algorithms: impl RandoAlgorithms<N, E>,
     mut graph: G,
 ) -> Result<()> {
     match config.entrance_shuffle {
-        EntranceShuffleType::Standard => algorithms.standard_shuffle(&mut graph),
-        EntranceShuffleType::Chaos => algorithms.chaos_shuffle(&mut graph),
+        EntranceShuffleType::Standard => algorithm::standard_shuffle(&mut graph),
+        EntranceShuffleType::Chaos => algorithm::chaos_shuffle(&mut graph),
     }?;
     rom_writer.write_data(graph)?;
     Ok(())

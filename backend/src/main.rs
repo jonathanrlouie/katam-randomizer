@@ -73,9 +73,8 @@ async fn submit_rom(mut form: Form<Submit<'_>>) -> anyhow::Result<RomResponder<'
     let config: Config = form.into();
     let rng = rng::KatamRng::new(config.seed);
     let rom = rom_writer::Rom::new(&mut rom_file);
-    let algorithms = algorithm::KatamAlgorithms;
     let graph = graph::GameGraph;
-    randomizer::randomize_katam(config, rng, rom, algorithms, graph)?;
+    randomizer::randomize_katam(config, rng, rom, graph)?;
 
     let content_disposition = Header::new(
         "Content-Disposition",
