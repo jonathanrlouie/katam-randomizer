@@ -22,12 +22,11 @@ pub trait RomWriter {
     fn write_data<N, E>(&mut self, data: impl Graph<N, E>) -> Result<()>;
 }
 
-pub trait Graph<NodeID, EdgeIndex> {
-    fn edge_count(&self) -> usize;
-    fn edge_endpoints(&self, e: EdgeIndex) -> Option<(NodeID, NodeID)>;
-    fn edge_indices(&self) -> Vec<EdgeIndex>;
-    fn add_edge(&mut self, node1: NodeID, node2: NodeID) -> EdgeIndex;
-    fn remove_edge(&mut self, e: EdgeIndex) -> Option<()>;
+pub trait Graph<N, E> {
+    fn swap_edges(&mut self, edge1: E, edge2: E) -> Result<(E, E)>;
+    // TODO: Change this to return Result<Vec<(N, N)>> once string IDs are moved to descriptions
+    fn get_edges(&self) -> Result<Vec<(String, String)>>;
+    fn get_unreachable_regions(&self) -> Vec<Vec<N>>;
 }
 
 pub fn randomize_katam<N, E, G: Graph<N, E>>(
@@ -37,8 +36,8 @@ pub fn randomize_katam<N, E, G: Graph<N, E>>(
     mut graph: G,
 ) -> Result<()> {
     match config.entrance_shuffle {
-        EntranceShuffleType::Standard => algorithm::standard_shuffle(&mut graph),
-        EntranceShuffleType::Chaos => algorithm::chaos_shuffle(&mut graph),
+        EntranceShuffleType::Standard => algorithm::standard_shuffle(&mut graph, &mut rng),
+        EntranceShuffleType::Chaos => algorithm::chaos_shuffle(&mut graph, &mut rng),
     }?;
     rom_writer.write_data(graph)?;
     Ok(())
@@ -57,22 +56,6 @@ mod tests {
     struct MockRng;
 
     impl RNG for MockRng {
-        fn get_bool(&mut self, _p: f64) -> bool {
-            true
-        }
-    }
-
-    struct MockAlgorithms;
-    impl<N, E> RandoAlgorithms<N, E> for MockAlgorithms {
-        fn standard_shuffle(&self, _graph: &mut impl Graph<N, E>) -> Result<()> {
-            Ok(())
-        }
-        fn chaos_shuffle(&self, _graph: &mut impl Graph<N, E>) -> Result<()> {
-            Ok(())
-        }
-    }
-
-    impl RNG for MockAlgorithms {
         fn get_bool(&mut self, _p: f64) -> bool {
             true
         }

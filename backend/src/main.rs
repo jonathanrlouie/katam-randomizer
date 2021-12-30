@@ -15,6 +15,7 @@ use thiserror::Error;
 
 mod algorithm;
 mod config;
+mod game_data;
 mod graph;
 mod randomizer;
 mod rng;
@@ -72,14 +73,14 @@ async fn submit_rom(mut form: Form<Submit<'_>>) -> anyhow::Result<RomResponder<'
     let mut rom_file = OpenOptions::new().read(true).write(true).open(&rom_path)?;
     let config: Config = form.into();
     let rng = rng::KatamRng::new(config.seed);
-    let rom = rom_writer::Rom::new(&mut rom_file);
-    let graph = graph::GameGraph;
-    randomizer::randomize_katam(config, rng, rom, graph)?;
+    let rom = rom_writer::Rom::new(&mut rom_file, game_data.rom_data_maps);
+    randomizer::randomize_katam(config, rng, rom, game_data.graph)?;
 
     let content_disposition = Header::new(
         "Content-Disposition",
         format!("attachment; filename=\"{}\"", RANDOMIZED_ROM_NAME),
     );
+
     Ok(RomResponder {
         file: rom_file,
         content_disposition,
@@ -88,7 +89,10 @@ async fn submit_rom(mut form: Form<Submit<'_>>) -> anyhow::Result<RomResponder<'
 
 #[rocket::launch]
 fn rocket() -> _ {
+    let game_data = load_game_data();
+
     rocket::build()
         .mount("/", rocket::routes![submit])
         .mount("/", FileServer::from(relative!("../frontend")).rank(1))
+        .manage(game_data)
 }
