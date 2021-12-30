@@ -257,6 +257,21 @@ impl Graph<NodeID, SwapEdge> for GameGraph {
         Ok((new_edge1, new_edge2))
     }
 
+    fn pick_random_edges(&self, rng: &mut impl Rng) -> Option<(SwapEdge, SwapEdge)> {
+        let edges = self.swappable_edges.iter();
+        let edge1 = edges.choose(rng)?;
+        let edge2 = match edge1 {
+            SwapEdge::OneWay(_) => edges
+                .filter(|edge| edge != edge1 && matches!(edge, OneWay(x)))
+                .choose(rng),
+            SwapEdge::TwoWay(_, _) => edges
+                .filter(|edge| edge != edge1 && matches!(edge, TwoWay(x, y)))
+                .choose(rng),
+        }?;
+
+        Some((edge1, edge2))
+    }
+
     fn get_unreachable_regions(&self) -> Vec<Vec<NodeID>> {
         let condensed_graph = algo::condensation(
             self.base_graph.map(|_, n| n, |_, e| e).into(),

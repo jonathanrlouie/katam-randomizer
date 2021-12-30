@@ -24,6 +24,7 @@ pub trait RomWriter {
 
 pub trait Graph<N, E> {
     fn swap_edges(&mut self, edge1: E, edge2: E) -> Result<(E, E)>;
+    fn pick_random_edges(&self, rng: &mut impl Rng) -> Option<(E, E)>;
     // TODO: Change this to return Result<Vec<(N, N)>> once string IDs are moved to descriptions
     fn get_edges(&self) -> Result<Vec<(String, String)>>;
     fn get_unreachable_regions(&self) -> Vec<Vec<N>>;
