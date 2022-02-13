@@ -1,17 +1,42 @@
+use std::{
+    collections::{HashSet, HashMap},
+};
 use crate::{
-    game_data::{GraphData, DynamicEdge, StaticEdge, StringID, NodeID},
-    randomizer::{Result, Graph},
+    error::{GetStringIDsError, GetEdgeEndpointsError, EdgeSwapError, BaseEdgeSwapError, SwapEdgeIndices},
+    randomizer::{Graph, Rng},
+    types::{Address, StringID, Destination, NodeID, Edge},
 };
 use bimap::BiMap;
 use linked_hash_set::LinkedHashSet;
+use serde::{Deserialize, Serialize};
 use petgraph::{
     algo,
+    Direction,
     graph::{EdgeIndex, NodeIndex},
     stable_graph::{EdgeIndices, StableDiGraph},
     IntoWeightedEdge
 };
 
-type Edge = (NodeID, NodeID);
+#[derive(Debug, Serialize, Deserialize, Copy, Clone, PartialEq)]
+struct StaticEdge<IDType> {
+    start: IDType,
+    end: IDType,
+    two_way: bool,
+}
+
+#[derive(Debug, Serialize, Deserialize, Copy, Clone, PartialEq)]
+struct DynamicEdge<IDType> {
+    start: IDType,
+    end: IDType,
+    two_way: bool,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct GraphData<IDType> {
+    door_data: HashMap<StringID, (Destination, Vec<Address>)>,
+    static_edges: Vec<StaticEdge<IDType>>,
+    dynamic_edges: Vec<DynamicEdge<IDType>>,
+}
 
 #[derive(Copy, Clone, Hash, PartialEq, Eq, Debug)]
 pub enum SwapEdge {
@@ -19,8 +44,17 @@ pub enum SwapEdge {
     TwoWay(EdgeIndex, EdgeIndex),
 }
 
+impl From<SwapEdge> for SwapEdgeIndices {
+    fn from(edge: SwapEdge) -> Self {
+        match edge {
+            SwapEdge::OneWay(idx) => SwapEdgeIndices::OneWay(idx.index()),
+            SwapEdge::TwoWay(idx1, idx2) => SwapEdgeIndices::TwoWay(idx1.index(), idx2.index()),
+        }
+    }
+}
+
 pub struct GameGraph {
-    base_graph: StableDiGraph,
+    base_graph: StableDiGraph<NodeID, ()>,
     id_map: BiMap<StringID, NodeID>,
     node_map: BiMap<NodeID, NodeIndex>,
 
@@ -29,6 +63,7 @@ pub struct GameGraph {
     swappable_edges: LinkedHashSet<SwapEdge>,
 }
 
+// TODO: Remove this function once string IDs are removed
 // Maps string IDs to u32 IDs for all nodes. Returns the static edges, dynamic edges, 
 // and a bidirectional map of string IDs to u32 IDs.
 fn assign_numeric_ids(
@@ -68,7 +103,7 @@ fn assign_numeric_ids(
     (static_edges, dynamic_edges, id_string_map)
 }
 
-fn build_base_graph(static_edges: Vec<StaticEdge<NodeID>>) -> (StableDiGraph, BiMap<NodeID, NodeIndex>) {
+fn build_base_graph(static_edges: Vec<StaticEdge<NodeID>>) -> (StableDiGraph<NodeID, ()>, BiMap<NodeID, NodeIndex>) {
     let mut base_graph_edges = vec![];
     for edge in static_edges {
         if edge.two_way {
@@ -117,7 +152,7 @@ fn add_node(
 }
 
 fn add_swappable_edges(
-    base_graph: &mut StableDiGraph, 
+    base_graph: &mut StableDiGraph<NodeID, ()>, 
     dynamic_edges: Vec<DynamicEdge<NodeID>>
 ) -> Vec<SwapEdge> {
     let (two_ways, one_ways): (Vec<DynamicEdge<NodeID>>, Vec<DynamicEdge<NodeID>>) = dynamic_edges
@@ -157,22 +192,22 @@ impl GameGraph {
         }
     }
 
-    fn extract_string_ids(&self, idx: EdgeIndex) -> Result<(StringID, StringID)> {
-        let (edge_start, edge_end) = self.get_node_ids_for_edge(idx).expect("Failed to get edge endpoints when extracting their string representations");
-        let edge_start_string = self.id_map.get_by_right(&edge_start).expect("Failed to extract string representation of start of edge");
-        let edge_end_string = self.id_map.get_by_right(&edge_end).expect("Failed to extract string representation of end of edge");
-        (edge_start_string.clone(), edge_end_string.clone())
+    fn extract_string_ids(&self, idx: EdgeIndex) -> std::result::Result<(StringID, StringID), GetStringIDsError> {
+        let (edge_start, edge_end) = self.get_node_ids_for_edge(idx).map_err(|e| e.into())?;
+        let edge_start_string = self.id_map.get_by_right(&edge_start).ok_or_else(|| GetStringIDsError::MissingStringID(edge_start, idx.index()))?;
+        let edge_end_string = self.id_map.get_by_right(&edge_end).ok_or_else(|| GetStringIDsError::MissingStringID(edge_end, idx.index()))?;
+        Ok((edge_start_string.clone(), edge_end_string.clone()))
     }
 
-    fn get_node_ids_for_edge(&self, idx: EdgeIndex) -> Result<(NodeID, NodeID)> {
-        let (node1, node2) = self.base_graph.edge_endpoints(idx).unwrap();
-        let node1_id = self.node_map.get_by_right(&node1)?;
-        let node2_id = self.node_map.get_by_right(&node2)?;
-        (node1_id, node2_id)
+    fn get_node_ids_for_edge(&self, idx: EdgeIndex) -> std::result::Result<(NodeID, NodeID), GetEdgeEndpointsError> {
+        let (node1, node2) = self.base_graph.edge_endpoints(idx).ok_or_else(|| GetEdgeEndpointsError::NoEndpoints(idx.index()))?;
+        let node1_id = self.node_map.get_by_right(&node1).ok_or_else(|| GetEdgeEndpointsError::MissingNodeID(idx.index(), node1.index()))?;
+        let node2_id = self.node_map.get_by_right(&node2).ok_or_else(|| GetEdgeEndpointsError::MissingNodeID(idx.index(), node2.index()))?;
+        Ok((node1_id, node2_id))
     }
 
-    fn swap_one_ways(&self, idx: EdgeIndex, other_idx: EdgeIndex) -> Result<(SwapEdge, SwapEdge)> {
-        let (e1, e2) = self.swap_base_graph_edges(idx, other_idx)?;
+    fn swap_one_ways(&self, idx: EdgeIndex, other_idx: EdgeIndex) -> std::result::Result<(SwapEdge, SwapEdge), EdgeSwapError> {
+        let (e1, e2) = self.swap_base_graph_edges(idx, other_idx).map_err(|e| e.into())?;
         Ok((SwapEdge::OneWay(e1), SwapEdge::OneWay(e2)))
     }
 
@@ -182,27 +217,27 @@ impl GameGraph {
         idx2: EdgeIndex,
         other_idx1: EdgeIndex,
         other_idx2: EdgeIndex,
-    ) -> Result<(SwapEdge, SwapEdge)> {
-        let (e1, e2) = self.swap_base_graph_edges(idx1, other_idx1)?;
-        let (e3, e4) = self.swap_base_graph_edges(idx2, other_idx2)?;
+    ) -> std::result::Result<(SwapEdge, SwapEdge), EdgeSwapError> {
+        let (e1, e2) = self.swap_base_graph_edges(idx1, other_idx1).map_err(|e| e.into())?;
+        let (e3, e4) = self.swap_base_graph_edges(idx2, other_idx2).map_err(|e| e.into())?;
         Ok((SwapEdge::TwoWay(e1, e4), SwapEdge::TwoWay(e2, e3)))
     }
 
-    fn swap_base_graph_edges(&self, idx1: EdgeIndex, idx2: EdgeIndex) -> Result<(EdgeIndex, EdgeIndex)> {
-        let (edge1a, edge1b) = self.get_node_ids_for_edge(idx1)?;
-        let (edge2a, edge2b) = self.get_node_ids_for_edge(idx2)?;
+    fn swap_base_graph_edges(&self, idx1: EdgeIndex, idx2: EdgeIndex) -> std::result::Result<(EdgeIndex, EdgeIndex), BaseEdgeSwapError> {
+        let (edge1a, edge1b) = self.get_node_ids_for_edge(idx1).map_err(|e| e.into())?;
+        let (edge2a, edge2b) = self.get_node_ids_for_edge(idx2).map_err(|e| e.into())?;
 
         self.base_graph
             .remove_edge(idx1)
-            .unwrap_or_else(|| panic!("Failed to remove edge ({:?}, {:?})", edge1a, edge1b));
+            .ok_or_else(|| BaseEdgeSwapError::MissingBaseEdge(edge1a, edge1b, idx1.index()))?;
         self.base_graph
             .remove_edge(idx2)
-            .unwrap_or_else(|| panic!("Failed to remove edge ({:?}, {:?})", edge2a, edge2b));
+            .ok_or_else(|| BaseEdgeSwapError::MissingBaseEdge(edge2a, edge2b, idx2.index()))?;
 
         let new_edge_idx1 = self.base_graph.add_edge(edge1a, edge2b);
         let new_edge_idx2 = self.base_graph.add_edge(edge2a, edge1b);
 
-        (new_edge_idx1, new_edge_idx2)
+        Ok((new_edge_idx1, new_edge_idx2))
     }
 }
 
@@ -210,45 +245,40 @@ impl GameGraph {
 impl Graph<NodeID, SwapEdge> for GameGraph {
     // TODO: There's an extra layer of transformations here. We should use numeric IDs to begin
     // with instead of string IDs and just add string descriptions.
-    fn get_edges(&self) -> Result<Vec<(StringID, StringID)>> {
+    fn get_edges(&self) -> Vec<(StringID, StringID)> {
         let mut res: Vec<(String, String)> = vec![];
         for edge in self.swappable_edges {
             match edge {
-                SwapEdge::OneWay(idx) => res.push(self.extract_string_ids(idx)?),
+                SwapEdge::OneWay(idx) => res.push(self.extract_string_ids(idx).unwrap_or_else(|e| panic!("Error extracting string IDs for one way edge: {}", e))),
                 SwapEdge::TwoWay(idx1, idx2) => {
-                    res.push(self.extract_string_ids(idx1)?);
-                    res.push(self.extract_string_ids(idx2)?);
+                    res.push(self.extract_string_ids(idx1).unwrap_or_else(|e| panic!("Error extracting string IDs for two way edge (first): {}", e)));
+                    res.push(self.extract_string_ids(idx2).unwrap_or_else(|e| panic!("Error extracting string IDs for two way edge (second): {}", e)));
                 },
             }
         }
 
         for (start, end) in &res {
+            // TODO: Debug log level
             println!("id pair: {}, {}", start, end);
         }
 
         Ok(res)
     }
 
-    fn swap_edges(&mut self, edge1: SwapEdge, edge2: SwapEdge) -> Result<(SwapEdge, SwapEdge)> {
-        use SwapEdge;
+    fn swap_edges(&mut self, edge1: SwapEdge, edge2: SwapEdge) -> std::result::Result<(SwapEdge, SwapEdge), EdgeSwapError> {
+        use SwapEdge::*;
         let (new_edge1, new_edge2) = match (edge1, edge2) {
-            (OneWay(idx), OneWay(other_idx)) => self.swap_one_ways(idx1, idx2),
-            (TwoWay(idx1, idx2), TwoWay(other_idx1, other_idx4)) => self.swap_two_ways(idx1, idx2, other_idx1, other_idx2),
-            _ => Err(),
+            (OneWay(idx), OneWay(other_idx)) => self.swap_one_ways(idx, other_idx),
+            (TwoWay(idx1, idx2), TwoWay(other_idx1, other_idx2)) => self.swap_two_ways(idx1, idx2, other_idx1, other_idx2),
+            _ => Err(EdgeSwapError::Mismatch(edge1.into(), edge2.into())),
         }?;
 
         if !self.swappable_edges.remove(&edge1) {
-            return Err(format!(
-                "Failed to remove {:?} from swappable edges",
-                &edge1
-            ))
+            return Err(EdgeSwapError::NonSwappableEdge(edge1.into()));
         }
 
         if !self.swappable_edges.remove(&edge2) {
-            return Err(format!(
-                "Failed to remove {:?} from swappable edges",
-                &edge2
-            ))
+            return Err(EdgeSwapError::NonSwappableEdge(edge2.into()));
         }
 
         self.swappable_edges.insert(new_edge1);
@@ -258,13 +288,14 @@ impl Graph<NodeID, SwapEdge> for GameGraph {
     }
 
     fn pick_random_edges(&self, rng: &mut impl Rng) -> Option<(SwapEdge, SwapEdge)> {
+        use SwapEdge::*;
         let edges = self.swappable_edges.iter();
         let edge1 = edges.choose(rng)?;
         let edge2 = match edge1 {
-            SwapEdge::OneWay(_) => edges
+            OneWay(_) => edges
                 .filter(|edge| edge != edge1 && matches!(edge, OneWay(x)))
                 .choose(rng),
-            SwapEdge::TwoWay(_, _) => edges
+            TwoWay(_, _) => edges
                 .filter(|edge| edge != edge1 && matches!(edge, TwoWay(x, y)))
                 .choose(rng),
         }?;
@@ -278,14 +309,9 @@ impl Graph<NodeID, SwapEdge> for GameGraph {
             /* make_acyclic */ true,
         );
 
-        // A bit slow, but the remote possibility of panicking and killing the 
-        // entire server scared me away from the faster solution
         condensed_graph
-            .node_indices()
-            .zip(condensed_graph.node_weights())
-            .filter(|(idx, node_ids)| condensed_graph
-                .externals(Direction::Incoming).find(idx).is_some())
-            .map(|(_idx, node_ids)| node_ids)
+            .externals(Direction::Incoming)
+            .map(|region| region.map(|idx| condensed_graph.node_weight(idx).unwrap()))
             .collect()
     }
 }

@@ -15,11 +15,13 @@ use thiserror::Error;
 
 mod algorithm;
 mod config;
+mod error;
 mod game_data;
 mod graph;
 mod randomizer;
 mod rng;
-mod rom_writer;
+mod rom;
+mod types;
 
 use config::{Config, EntranceData, EntranceShuffleType};
 
@@ -73,8 +75,13 @@ async fn submit_rom(mut form: Form<Submit<'_>>) -> anyhow::Result<RomResponder<'
     let mut rom_file = OpenOptions::new().read(true).write(true).open(&rom_path)?;
     let config: Config = form.into();
     let rng = rng::KatamRng::new(config.seed);
-    let rom = rom_writer::Rom::new(&mut rom_file, game_data.rom_data_maps);
-    randomizer::randomize_katam(config, rng, rom, game_data.graph)?;
+    let rom = rom::RomFile { rom_file: &mut rom_file };
+    randomizer::randomize_katam(
+        config,
+        rng,
+        rom,
+        game_data.rom_data_maps,
+        game_data.graph)?;
 
     let content_disposition = Header::new(
         "Content-Disposition",

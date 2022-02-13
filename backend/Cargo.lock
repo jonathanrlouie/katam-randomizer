@@ -492,7 +492,6 @@ dependencies = [
  "serde",
  "serde_json",
  "thiserror",
- "validated",
 ]
 
 [[package]]
@@ -592,12 +591,6 @@ dependencies = [
  "twoway",
  "version_check",
 ]
-
-[[package]]
-name = "nonempty"
-version = "0.7.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e9e591e719385e6ebaeb5ce5d3887f7d5676fceca6411d1925ccc95745f3d6f7"
 
 [[package]]
 name = "ntapi"
@@ -1326,15 +1319,6 @@ name = "unicode-xid"
 version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8ccb82d61f80a663efe1f787a51b16b5a51e3314d6ac365b08639f52387b33f3"
-
-[[package]]
-name = "validated"
-version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6f5e5062aaea868ccd94b4f1ebfb5c8e7660d833770700a30e87456c5cd51c16"
-dependencies = [
- "nonempty",
-]
 
 [[package]]
 name = "version_check"

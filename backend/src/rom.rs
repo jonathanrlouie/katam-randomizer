@@ -1,89 +1,23 @@
 use crate::{
-    randomizer::{self, Graph, KatamRandoError, RomWriter},
-    game_data::{Address, Destination, StringID, RomDataMaps},
+    randomizer::{RomWrite, RomRead},
+    error::KatamRandoError,
 };
-use itertools::Itertools;
-use std::{collections::HashMap, fmt, fs::File};
-use thiserror::Error;
+use std::fs::File;
 
-#[derive(Error, Debug)]
-#[error("Error writing byte {byte:#04x} at address {address}")]
-struct ByteWriteError {
-    byte: u8,
-    address: Address,
+pub struct RomFile<'a> {
+    pub rom_file: &'a mut File,
 }
 
-#[derive(Error, Debug)]
-struct WriteAddressesError(Vec<ByteWriteError>);
-
-impl fmt::Display for WriteAddressesError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        let joined: String = self.0
-            .iter()
-            .map(|err| err.to_string())
-            .join("\n");
-        write!(f, "{}", joined)
+impl<'a> RomRead for RomFile<'a> {
+    fn read_rom(&mut self, buf: &mut Vec<u8>) -> Result<()> {
+        self.rom_file.read_to_end(buf).map_err(|e| KatamRandoError::RomIO(e))
     }
 }
 
-pub struct Rom<'a> {
-    rom_file: &'a mut File,
-    rom_data_maps: RomDataMaps
-}
-
-impl<'a> Rom<'a> {
-    pub fn new(rom_file: &'a mut File, rom_data_maps: RomDataMaps) -> Self {
-        Self { rom_file, rom_data_maps }
+impl<'a> RomWrite for RomFile<'a> {
+    fn write_rom(&mut self, buf: &[u8]) -> Result<()> {
+        self.rom_file.write_all(buf).map_err(|e| KatamRandoError::RomIO(e))
     }
-}
-
-impl<'a> RomWriter for Rom<'a> {
-    fn write_data<N, E>(&mut self, graph: impl Graph<N, E>) -> randomizer::Result<()> {
-        let mut buffer = Vec::new();
-        self.rom_file.read_to_end(&mut buffer)?;
-
-        for (start_node_id, end_node_id) in graph.get_edges() {
-            println!("edge: {}, {}", start_node_id, end_node_id);
-
-            let addresses_to_replace = self.rom_data_maps.start_map.get(&start_node_id)
-                .ok_or_else(|| Error::MissingDoorDataNode(start_node_id))?;
-            let dest = self.rom_data_maps.end_map.get(&end_node_id)
-                .ok_or_else(|| Error::MissingDoorDataNode(end_node_id))?;
-            write_addresses(&mut buffer, dest, addresses_to_replace);
-        }
-
-        self.rom_file.write_all(&buffer)?;
-        Ok(())
-    }
-}
-
-fn write_byte(buffer: &mut [u8], byte: u8, address: Address, errors: &mut Vec<ByteWriteError>) {
-    match buffer.get_mut(address) {
-        Some(elem) => *elem = byte,
-        None => errors.push(ByteWriteError { byte, address })
-    }
-}
-
-fn write_bytes(buffer: &mut [u8], bytes: &[u8], address: Address, errors: &mut Vec<ByteWriteError>) {
-    bytes.iter()
-        .enumerate()
-        .foreach(|(idx, byte)| write_byte(buffer, *byte, address + idx, errors));
-}
-
-fn write_addresses(
-    buffer: &mut [u8],
-    bytes: &[u8],
-    addresses: &[Address],
-) -> Result<(), WriteAddressesError> {
-    let mut errors: Vec<ByteWriteError> = vec![];
-    addresses.iter()
-        .foreach(|address| write_bytes(buffer, bytes, *address, &mut errors));
-
-    if !errors.is_empty {
-        return Err(WriteAddressesError(errors));
-    }
-
-    Ok(())
 }
 
 #[cfg(test)]
