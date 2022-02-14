@@ -5,7 +5,6 @@ pub type StringID = String;
 pub type Destination = [u8; 4];
 
 pub type NodeID = u32;
-pub type Edge = (NodeID, NodeID);
 
 // maps for converting randomized game data back into ROM addresses
 pub struct RomDataMaps {

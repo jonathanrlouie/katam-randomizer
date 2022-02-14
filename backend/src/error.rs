@@ -25,9 +25,9 @@ pub enum SwapEdgeIndices {
 
 #[derive(Error, Debug)]
 pub enum EdgeSwapError {
-    #[error("Failed to swap edge {0} with edge {1} of opposite type")]
+    #[error("Failed to swap edge {0:?} with edge {1:?} of opposite type")]
     Mismatch(SwapEdgeIndices, SwapEdgeIndices),
-    #[error("Edge {0} is not a swappable edge of the graph")]
+    #[error("Edge {0:?} is not a swappable edge of the graph")]
     NonSwappableEdge(SwapEdgeIndices),
     #[error("Error swapping edges: {0}")]
     BaseEdgeSwap(#[from] BaseEdgeSwapError),
@@ -49,17 +49,8 @@ pub struct ByteWriteError {
 }
 
 #[derive(Error, Debug)]
+#[error("Errors writing bytes to addresses: {0:?}")]
 pub struct WriteAddressesError(pub Vec<ByteWriteError>);
-
-impl std::fmt::Display for WriteAddressesError {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let joined: String = self.0
-            .iter()
-            .map(|err| err.to_string())
-            .join("\n");
-        write!(f, "{}", joined)
-    }
-}
 
 #[derive(Error, Debug)]
 pub enum RomDataMapError {
@@ -69,6 +60,7 @@ pub enum RomDataMapError {
 
 #[derive(Error, Debug)]
 pub enum KatamRandoError {
+    #[error(transparent)]
     RomIO(#[from] std::io::Error)
 }
 

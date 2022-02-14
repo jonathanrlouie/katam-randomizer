@@ -13,7 +13,6 @@ use std::{
 };
 use thiserror::Error;
 
-mod algorithm;
 mod config;
 mod error;
 mod game_data;
