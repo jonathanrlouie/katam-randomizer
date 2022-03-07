@@ -14,7 +14,6 @@ use std::{
 use thiserror::Error;
 
 mod config;
-mod error;
 mod game_data;
 mod game_graph;
 mod graph;
@@ -58,10 +57,10 @@ enum Error {
     #[error("IO Error {0:?}")]
     Io(#[from] std::io::Error),
     #[error("Randomizer Error {0:?}")]
-    KatamRando(#[from] error::KatamRandoError),
+    KatamRando(#[from] randomizer::KatamRandoError),
 }
 
-impl<'r, 'o: 'r> rocket::response::Responder<'r, 'o> for error::KatamRandoError {
+impl<'r, 'o: 'r> rocket::response::Responder<'r, 'o> for randomizer::KatamRandoError {
     fn respond_to(self, req: &'r rocket::Request<'_>) -> rocket::response::Result<'o> {
         rocket::http::Status::InternalServerError.respond_to(req)
     }

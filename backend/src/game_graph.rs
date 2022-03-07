@@ -1,8 +1,8 @@
 use crate::{
-    error::{
-        BaseEdgeSwapError, EdgeSwapError, GetEdgeEndpointsError, GetStringIDsError, SwapEdgeIndices,
+    graph::{
+        BaseEdgeSwapError, EdgeSwapError, GetEdgeEndpointsError, GetStringIDsError, Graph,
+        SwapEdgeIndices,
     },
-    graph::Graph,
     rng::{ChooseMultipleFill, RandomBool},
 };
 use bimap::BiMap;

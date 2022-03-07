@@ -1,7 +1,6 @@
 use crate::{
-    error::{ByteWriteError, KatamRandoError, Result, WriteAddressesError},
     graph::Graph,
-    rom::{Rom, RomDataMaps},
+    rom::{ByteWriteError, Rom, RomDataMaps, WriteAddressesError},
 };
 use std::{
     fmt::Debug,
@@ -12,11 +11,11 @@ use std::{
 type Address = usize;
 
 pub trait RomRead {
-    fn read_rom(&mut self, buf: &mut Vec<u8>) -> Result<()>;
+    fn read_rom(&mut self, buf: &mut Vec<u8>) -> Result<(), std::io::Error>;
 }
 
 pub trait RomWrite {
-    fn write_rom(&mut self, buf: &[u8]) -> Result<()>;
+    fn write_rom(&mut self, buf: &[u8]) -> Result<(), std::io::Error>;
 }
 
 pub struct RomFile<'a, R: RomRead + RomWrite> {
@@ -24,15 +23,15 @@ pub struct RomFile<'a, R: RomRead + RomWrite> {
 }
 
 impl RomRead for File {
-    fn read_rom(&mut self, buf: &mut Vec<u8>) -> Result<()> {
-        self.read_to_end(buf).map_err(KatamRandoError::RomIO)?;
+    fn read_rom(&mut self, buf: &mut Vec<u8>) -> Result<(), std::io::Error> {
+        self.read_to_end(buf)?;
         Ok(())
     }
 }
 
 impl RomWrite for File {
-    fn write_rom(&mut self, buf: &[u8]) -> Result<()> {
-        self.write_all(buf).map_err(KatamRandoError::RomIO)
+    fn write_rom(&mut self, buf: &[u8]) -> Result<(), std::io::Error> {
+        self.write_all(buf)
     }
 }
 
@@ -41,7 +40,7 @@ impl<'a, R: RomRead + RomWrite> Rom for RomFile<'a, R> {
         &mut self,
         rom_data_maps: &RomDataMaps,
         graph: &mut impl Graph<N, E>,
-    ) -> Result<()> {
+    ) -> Result<(), std::io::Error> {
         let mut buffer = Vec::new();
         self.rom_file.read_rom(&mut buffer)?;
 

@@ -1,11 +1,19 @@
 use crate::{
     config::{self, EntranceShuffleType},
-    error::Result,
     graph::Graph,
     rng::{ChooseMultipleFill, RandomBool},
     rom::{Rom, RomDataMaps},
 };
 use std::fmt::Debug;
+use thiserror::Error;
+
+#[derive(Error, Debug)]
+pub enum KatamRandoError {
+    #[error(transparent)]
+    RomIO(#[from] std::io::Error),
+}
+
+pub type Result<T> = std::result::Result<T, KatamRandoError>;
 
 pub fn randomize_katam<N: Debug, E, G: Graph<N, E>>(
     config: config::Config,

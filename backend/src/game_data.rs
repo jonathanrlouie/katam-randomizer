@@ -1,9 +1,16 @@
-use crate::{error::RomDataMapError, game_graph, rom::RomDataMaps};
+use crate::{game_graph, rom::RomDataMaps};
 use std::{collections::HashMap, fs::File};
+use thiserror::Error;
 
 type Address = usize;
 type Destination = [u8; 4];
 type StringID = String;
+
+#[derive(Error, Debug)]
+pub enum RomDataMapError {
+    #[error("No door data found for string ID {0}")]
+    MissingDoorData(String),
+}
 
 #[derive(Clone)]
 pub struct GameData {
