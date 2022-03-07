@@ -16,7 +16,7 @@ fn build_rom_data_maps(graph_data: &mut graph::GraphData<StringID>) -> std::resu
     let mut start_map: HashMap<StringID, Vec<Address>> = HashMap::new();
     let mut end_map: HashMap<StringID, Destination> = HashMap::new();
     
-    for edge in graph_data.dynamic_edges {
+    for edge in &graph_data.dynamic_edges {
         // TODO: Debug level logging
         println!("Dyn Edge: {}, {}", edge.start, edge.end);
         if edge.two_way {
@@ -44,7 +44,7 @@ fn build_rom_data_maps(graph_data: &mut graph::GraphData<StringID>) -> std::resu
 
 pub fn load_game_data(path: &str) -> GameData {
     let mut file = File::open(path).expect("Error opening KatAM game data file.");
-    let graph_data: graph::GraphData<StringID> = serde_json::from_reader(file).unwrap_or_else(|e| panic!("Error deserializing KatAM game data: {}", e));
+    let mut graph_data: graph::GraphData<StringID> = serde_json::from_reader(file).unwrap_or_else(|e| panic!("Error deserializing KatAM game data: {}", e));
     let rom_data_maps = build_rom_data_maps(&mut graph_data).unwrap_or_else(|e| panic!("Error building ROM data maps: {}", e));
     let graph = graph::GameGraph::new(graph_data);
     GameData {

@@ -9,11 +9,11 @@ use crate::{
     error::{ByteWriteError, WriteAddressesError, KatamRandoError, Result},
 };
 
-trait RomRead {
+pub trait RomRead {
     fn read_rom(&mut self, buf: &mut Vec<u8>) -> Result<()>;
 }
 
-trait RomWrite {
+pub trait RomWrite {
     fn write_rom(&mut self, buf: &[u8]) -> Result<()>;
 }
 

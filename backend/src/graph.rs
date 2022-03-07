@@ -131,10 +131,12 @@ fn insert_edge(
     a: NodeID,
     b: NodeID,
 ) -> EdgeIndex {
-    let (a_idx, b_idx) = match (node_map.get_by_left(&a), node_map.get_by_left(&b)) {
-        (Some(a_idx), Some(b_idx)) => (*a_idx, *b_idx),
-        (Some(a_idx), None) => (*a_idx, add_node(graph, node_map, b)),
-        (None, Some(b_idx)) => (add_node(graph, node_map, a), *b_idx),
+    let node_idx_a = node_map.get_by_left(&a).map(|idx| *idx);
+    let node_idx_b = node_map.get_by_left(&b).map(|idx| *idx);
+    let (a_idx, b_idx) = match (node_idx_a, node_idx_b) {
+        (Some(a_idx), Some(b_idx)) => (a_idx, b_idx),
+        (Some(a_idx), None) => (a_idx, add_node(graph, node_map, b)),
+        (None, Some(b_idx)) => (add_node(graph, node_map, a), b_idx),
         (None, None) => (add_node(graph, node_map, a), add_node(graph, node_map, b)),
     };
     graph.add_edge(a_idx, b_idx, ())
@@ -181,7 +183,7 @@ impl GameGraph {
             graph_data.dynamic_edges,
         );
 
-        let (mut base_graph, node_map) = build_base_graph(static_edges);
+        let (mut base_graph, mut node_map) = build_base_graph(static_edges);
         let swappable_edges = add_swappable_edges(&mut base_graph, &mut node_map, dynamic_edges);
 
         Self {
@@ -206,13 +208,13 @@ impl GameGraph {
         Ok((*node1_id, *node2_id))
     }
 
-    fn swap_one_ways(&self, idx: EdgeIndex, other_idx: EdgeIndex) -> std::result::Result<(SwapEdge, SwapEdge), EdgeSwapError> {
+    fn swap_one_ways(&mut self, idx: EdgeIndex, other_idx: EdgeIndex) -> std::result::Result<(SwapEdge, SwapEdge), EdgeSwapError> {
         let (e1, e2) = self.swap_base_graph_edges(idx, other_idx).map_err(|e| EdgeSwapError::BaseEdgeSwap(e))?;
         Ok((SwapEdge::OneWay(e1), SwapEdge::OneWay(e2)))
     }
 
     fn swap_two_ways(
-        &self,
+        &mut self,
         idx1: EdgeIndex,
         idx2: EdgeIndex,
         other_idx1: EdgeIndex,
@@ -223,7 +225,7 @@ impl GameGraph {
         Ok((SwapEdge::TwoWay(e1, e4), SwapEdge::TwoWay(e2, e3)))
     }
 
-    fn swap_base_graph_edges(&self, idx1: EdgeIndex, idx2: EdgeIndex) -> std::result::Result<(EdgeIndex, EdgeIndex), BaseEdgeSwapError> {
+    fn swap_base_graph_edges(&mut self, idx1: EdgeIndex, idx2: EdgeIndex) -> std::result::Result<(EdgeIndex, EdgeIndex), BaseEdgeSwapError> {
         let (edge1a, edge1b) = self.get_node_ids_for_edge(idx1).map_err(|e| BaseEdgeSwapError::EdgeEndpoints(e))?;
         let (edge2a, edge2b) = self.get_node_ids_for_edge(idx2).map_err(|e| BaseEdgeSwapError::EdgeEndpoints(e))?;
 
@@ -247,12 +249,12 @@ impl Graph<NodeID, SwapEdge> for GameGraph {
     // with instead of string IDs and just add string descriptions.
     fn get_edges(&self) -> Vec<(StringID, StringID)> {
         let mut res: Vec<(String, String)> = vec![];
-        for edge in self.swappable_edges {
+        for edge in &self.swappable_edges {
             match edge {
-                SwapEdge::OneWay(idx) => res.push(self.extract_string_ids(idx).unwrap_or_else(|e| panic!("Error extracting string IDs for one way edge: {}", e))),
+                SwapEdge::OneWay(idx) => res.push(self.extract_string_ids(*idx).unwrap_or_else(|e| panic!("Error extracting string IDs for one way edge: {}", e))),
                 SwapEdge::TwoWay(idx1, idx2) => {
-                    res.push(self.extract_string_ids(idx1).unwrap_or_else(|e| panic!("Error extracting string IDs for two way edge (first): {}", e)));
-                    res.push(self.extract_string_ids(idx2).unwrap_or_else(|e| panic!("Error extracting string IDs for two way edge (second): {}", e)));
+                    res.push(self.extract_string_ids(*idx1).unwrap_or_else(|e| panic!("Error extracting string IDs for two way edge (first): {}", e)));
+                    res.push(self.extract_string_ids(*idx2).unwrap_or_else(|e| panic!("Error extracting string IDs for two way edge (second): {}", e)));
                 },
             }
         }
