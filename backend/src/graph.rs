@@ -46,12 +46,14 @@ pub enum GetStringIDsError {
     MissingStringID(NodeID, usize),
 }
 
-pub trait Graph<N: Debug, E> {
+pub trait Graph<N, E> {
     fn swap_edges(&mut self, edge1: E, edge2: E) -> std::result::Result<(E, E), EdgeSwapError>;
     fn pick_random_edges<R>(&self, rng: &mut R) -> Option<(E, E)>
     where
         R: RandomBool + ChooseMultipleFill;
     // TODO: Change this to return Vec<(N, N)> once string IDs are moved to descriptions
     fn get_edges(&self) -> Vec<(String, String)>;
-    fn get_unreachable_regions(&self) -> Vec<Vec<N>>;
+    fn get_unreachable_regions(&self) -> Vec<Vec<N>>
+    where
+        N: Debug;
 }

@@ -25,7 +25,7 @@ pub struct RomDataMaps {
 }
 
 pub trait Rom {
-    fn write_data<N: Debug, E>(
+    fn write_data<N, E>(
         &mut self,
         rom_data_maps: &RomDataMaps,
         graph: &mut impl Graph<N, E>,

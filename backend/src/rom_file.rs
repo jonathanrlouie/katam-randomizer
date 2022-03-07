@@ -3,7 +3,6 @@ use crate::{
     rom::{ByteWriteError, Rom, RomDataMaps, WriteAddressesError},
 };
 use std::{
-    fmt::Debug,
     fs::File,
     io::{Read, Write},
 };
@@ -36,7 +35,7 @@ impl RomWrite for File {
 }
 
 impl<'a, R: RomRead + RomWrite> Rom for RomFile<'a, R> {
-    fn write_data<N: Debug, E>(
+    fn write_data<N, E>(
         &mut self,
         rom_data_maps: &RomDataMaps,
         graph: &mut impl Graph<N, E>,
