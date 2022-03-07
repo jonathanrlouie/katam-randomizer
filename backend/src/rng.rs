@@ -18,7 +18,7 @@ impl RandoRng for KatamRng {
         self.rng.gen_bool(p)
     }
 
-    fn choose_multiple_fill<T, I: Iterator<Item=T>>(&mut self, iter: I, buf: &mut [T]) -> usize {
+    fn choose_multiple_fill<T, I: Iterator<Item = T>>(&mut self, iter: I, buf: &mut [T]) -> usize {
         iter.choose_multiple_fill(&mut self.rng, buf)
     }
 }

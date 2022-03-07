@@ -1,12 +1,12 @@
+use crate::{
+    error::{ByteWriteError, KatamRandoError, Result, WriteAddressesError},
+    randomizer::{Graph, Rom},
+    types::{Address, RomDataMaps},
+};
 use std::{
     fmt::Debug,
     fs::File,
     io::{Read, Write},
-};
-use crate::{
-    randomizer::{Graph, Rom},
-    types::{Address, RomDataMaps},
-    error::{ByteWriteError, WriteAddressesError, KatamRandoError, Result},
 };
 
 pub trait RomRead {
@@ -23,14 +23,14 @@ pub struct RomFile<'a, R: RomRead + RomWrite> {
 
 impl RomRead for File {
     fn read_rom(&mut self, buf: &mut Vec<u8>) -> Result<()> {
-        self.read_to_end(buf).map_err(|e| KatamRandoError::RomIO(e))?;
+        self.read_to_end(buf).map_err(KatamRandoError::RomIO)?;
         Ok(())
     }
 }
 
 impl RomWrite for File {
     fn write_rom(&mut self, buf: &[u8]) -> Result<()> {
-        self.write_all(buf).map_err(|e| KatamRandoError::RomIO(e))
+        self.write_all(buf).map_err(KatamRandoError::RomIO)
     }
 }
 
@@ -38,7 +38,7 @@ impl<'a, R: RomRead + RomWrite> Rom for RomFile<'a, R> {
     fn write_data<N: Debug, E>(
         &mut self,
         rom_data_maps: &RomDataMaps,
-        graph: &mut impl Graph<N, E>
+        graph: &mut impl Graph<N, E>,
     ) -> Result<()> {
         let mut buffer = Vec::new();
         self.rom_file.read_rom(&mut buffer)?;
@@ -47,17 +47,20 @@ impl<'a, R: RomRead + RomWrite> Rom for RomFile<'a, R> {
             // TODO: Debug log level
             println!("edge: {}, {}", start_node_id, end_node_id);
 
-            let addresses_to_replace = rom_data_maps
-                .start_map
-                .get(&start_node_id)
-                .expect(&format!("No ROM addresses found for start node ID {}", start_node_id));
+            let addresses_to_replace =
+                rom_data_maps
+                    .start_map
+                    .get(&start_node_id)
+                    .unwrap_or_else(|| {
+                        panic!("No ROM addresses found for start node ID {}", start_node_id)
+                    });
 
-            let dest = rom_data_maps
-                .end_map
-                .get(&end_node_id)
-                .expect(&format!("No destination data found for end node ID {}", end_node_id));
+            let dest = rom_data_maps.end_map.get(&end_node_id).unwrap_or_else(|| {
+                panic!("No destination data found for end node ID {}", end_node_id)
+            });
 
-            write_addresses(&mut buffer, dest, addresses_to_replace).unwrap_or_else(|e| panic!("Failed to write to rom addresses: {}", e));
+            write_addresses(&mut buffer, dest, addresses_to_replace)
+                .unwrap_or_else(|e| panic!("Failed to write to rom addresses: {}", e));
         }
 
         self.rom_file.write_rom(&buffer)?;
@@ -68,12 +71,18 @@ impl<'a, R: RomRead + RomWrite> Rom for RomFile<'a, R> {
 fn write_byte(buffer: &mut [u8], byte: u8, address: Address, errors: &mut Vec<ByteWriteError>) {
     match buffer.get_mut(address) {
         Some(elem) => *elem = byte,
-        None => errors.push(ByteWriteError { byte, address })
+        None => errors.push(ByteWriteError { byte, address }),
     }
 }
 
-fn write_bytes(buffer: &mut [u8], bytes: &[u8], address: Address, errors: &mut Vec<ByteWriteError>) {
-    bytes.iter()
+fn write_bytes(
+    buffer: &mut [u8],
+    bytes: &[u8],
+    address: Address,
+    errors: &mut Vec<ByteWriteError>,
+) {
+    bytes
+        .iter()
         .enumerate()
         .for_each(|(idx, byte)| write_byte(buffer, *byte, address + idx, errors));
 }
@@ -84,7 +93,8 @@ fn write_addresses(
     addresses: &[Address],
 ) -> std::result::Result<(), WriteAddressesError> {
     let mut errors: Vec<ByteWriteError> = vec![];
-    addresses.iter()
+    addresses
+        .iter()
         .for_each(|address| write_bytes(buffer, bytes, *address, &mut errors));
 
     if !errors.is_empty() {

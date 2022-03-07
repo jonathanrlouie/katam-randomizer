@@ -1,17 +1,21 @@
-use std::fmt::Debug;
 use crate::{
     config::{self, EntranceShuffleType},
     error::{EdgeSwapError, Result},
     types::RomDataMaps,
 };
+use std::fmt::Debug;
 
 pub trait Rng {
     fn get_bool(&mut self, p: f64) -> bool;
-    fn choose_multiple_fill<T, I: Iterator<Item=T>>(&mut self, iter: I, buf: &mut [T]) -> usize;
+    fn choose_multiple_fill<T, I: Iterator<Item = T>>(&mut self, iter: I, buf: &mut [T]) -> usize;
 }
 
 pub trait Rom {
-    fn write_data<N: Debug, E>(&mut self, rom_data_maps: &RomDataMaps, graph: &mut impl Graph<N, E>) -> Result<()>;
+    fn write_data<N: Debug, E>(
+        &mut self,
+        rom_data_maps: &RomDataMaps,
+        graph: &mut impl Graph<N, E>,
+    ) -> Result<()>;
 }
 
 pub trait Graph<N: Debug, E> {
@@ -41,10 +45,13 @@ pub fn is_beatable<N: Debug, E>(graph: &impl Graph<N, E>) -> bool {
     graph.get_unreachable_regions().len() == 1
 }
 
-fn standard_shuffle<N: Debug, E>(graph: &mut impl Graph<N, E>, rng: &mut impl Rng) -> () {
+fn standard_shuffle<N: Debug, E>(graph: &mut impl Graph<N, E>, rng: &mut impl Rng) {
     // TODO: this assumption should already be checked upon loading the graph data
     if !is_beatable(graph) {
-        panic!("Initial graph unbeatable. Unreachable regions: {:?}", graph.get_unreachable_regions());
+        panic!(
+            "Initial graph unbeatable. Unreachable regions: {:?}",
+            graph.get_unreachable_regions()
+        );
     }
 
     // TODO: Make this configurable
@@ -52,18 +59,20 @@ fn standard_shuffle<N: Debug, E>(graph: &mut impl Graph<N, E>, rng: &mut impl Rn
 
     for _ in 0..iterations {
         if let Some((edge1, edge2)) = graph.pick_random_edges(rng) {
-            let (new_edge1, new_edge2) = graph.swap_edges(edge1, edge2).expect("Standard shuffle: Swapping edges failed");
+            let (new_edge1, new_edge2) = graph
+                .swap_edges(edge1, edge2)
+                .expect("Standard shuffle: Swapping edges failed");
 
             if !is_beatable(graph) {
-                graph.swap_edges(new_edge1, new_edge2).expect("Standard shuffle: Swapping back edges failed");
+                graph
+                    .swap_edges(new_edge1, new_edge2)
+                    .expect("Standard shuffle: Swapping back edges failed");
             }
         }
     }
 }
 
-fn chaos_shuffle<N: Debug, E>(graph: &mut impl Graph<N, E>, rng: &mut impl Rng) -> () {
-    ()
-}
+fn chaos_shuffle<N: Debug, E>(_graph: &mut impl Graph<N, E>, _rng: &mut impl Rng) {}
 
 #[cfg(test)]
 mod tests {

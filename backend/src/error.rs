@@ -1,5 +1,5 @@
-use thiserror::Error;
 use crate::types::{Address, NodeID};
+use thiserror::Error;
 
 #[derive(Error, Debug)]
 pub enum GetStringIDsError {
@@ -13,7 +13,9 @@ pub enum GetStringIDsError {
 pub enum GetEdgeEndpointsError {
     #[error("No endpoints found for edge with index {0}")]
     NoEndpoints(usize),
-    #[error("No node ID found for node with index {0} when getting endpoints for edge with index {1}")]
+    #[error(
+        "No node ID found for node with index {0} when getting endpoints for edge with index {1}"
+    )]
     MissingNodeID(usize, usize),
 }
 
@@ -55,13 +57,13 @@ pub struct WriteAddressesError(pub Vec<ByteWriteError>);
 #[derive(Error, Debug)]
 pub enum RomDataMapError {
     #[error("No door data found for string ID {0}")]
-    MissingDoorData(String)
+    MissingDoorData(String),
 }
 
 #[derive(Error, Debug)]
 pub enum KatamRandoError {
     #[error(transparent)]
-    RomIO(#[from] std::io::Error)
+    RomIO(#[from] std::io::Error),
 }
 
 pub type Result<T> = std::result::Result<T, KatamRandoError>;
