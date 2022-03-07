@@ -37,8 +37,8 @@ impl RomWrite for File {
 impl<'a, R: RomRead + RomWrite> Rom for RomFile<'a, R> {
     fn write_data<N: Debug, E>(
         &mut self,
-        rom_data_maps: RomDataMaps,
-        graph: impl Graph<N, E>
+        rom_data_maps: &RomDataMaps,
+        graph: &mut impl Graph<N, E>
     ) -> Result<()> {
         let mut buffer = Vec::new();
         self.rom_file.read_rom(&mut buffer)?;

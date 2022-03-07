@@ -6,8 +6,10 @@ use rocket::{
     fs::{relative, FileServer, NamedFile, TempFile},
     http::{ContentType, Header},
     response::content,
+    State
 };
 use std::{
+    env,
     fs::{File, OpenOptions},
     path::Path,
 };
@@ -51,36 +53,36 @@ struct RomResponder<'a> {
 }
 
 #[derive(Responder, Debug, Error)]
-#[error("Internal server error")]
 enum Error {
-    InternalServerError(String),
+    #[error("IO Error {0:?}")]
+    Io(#[from] std::io::Error),
+    #[error("Randomizer Error {0:?}")]
+    KatamRando(#[from] error::KatamRandoError)
 }
 
-impl From<anyhow::Error> for Error {
-    fn from(e: anyhow::Error) -> Self {
-        Error::InternalServerError("internal server error".to_string())
+impl<'r, 'o: 'r> rocket::response::Responder<'r, 'o> for error::KatamRandoError {
+    fn respond_to(self, req: &'r rocket::Request<'_>) -> rocket::response::Result<'o> {
+        match self {
+            _ => rocket::http::Status::InternalServerError.respond_to(req)
+        }
     }
 }
 
 #[post("/api/submit", data = "<form>")]
-async fn submit(form: Form<Submit<'_>>) -> Result<RomResponder<'_>, Error> {
-    let result = submit_rom(form).await;
-    result.map_err(|err| err.into())
-}
-
-async fn submit_rom(mut form: Form<Submit<'_>>) -> anyhow::Result<RomResponder<'_>> {
+async fn submit<'a>(mut form: Form<Submit<'a>>, data: &State<game_data::GameData>) -> Result<RomResponder<'a>, Error> {
     let rom_path = format!("{}{}", relative!("/rom"), "katam_rom.gba");
     form.rom_file.persist_to(&rom_path).await?;
     let mut rom_file = OpenOptions::new().read(true).write(true).open(&rom_path)?;
     let config: Config = form.into();
     let rng = rng::KatamRng::new(config.seed);
     let rom = rom::RomFile { rom_file: &mut rom_file };
+    let mut gd = (*data).clone();
     randomizer::randomize_katam(
         config,
         rng,
         rom,
-        game_data.rom_data_maps,
-        game_data.graph)?;
+        &gd.rom_data_maps,
+        &mut gd.graph)?;
 
     let content_disposition = Header::new(
         "Content-Disposition",
@@ -95,7 +97,7 @@ async fn submit_rom(mut form: Form<Submit<'_>>) -> anyhow::Result<RomResponder<'
 
 #[rocket::launch]
 fn rocket() -> _ {
-    let game_data = load_game_data();
+    let game_data = game_data::load_game_data(&env::var("KATAM_DATA_PATH").expect("Environment variable KATAM_DATA_PATH not set. Please set it to the path where the KatAM data file is located."));
 
     rocket::build()
         .mount("/", rocket::routes![submit])

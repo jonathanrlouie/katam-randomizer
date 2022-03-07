@@ -11,7 +11,7 @@ pub trait Rng {
 }
 
 pub trait Rom {
-    fn write_data<N: Debug, E>(&mut self, rom_data_maps: RomDataMaps, graph: impl Graph<N, E>) -> Result<()>;
+    fn write_data<N: Debug, E>(&mut self, rom_data_maps: &RomDataMaps, graph: &mut impl Graph<N, E>) -> Result<()>;
 }
 
 pub trait Graph<N: Debug, E> {
@@ -26,12 +26,12 @@ pub fn randomize_katam<N: Debug, E, G: Graph<N, E>>(
     config: config::Config,
     mut rng: impl Rng,
     mut rom: impl Rom,
-    rom_data_maps: RomDataMaps,
-    mut graph: G,
+    rom_data_maps: &RomDataMaps,
+    graph: &mut G,
 ) -> Result<()> {
     match config.entrance_shuffle {
-        EntranceShuffleType::Standard => standard_shuffle(&mut graph, &mut rng),
-        EntranceShuffleType::Chaos => chaos_shuffle(&mut graph, &mut rng),
+        EntranceShuffleType::Standard => standard_shuffle(graph, &mut rng),
+        EntranceShuffleType::Chaos => chaos_shuffle(graph, &mut rng),
     };
     rom.write_data(rom_data_maps, graph)?;
     Ok(())

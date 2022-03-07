@@ -4,6 +4,7 @@ use std::{
 };
 use crate::{graph, error::RomDataMapError, types::{Address, StringID, Destination, RomDataMaps}};
 
+#[derive(Clone)]
 pub struct GameData {
     pub graph: graph::GameGraph,
     pub rom_data_maps: RomDataMaps,

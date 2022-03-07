@@ -51,6 +51,7 @@ impl From<SwapEdge> for SwapEdgeIndices {
     }
 }
 
+#[derive(Clone)]
 pub struct GameGraph {
     base_graph: StableDiGraph<NodeID, ()>,
     id_map: BiMap<StringID, NodeID>,
