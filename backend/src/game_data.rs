@@ -11,6 +11,21 @@ pub struct GameData {
     pub rom_data_maps: RomDataMaps,
 }
 
+impl GameData {
+    pub fn load_game_data(path: &str) -> Self {
+        let file = File::open(path).expect("Error opening KatAM game data file.");
+        let mut graph_data: game_graph::GraphData<StringID> = serde_json::from_reader(file)
+            .unwrap_or_else(|e| panic!("Error deserializing KatAM game data: {}", e));
+        let rom_data_maps = build_rom_data_maps(&mut graph_data)
+            .unwrap_or_else(|e| panic!("Error building ROM data maps: {}", e));
+        let graph = game_graph::GameGraph::new(graph_data);
+        Self {
+            graph,
+            rom_data_maps,
+        }
+    }
+}
+
 fn build_rom_data_maps(
     graph_data: &mut game_graph::GraphData<StringID>,
 ) -> std::result::Result<RomDataMaps, RomDataMapError> {
@@ -49,17 +64,4 @@ fn build_rom_data_maps(
     }
 
     Ok(RomDataMaps { start_map, end_map })
-}
-
-pub fn load_game_data(path: &str) -> GameData {
-    let file = File::open(path).expect("Error opening KatAM game data file.");
-    let mut graph_data: game_graph::GraphData<StringID> = serde_json::from_reader(file)
-        .unwrap_or_else(|e| panic!("Error deserializing KatAM game data: {}", e));
-    let rom_data_maps = build_rom_data_maps(&mut graph_data)
-        .unwrap_or_else(|e| panic!("Error building ROM data maps: {}", e));
-    let graph = game_graph::GameGraph::new(graph_data);
-    GameData {
-        graph,
-        rom_data_maps,
-    }
 }
