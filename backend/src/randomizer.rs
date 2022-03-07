@@ -1,9 +1,9 @@
 use crate::{
     config::{self, EntranceShuffleType},
     error::Result,
-    rom::{RomDataMaps, Rom},
-    rng::{RandomBool, ChooseMultipleFill},
     graph::Graph,
+    rng::{ChooseMultipleFill, RandomBool},
+    rom::{Rom, RomDataMaps},
 };
 use std::fmt::Debug;
 
@@ -26,7 +26,10 @@ pub fn is_beatable<N: Debug, E>(graph: &impl Graph<N, E>) -> bool {
     graph.get_unreachable_regions().len() == 1
 }
 
-fn standard_shuffle<N: Debug, E, R>(graph: &mut impl Graph<N, E>, rng: &mut R) where R: RandomBool + ChooseMultipleFill {
+fn standard_shuffle<N: Debug, E, R>(graph: &mut impl Graph<N, E>, rng: &mut R)
+where
+    R: RandomBool + ChooseMultipleFill,
+{
     // TODO: this assumption should already be checked upon loading the graph data
     if !is_beatable(graph) {
         panic!(
@@ -53,7 +56,11 @@ fn standard_shuffle<N: Debug, E, R>(graph: &mut impl Graph<N, E>, rng: &mut R) w
     }
 }
 
-fn chaos_shuffle<N: Debug, E, R>(_graph: &mut impl Graph<N, E>, _rng: &mut R) where R: RandomBool + ChooseMultipleFill {}
+fn chaos_shuffle<N: Debug, E, R>(_graph: &mut impl Graph<N, E>, _rng: &mut R)
+where
+    R: RandomBool + ChooseMultipleFill,
+{
+}
 
 #[cfg(test)]
 mod tests {

@@ -1,11 +1,5 @@
-use std::{
-    collections::HashMap,
-    fmt::Debug,
-};
-use crate::{
-    error::Result,
-    graph::Graph
-};
+use crate::{error::Result, graph::Graph};
+use std::{collections::HashMap, fmt::Debug};
 
 type Address = usize;
 type StringID = String;
@@ -25,4 +19,3 @@ pub trait Rom {
         graph: &mut impl Graph<N, E>,
     ) -> Result<()>;
 }
-

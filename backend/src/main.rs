@@ -16,11 +16,11 @@ use thiserror::Error;
 mod config;
 mod error;
 mod game_data;
-mod graph;
 mod game_graph;
+mod graph;
+mod katam_rng;
 mod randomizer;
 mod rng;
-mod katam_rng;
 mod rom;
 mod rom_file;
 

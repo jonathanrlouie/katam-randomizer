@@ -2,8 +2,8 @@ use crate::{
     error::{
         BaseEdgeSwapError, EdgeSwapError, GetEdgeEndpointsError, GetStringIDsError, SwapEdgeIndices,
     },
-    rng::{RandomBool, ChooseMultipleFill},
     graph::Graph,
+    rng::{ChooseMultipleFill, RandomBool},
 };
 use bimap::BiMap;
 use linked_hash_set::LinkedHashSet;
@@ -368,7 +368,10 @@ impl Graph<NodeID, SwapEdge> for GameGraph {
         Ok((new_edge1, new_edge2))
     }
 
-    fn pick_random_edges<R>(&self, rng: &mut R) -> Option<(SwapEdge, SwapEdge)> where R: RandomBool + ChooseMultipleFill {
+    fn pick_random_edges<R>(&self, rng: &mut R) -> Option<(SwapEdge, SwapEdge)>
+    where
+        R: RandomBool + ChooseMultipleFill,
+    {
         use SwapEdge::*;
         let edges = self.swappable_edges.iter();
 

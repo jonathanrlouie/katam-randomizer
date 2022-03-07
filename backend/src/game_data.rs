@@ -1,8 +1,4 @@
-use crate::{
-    error::RomDataMapError,
-    game_graph,
-    rom::RomDataMaps,
-};
+use crate::{error::RomDataMapError, game_graph, rom::RomDataMaps};
 use std::{collections::HashMap, fs::File};
 
 type Address = usize;

@@ -1,4 +1,4 @@
-use crate::rng::{RandomBool, ChooseMultipleFill};
+use crate::rng::{ChooseMultipleFill, RandomBool};
 use rand::{self, prelude::IteratorRandom, Rng, SeedableRng};
 
 pub struct KatamRng {
@@ -24,4 +24,3 @@ impl ChooseMultipleFill for KatamRng {
         iter.choose_multiple_fill(&mut self.rng, buf)
     }
 }
-
