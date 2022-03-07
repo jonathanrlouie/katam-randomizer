@@ -1,34 +1,15 @@
 use crate::{
     config::{self, EntranceShuffleType},
-    error::{EdgeSwapError, Result},
-    types::RomDataMaps,
+    error::Result,
+    rom::{RomDataMaps, Rom},
+    rng::{RandomBool, ChooseMultipleFill},
+    graph::Graph,
 };
 use std::fmt::Debug;
 
-pub trait Rng {
-    fn get_bool(&mut self, p: f64) -> bool;
-    fn choose_multiple_fill<T, I: Iterator<Item = T>>(&mut self, iter: I, buf: &mut [T]) -> usize;
-}
-
-pub trait Rom {
-    fn write_data<N: Debug, E>(
-        &mut self,
-        rom_data_maps: &RomDataMaps,
-        graph: &mut impl Graph<N, E>,
-    ) -> Result<()>;
-}
-
-pub trait Graph<N: Debug, E> {
-    fn swap_edges(&mut self, edge1: E, edge2: E) -> std::result::Result<(E, E), EdgeSwapError>;
-    fn pick_random_edges(&self, rng: &mut impl Rng) -> Option<(E, E)>;
-    // TODO: Change this to return Vec<(N, N)> once string IDs are moved to descriptions
-    fn get_edges(&self) -> Vec<(String, String)>;
-    fn get_unreachable_regions(&self) -> Vec<Vec<N>>;
-}
-
 pub fn randomize_katam<N: Debug, E, G: Graph<N, E>>(
     config: config::Config,
-    mut rng: impl Rng,
+    mut rng: impl RandomBool + ChooseMultipleFill,
     mut rom: impl Rom,
     rom_data_maps: &RomDataMaps,
     graph: &mut G,
@@ -45,7 +26,7 @@ pub fn is_beatable<N: Debug, E>(graph: &impl Graph<N, E>) -> bool {
     graph.get_unreachable_regions().len() == 1
 }
 
-fn standard_shuffle<N: Debug, E>(graph: &mut impl Graph<N, E>, rng: &mut impl Rng) {
+fn standard_shuffle<N: Debug, E, R>(graph: &mut impl Graph<N, E>, rng: &mut R) where R: RandomBool + ChooseMultipleFill {
     // TODO: this assumption should already be checked upon loading the graph data
     if !is_beatable(graph) {
         panic!(
@@ -72,7 +53,7 @@ fn standard_shuffle<N: Debug, E>(graph: &mut impl Graph<N, E>, rng: &mut impl Rn
     }
 }
 
-fn chaos_shuffle<N: Debug, E>(_graph: &mut impl Graph<N, E>, _rng: &mut impl Rng) {}
+fn chaos_shuffle<N: Debug, E, R>(_graph: &mut impl Graph<N, E>, _rng: &mut R) where R: RandomBool + ChooseMultipleFill {}
 
 #[cfg(test)]
 mod tests {

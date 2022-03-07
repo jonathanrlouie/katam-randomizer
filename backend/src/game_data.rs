@@ -1,18 +1,22 @@
 use crate::{
     error::RomDataMapError,
-    graph,
-    types::{Address, Destination, RomDataMaps, StringID},
+    game_graph,
+    rom::RomDataMaps,
 };
 use std::{collections::HashMap, fs::File};
 
+type Address = usize;
+type Destination = [u8; 4];
+type StringID = String;
+
 #[derive(Clone)]
 pub struct GameData {
-    pub graph: graph::GameGraph,
+    pub graph: game_graph::GameGraph,
     pub rom_data_maps: RomDataMaps,
 }
 
 fn build_rom_data_maps(
-    graph_data: &mut graph::GraphData<StringID>,
+    graph_data: &mut game_graph::GraphData<StringID>,
 ) -> std::result::Result<RomDataMaps, RomDataMapError> {
     // for each dyn edge: map endpoint of dynamic_edge to start's destination and start
     // to start's addresses to replace
@@ -53,11 +57,11 @@ fn build_rom_data_maps(
 
 pub fn load_game_data(path: &str) -> GameData {
     let file = File::open(path).expect("Error opening KatAM game data file.");
-    let mut graph_data: graph::GraphData<StringID> = serde_json::from_reader(file)
+    let mut graph_data: game_graph::GraphData<StringID> = serde_json::from_reader(file)
         .unwrap_or_else(|e| panic!("Error deserializing KatAM game data: {}", e));
     let rom_data_maps = build_rom_data_maps(&mut graph_data)
         .unwrap_or_else(|e| panic!("Error building ROM data maps: {}", e));
-    let graph = graph::GameGraph::new(graph_data);
+    let graph = game_graph::GameGraph::new(graph_data);
     GameData {
         graph,
         rom_data_maps,

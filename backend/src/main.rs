@@ -17,10 +17,12 @@ mod config;
 mod error;
 mod game_data;
 mod graph;
+mod game_graph;
 mod randomizer;
 mod rng;
+mod katam_rng;
 mod rom;
-mod types;
+mod rom_file;
 
 use config::{Config, EntranceShuffleType};
 
@@ -73,8 +75,8 @@ async fn submit<'a>(
     form.rom_file.persist_to(&rom_path).await?;
     let mut rom_file = OpenOptions::new().read(true).write(true).open(&rom_path)?;
     let config: Config = form.into();
-    let rng = rng::KatamRng::new(config.seed);
-    let rom = rom::RomFile {
+    let rng = katam_rng::KatamRng::new(config.seed);
+    let rom = rom_file::RomFile {
         rom_file: &mut rom_file,
     };
     let mut gd = (*data).clone();

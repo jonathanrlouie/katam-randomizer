@@ -1,5 +1,7 @@
-use crate::types::{Address, NodeID};
 use thiserror::Error;
+
+type Address = usize;
+type NodeID = u32;
 
 #[derive(Error, Debug)]
 pub enum GetStringIDsError {
