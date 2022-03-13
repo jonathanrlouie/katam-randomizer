@@ -1,5 +1,5 @@
 use crate::{game_graph, rom::RomDataMaps};
-use std::{collections::HashMap, fs::File};
+use std::{collections::HashMap, fs};
 use thiserror::Error;
 
 type Address = usize;
@@ -20,8 +20,8 @@ pub struct GameData {
 
 impl GameData {
     pub fn load_game_data(path: &str) -> Self {
-        let file = File::open(path).expect("Error opening KatAM game data file.");
-        let mut graph_data: game_graph::GraphData<StringID> = serde_json::from_reader(file)
+        let file_contents = fs::read_to_string(path).expect("Error opening KatAM game data file.");
+        let mut graph_data: game_graph::GraphData<StringID> = ron::from_str(&file_contents)
             .unwrap_or_else(|e| panic!("Error deserializing KatAM game data: {}", e));
         let rom_data_maps = build_rom_data_maps(&mut graph_data)
             .unwrap_or_else(|e| panic!("Error building ROM data maps: {}", e));

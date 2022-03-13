@@ -1,0 +1,5109 @@
+GraphData(
+	door_data : {
+		"RRoute: First door in main hub" : ( (0x65, 0x00, 0x03, 0x07), [0x873450, 0x930E04] ),
+		"RRoute: Door in 1st room" : ( (0x6A, 0x00, 0x02, 0x09), [0x87770C, 0x931098] ),
+		"RRoute: 2nd room upper door" : ( (0x6B, 0x00, 0x04, 0x04), [0x877A74, 0x9310DC] ),
+		"RRoute: 2nd room lower door" : ( (0x6B, 0x00, 0x04, 0x09), [0x877A82, 0x9310E4] ),
+		"RRoute: Lower third room door" : ( (0x6C, 0x00, 0x02, 0x08), [0x877CAA, 0x931100] ),
+		"RRoute: Lower graveyard 1way door" : ( (0x67, 0x00, 0x02, 0x27), [0x877E24, 0x93111C] ),
+		"RRoute: Door in first bangbang room" : ( (0x8E, 0x00, 0x05, 0x13), [0x87781A, 0x9310AC] ),
+		"RRoute: Upper third room door" : ( (0x68, 0x00, 0x02, 0x09), [0x877C0C, 0x9310F8] ),
+		"RRoute: Upper graveyard door" : ( (0x67, 0x00, 0x02, 0x27), [0x87798C, 0x9310C0] ),
+		"RRoute: Left door of RRoute shortcut" : ( (0x8C, 0x00, 0x2B, 0x09), [0x879CEC, 0x9311E4] ),
+		"RRoute: Right door of wheelie room" : ( (0xBE, 0x00, 0x03, 0x09), [0x879012, 0x93116C] ),
+		"RRoute: Right door of RRoute shortcut" : ( (0x8F, 0x00, 0x03, 0x13), [0x879CFA, 0x9311EC] ),
+		"RRoute: Bottom left door of cutter platforms room w/ heavy knight" : ( (0xBE, 0x00, 0x0E, 0x09), [0x879C6C, 0x9311C8] ),
+		"RRoute: Top right door of cutter platforms room w/ heavy knight" : ( (0x91, 0x00, 0x03, 0x07), [0x879880, 0x9311C0] ),
+		"RRoute: Top left door of cutter platforms room w/ heavy knight" : ( (0x8D, 0x00, 0x2B, 0x13), [0x879860, 0x9311B8] ),
+		"RRoute: Bottom right door of forest crossroad" : ( (0x8F, 0x00, 0x03, 0x03), [0x8796B0, 0x931188] ),
+		"RRoute: Left door of wheelie room" : ( (0x6C, 0x00, 0x3A, 0x0C), [0x879004, 0x931164] ),
+		"RRoute: Bottom right door of lower graveyard" : ( (0x8C, 0x00, 0x03, 0x09), [0x877F76, 0x931124] ),
+		"RRoute: Bottom left door of lower graveyard" : ( (0x6E, 0x00, 0x07, 0x08), [0x878482, 0x93112C] ),
+		"RRoute: Top door of vertical shaft with water" : ( (0x6C, 0x00, 0x22, 0x13), [0x878784, 0x931140] ),
+		"RRoute: Bottom left door of vertical shaft with water" : ( (0xF7, 0x01, 0x07, 0x03), [0x878F3C, 0x931148] ),
+		"RRoute: Top of vertical shaft with bangbangs" : ( (0x6E, 0x00, 0x04, 0x45), [0x87BF68, 0x931308] ),
+		"RRoute: Bottom right door of vertical shaft with water" : ( (0x2A, 0x02, 0x04, 0x04), [0x878F4A, 0x931150] ),
+		"RRoute: Left door of rock kirby slide hill" : ( (0x6E, 0x00, 0x0E, 0x45), [0x87B144, 0x9312D8] ),
+		"RRoute: Right door of rock kirby slide hill" : ( (0x2B, 0x02, 0x08, 0x03), [0x87B314, 0x9312E0] ),
+		"RRoute: Door in water cave with rolly hills and 1up" : ( (0x2C, 0x02, 0x02, 0x06), [0x87BDF6, 0x9312F4] ),
+		"RRoute: Door in rolly hill purple cave" : ( (0x2D, 0x02, 0x02, 0x05), [0x87C324, 0x931324] ),
+		"RRoute: Bottom door of vertical shaft with bangbangs" : ( (0xFB, 0x01, 0x42, 0x03), [0x87C1A4, 0x931310] ),
+		"RRoute: Right door of wheel kirby slide hill" : ( (0xF7, 0x01, 0x0E, 0x30), [0x87AF04, 0x9312B4] ),
+		"RRoute: Bottom door of wheel kirby slide hill" : ( (0x00, 0x02, 0x04, 0x07), [0x87AF9E, 0x9312C4] ),
+		"RRoute: Left door of wheel kirby slide hill" : ( (0x89, 0x00, 0x41, 0x13), [0x87AF90, 0x9312BC] ),
+		"RRoute: Right door of canyon crossroad w/ cannon path" : ( (0xFB, 0x01, 0x04, 0x0B), [0x87AA82, 0x931250] ),
+		"RRoute: Left door of canyon crossroad w/ cannon path" : ( (0xC2, 0x00, 0x0E, 0x07), [0x87AA50, 0x931248] ),
+		"RRoute: Right door of CCav shortcut room 1" : ( (0x89, 0x00, 0x03, 0x12), [0x87AB02, 0x93126C] ),
+		"RRoute: Upper door of canyon crossroard w/ cannon path" : ( (0x88, 0x00, 0x2B, 0x1B), [0x87A4B4, 0x931240] ),
+		"RRoute: Door in tornado canyon room" : ( (0x7E, 0x00, 0x02, 0x1C), [0x87A200, 0x93122C] ),
+		"RRoute: Left door of CCav shortcut room 1" : ( (0x7F, 0x00, 0x2C, 0x0C), [0x87AAF4, 0x931264] ),
+		"RRoute: Right door of laser ball canyon room" : ( (0xC2, 0x00, 0x03, 0x07), [0x87A030, 0x931208] ),
+		"RRoute: Middle door of laser ball canyon room" : ( (0xFD, 0x01, 0x15, 0x08), [0x87A070, 0x931218] ),
+		"RRoute: Left door of laser ball canyon room" : ( (0xF8, 0x01, 0x0D, 0x39), [0x87A03E, 0x931210] ),
+		"RRoute: Bottom door of grassy vertical shaft with metal guardian" : ( (0x7F, 0x00, 0x03, 0x0E), [0x87ADC2, 0x931298] ),
+		"RRoute: Middle door of grassy vertical shaft with metal guardian" : ( (0xAE, 0x00, 0x3B, 0x0E), [0x87ACDC, 0x9312A0] ),
+		"RRoute: Right door of underground log room w/ foleys and rolypolys" : ( (0xF8, 0x01, 0x04, 0x13), [0x880280, 0x931484] ),
+		"RRoute: Top door of grassy vertical shaft with metal guardian" : ( (0x77, 0x00, 0x0D, 0x1D), [0x87ACBC, 0x931290] ),
+		"RRoute: Bottom door of enemy prison tall room" : ( (0xF8, 0x01, 0x04, 0x03), [0x87EF62, 0x9313C4] ),
+		"RRoute: Top left door of underground log room w/ foleys and rolypolys" : ( (0xAD, 0x00, 0x1E, 0x0B), [0x880272, 0x93147C] ),
+		"RRoute: Top left door of log room crossroad w/ small chest" : ( (0xAC, 0x00, 0x59, 0x09), [0x88008C, 0x931458] ),
+		"RRoute: Right door of random floating logs room" : ( (0xAD, 0x00, 0x03, 0x09), [0x87FF48, 0x93143C] ),
+		"RRoute: Left door of random floating logs room" : ( (0xAB, 0x00, 0x0C, 0x38), [0x87FF16, 0x931434] ),
+		"RRoute: Top door of repetitive vertical shaft with gordos" : ( (0x7A, 0x00, 0x0C, 0x08), [0x87F6C8, 0x931418] ),
+		"RRoute: Bottom left door of underground log room w/ foleys and rolypolys" : ( (0xAD, 0x00, 0x1E, 0x10), [0x88028E, 0x93148C] ),
+		"RRoute: Bottom right door of log room crossroad w/ small chest" : ( (0xFC, 0x01, 0x02, 0x05), [0x880118, 0x931460] ),
+		"RRoute: Bottom left door of log room crossroad w/ small chest" : ( (0xAF, 0x00, 0x57, 0x06), [0x880126, 0x931468] ),
+		"RRoute: Top left door of long log room w/ big enemies + mirra" : ( (0xB0, 0x00, 0x1D, 0x03), [0x88093C, 0x9314A0] ),
+		"RRoute: Mirra door in long log room w/ big enemies + mirra" : ( (0xB0, 0x00, 0x1D, 0x09), [0x880FE6, 0x9314A8] ),
+		"RRoute: Bottom door of repetitive vertical shaft with gordos" : ( (0xAC, 0x00, 0x06, 0x05), [0x87FDBA, 0x931420] ),
+		"RRoute: Top door of enemy prison tall room" : ( (0x76, 0x00, 0x0D, 0x27), [0x87E990, 0x9313BC] ),
+		"RRoute: Bottom door of lotsa star blocks room" : ( (0x77, 0x00, 0x03, 0x04), [0x87E7B2, 0x9313A8] ),
+		"RRoute: Top door of lotsa star blocks room" : ( (0x75, 0x00, 0x2B, 0x09), [0x87DB44, 0x9313A0] ),
+		"RRoute: Right door of log room w/ mirra" : ( (0x76, 0x00, 0x03, 0x05), [0x87D9B6, 0x931384] ),
+		"RRoute: Mirra door in log room w/ mirra" : ( (0x78, 0x00, 0x1C, 0x1D), [0x87D960, 0x93138C] ),
+		"RRoute: Middle door of log room w/ mirra" : ( (0xC0, 0x00, 0x03, 0x09), [0x87D8D4, 0x93137C] ),
+		"RRoute: Left door of CCastle shortcut room 1" : ( (0x75, 0x00, 0x0C, 0x03), [0x8821D0, 0x931508] ),
+		"RRoute: Right door of CCastle shortcut room 1" : ( (0x73, 0x00, 0x05, 0x08), [0x8821DE, 0x931510] ),
+		"RRoute: Left door of lollipop/wheelie run room" : ( (0xC0, 0x00, 0x0E, 0x09), [0x87D7BE, 0x931368] ),
+		"RRoute: Right door of lollipop/wheelie run room" : ( (0x8B, 0x00, 0x03, 0x13), [0x87D7B0, 0x931360] ),
+		"RRoute: Bottom left door of Prank and Cookin room" : ( (0x73, 0x00, 0x49, 0x05), [0x87F57A, 0x931404] ),
+		"RRoute: Top right door of Prank and Cookin room" : ( (0x14, 0x02, 0x0A, 0x1D), [0x87F56C, 0x9313FC] ),
+		"RRoute: Bottom left door of big mountainous room w/ Soarer" : ( (0x8B, 0x00, 0x1C, 0x03), [0x875712, 0x930F24] ),
+		"RRoute: Top left door of big mountainous room w/ Soarer" : ( (0x8A, 0x00, 0x2C, 0x07), [0x875384, 0x930F14] ),
+		"RRoute: Top right door of hit lower bomb block or lose the chest room" : ( (0x14, 0x02, 0x04, 0x04), [0x87F0AC, 0x9313E0] ),
+		"RRoute: Top right door of big mountainous room w/ Soarer" : ( (0x3B, 0x02, 0x03, 0x09), [0x875392, 0x930F1C] ),
+		"RRoute: Left door of Foley valley" : ( (0x14, 0x02, 0x1C, 0x05), [0x8775BE, 0x931058] ),
+		"RRoute: Bottom left door of hit lower bomb block or lose the chest room" : ( (0xB2, 0x00, 0x5A, 0x09), [0x87F41A, 0x9313E8] ),
+		"RRoute: Left door of tornado Kirby log room" : ( (0xB1, 0x00, 0x2D, 0x04), [0x882142, 0x9314F4] ),
+		"RRoute: Right door of Foley valley" : ( (0x3A, 0x02, 0x03, 0x09), [0x8775B0, 0x931050] ),
+		"RRoute: Left door of canyon cannon destination room" : ( (0x3B, 0x02, 0x45, 0x06), [0x87705E, 0x93103C] ),
+		"RRoute: Right door of canyon cannon destination room" : ( (0x4E, 0x02, 0x03, 0x07), [0x876CDE, 0x931034] ),
+		"RRoute: Left door of MMoun shortcut room 1" : ( (0x3A, 0x02, 0x4A, 0x05), [0x877642, 0x93106C] ),
+		"RRoute: Right door of MMoun shortcut room 1" : ( (0x16, 0x02, 0x03, 0x13), [0x877650, 0x931074] ),
+		"RRoute: Bottom left door of big mountainous tornado room" : ( (0x4E, 0x02, 0x0E, 0x07), [0x875A3A, 0x930F40] ),
+		"RRoute: Top left door of big mountainous tornado room" : ( (0x15, 0x02, 0x27, 0x11), [0x875892, 0x930F50] ),
+		"RRoute: Top right door of big mountainous tornado room" : ( (0x36, 0x01, 0x04, 0x09), [0x875954, 0x930F38] ),
+		"RRoute: Bottom right door of big mountainous tornado room" : ( (0x17, 0x02, 0x05, 0x06), [0x875A48, 0x930F48] ),
+		"RRoute: Top left door of staircase mountain room" : ( (0x16, 0x02, 0x3E, 0x13), [0x875B1C, 0x930F64] ),
+		"RRoute: Bottom right door of staircase mountain room" : ( (0x1A, 0x02, 0x07, 0x08), [0x875C02, 0x930F6C] ),
+		"RRoute: Top door of mountain crossroad" : ( (0x17, 0x02, 0x27, 0x1C), [0x875F4E, 0x930FC8] ),
+		"RRoute: Bottom door of mountain crossroad" : ( (0x1E, 0x02, 0x15, 0x09), [0x8761CE, 0x930FD8] ),
+		"RRoute: Middle door of cupid mountain room" : ( (0x1A, 0x02, 0x0F, 0x13), [0x876596, 0x930FEC] ),
+		"RRoute: Left door of mountain crossroad" : ( (0x19, 0x02, 0x2C, 0x03), [0x876034, 0x930FD0] ),
+		"RRoute: Right door of mountain Cookin room" : ( (0x1A, 0x02, 0x03, 0x0C), [0x875DF0, 0x930FA4] ),
+		"RRoute: Right door of mountain crossroad" : ( (0x1B, 0x02, 0x03, 0x03), [0x875F40, 0x930FC0] ),
+		"RRoute: Left door of mountain Cookin room" : ( (0x18, 0x02, 0x14, 0x03), [0x875E46, 0x930FAC] ),
+		"RRoute: Top door of parasol mountainside" : ( (0x19, 0x02, 0x03, 0x09), [0x875D4C, 0x930F80] ),
+		"RRoute: Bottom right door of parasol mountainside" : ( (0x1E, 0x02, 0x0A, 0x02), [0x875D5A, 0x930F88] ),
+		"RRoute: Left door of cupid mountain room" : ( (0x18, 0x02, 0x2A, 0x0E), [0x87652E, 0x930FFC] ),
+		"RRoute: Right door of cupid mountain room" : ( (0x1F, 0x02, 0x03, 0x05), [0x87666A, 0x930FF4] ),
+		"RRoute: Left door of parasol shotzo room" : ( (0x1E, 0x02, 0x20, 0x12), [0x876788, 0x931010] ),
+		"RRoute: Right door of parasol shotzo room" : ( (0x8D, 0x00, 0x03, 0x0E), [0x8767DE, 0x931018] ),
+		"RRoute: Left door of forest crossroad" : ( (0x1F, 0x02, 0x2C, 0x09), [0x879498, 0x931180] ),
+		"RRoute: Upper Mirra door of forest crossroad" : ( (0x21, 0x02, 0x04, 0x27), [0x879284, 0x931190] ),
+		"RRoute: Lower Mirra door of forest crossroad" : ( (0x90, 0x00, 0x04, 0x04), [0x87941E, 0x931198] ),
+		"MoonM: Door in map room" : ( (0xC4, 0x02, 0x03, 0x18), [0x882F74, 0x93161C] ),
+		"MoonM: Left door of Foley and Boxin hills" : ( (0x8D, 0x00, 0x2B, 0x09), [0x882304, 0x931534] ),
+		"MoonM: Top door of big first indoor room" : ( (0xE4, 0x02, 0x03, 0x09), [0x883C6C, 0x9316BC] ),
+		"MoonM: Left door of Mr. Frosty room" : ( (0xC4, 0x02, 0x20, 0x03), [0x884880, 0x931750] ),
+		"MoonM: Right door of Mr. Frosty room" : ( (0x16, 0x03, 0x03, 0x09), [0x884872, 0x931748] ),
+		"MoonM: Left door of MoonM shortcut room" : ( (0xE4, 0x02, 0x2C, 0x06), [0x885654, 0x9317A4] ),
+		"MoonM: Right door of MoonM shortcut room" : ( (0xC2, 0x02, 0x04, 0x03), [0x885662, 0x9317AC] ),
+		"MoonM: Left door of room right of MoonM shortcut" : ( (0x16, 0x03, 0x0E, 0x09), [0x8834FC, 0x93166C] ),
+		"MoonM: Right door of room right of MoonM shortcut" : ( (0xC3, 0x02, 0x02, 0x0A), [0x883592, 0x931684] ),
+		"MoonM: Left door of bomb block puzzle room" : ( (0xC5, 0x02, 0x03, 0x04), [0x8838CC, 0x9316A0] ),
+		"MoonM: Top left door of bonus room" : ( (0xC3, 0x02, 0x0C, 0x0E), [0x884084, 0x9316F0] ),
+		"MoonM: Bottom right door of bomb block puzzle room" : ( (0xC0, 0x02, 0x02, 0x08), [0x883A0C, 0x9316A8] ),
+		"MoonM: Secret door of lollipop run room" : ( (0xC5, 0x02, 0x0E, 0x04), [0x883260, 0x93164C] ),
+		"MoonM: Top right door of bonus room" : ( (0xC0, 0x02, 0x10, 0x0F), [0x884092, 0x9316F8] ),
+		"MoonM: Door at end of lollipop run room" : ( (0xC7, 0x02, 0x03, 0x06), [0x883280, 0x931644] ),
+		"MoonM: Door of 2nd big switch room" : ( (0xBC, 0x02, 0x03, 0x09), [0x884500, 0x931720] ),
+		"MoonM: Door of King Golem prep room" : ( (0xC6, 0x02, 0x05, 0x05), [0x882FDC, 0x931630] ),
+		"MoonM: Top right door of bomb block puzzle room" : ( (0xC8, 0x02, 0x02, 0x1D), [0x8836FC, 0x931698] ),
+		"MoonM: Door at top of Boxy room" : ( (0xE5, 0x02, 0x04, 0x27), [0x884648, 0x931734] ),
+		"MoonM: Door at top of Bonkers room" : ( (0xE6, 0x02, 0x1E, 0x1D), [0x884BEA, 0x93176C] ),
+		"MoonM: Boarded up door in tall room before star room" : ( (0xE5, 0x02, 0x0B, 0x08), [0x885556, 0x931790] ),
+		"MoonM: Door in Burner room" : ( (0xE6, 0x02, 0x13, 0x08), [0x884A50, 0x931764] ),
+		"MoonM: Door at top of tall room before star room" : ( (0xC1, 0x02, 0x04, 0x27), [0x885350, 0x931788] ),
+		"MoonM: Door at top right of big first indoor room" : ( (0xC2, 0x02, 0x03, 0x13), [0x883C7A, 0x9316C4] ),
+		"MoonM: Left door of tiny hallway" : ( (0xC4, 0x02, 0x2B, 0x03), [0x883576, 0x931674] ),
+		"MoonM: Right lower door of big first indoor room" : ( (0xE7, 0x02, 0x0C, 0x03), [0x883EFA, 0x9316CC] ),
+		"MoonM: Top right door of lever room" : ( (0xC4, 0x02, 0x1E, 0x1D), [0x885CBE, 0x9317FC] ),
+		"MoonM: Left lower door of big first indoor room" : ( (0xE7, 0x02, 0x06, 0x03), [0x883EA4, 0x9316D4] ),
+		"MoonM: Top left door of lever room" : ( (0xC4, 0x02, 0x17, 0x1D), [0x885CB0, 0x9317F4] ),
+		"MoonM: Lever door in lever room" : ( (0xB4, 0x00, 0x05, 0x03), [0x885D26, 0x931804] ),
+		"MoonM: Exit of left shaft of MoonM lever wind room" : ( (0x38, 0x03, 0x0C, 0x04), [0x874D52, 0x930EE4] ),
+		"MoonM: Exit of right shaft of MoonM lever wind room" : ( (0xE7, 0x02, 0x08, 0x08), [0x874CF0, 0x930EDC] ),
+		"MoonM: Right door of tiny hallway" : ( (0xBE, 0x02, 0x04, 0x0C), [0x883584, 0x93167C] ),
+		"MoonM: Left door of quake block room" : ( (0xC2, 0x02, 0x19, 0x13), [0x885AF0, 0x9317D0] ),
+		"MoonM: Top right door of quake block room" : ( (0xC5, 0x02, 0x03, 0x09), [0x885AE2, 0x9317C8] ),
+		"MoonM: Bottom door of bonus room" : ( (0xBE, 0x02, 0x2B, 0x05), [0x8840A0, 0x931700] ),
+		"MoonM: Right door of quake block room" : ( (0xE8, 0x02, 0x02, 0x03), [0x885AFE, 0x9317D8] ),
+		"MoonM: Door in sword + machinery room" : ( (0xE9, 0x02, 0x07, 0x03), [0x886A88, 0x931818] ),
+		"MoonM: Left door of outdoor lake room" : ( (0x8F, 0x00, 0x1B, 0x05), [0x8824C0, 0x931558] ),
+		"MoonM: Right door of outdoor lake room" : ( (0x92, 0x00, 0x04, 0x09), [0x88255E, 0x931560] ),
+		"MoonM: Bottom left door of MoonM crossroad" : ( (0x91, 0x00, 0x4A, 0x09), [0x8825E0, 0x931584] ),
+		"MoonM: Top left door of MoonM crossroad" : ( (0x90, 0x00, 0x4A, 0x13), [0x8825C4, 0x931574] ),
+		"MoonM: Right door of Foley and Boxin hills" : ( (0x92, 0x00, 0x04, 0x05), [0x882312, 0x93153C] ),
+		"MoonM: Bottom right door of MoonM crossroad" : ( (0x94, 0x00, 0x03, 0x06), [0x8825EE, 0x93158C] ),
+		"MoonM: Door in chalk spray paint chest room" : ( (0x92, 0x00, 0x0D, 0x09), [0x882A3C, 0x9315C4] ),
+		"MoonM: Top right door of MoonM crossroad" : ( (0x93, 0x00, 0x03, 0x13), [0x8825D2, 0x93157C] ),
+		"MoonM: Bottom door of cutter platform room w/ switch gate" : ( (0x94, 0x00, 0x13, 0x06), [0x8828F2, 0x9315A0] ),
+		"MoonM: Right door of Cookin in graveyard room" : ( (0x95, 0x00, 0x02, 0x0A), [0x882A4A, 0x9315CC] ),
+		"MoonM: Left door of hammer peg graveyard room" : ( (0x94, 0x00, 0x3B, 0x0D), [0x882E2C, 0x9315F8] ),
+		"MoonM: Water current at bottom of hammer peg graveyard room" : ( (0x94, 0x00, 0x3C, 0x13), [0x882EDC, 0x882EEA, 0x882EF8, 0x882F06, 0x882F14, 0x882F22, 0x882F30, 0x882F3E, 0x931600] ),
+		"MoonM: Right door of hammer peg graveyard room" : ( (0xC3, 0x00, 0x03, 0x09), [0x882DE8, 0x9315F0] ),
+		"CCav: Left door of room with battery and pep brew behind break blocks" : ( (0xFB, 0x01, 0x0E, 0x12), [0x89D2A0, 0x93238C] ),
+		"CCav: Middle door of grassy water room" : ( (0x7F, 0x00, 0x0C, 0x12), [0x89BAD0, 0x9322CC] ),
+		"CCav: Bottom right door of room with battery and pep brew behind break blocks" : ( (0x11, 0x02, 0x18, 0x03), [0x89D36C, 0x9323A4] ),
+		"CCav: Top right door of water room w/ hammer only shortcuts" : ( (0x00, 0x02, 0x17, 0x13), [0x89EB16, 0x9324A0] ),
+		"CCav: Top left door of water room w/ hammer only shortcuts" : ( (0x00, 0x02, 0x0A, 0x13), [0x89EB08, 0x932498] ),
+		"CCav: Bottom door of Sir Kibble Corridor" : ( (0x11, 0x02, 0x07, 0x03), [0x89D34C, 0x93239C] ),
+		"CCav: Bottom door of water room w/ hammer only shortcuts" : ( (0x0B, 0x02, 0x13, 0x03), [0x89F23E, 0x9324A8] ),
+		"CCav: Top door of water room leading to OO" : ( (0x11, 0x02, 0x05, 0x1D), [0x89E400, 0x932448] ),
+		"CCav: Left door of Sir Kibble Corridor" : ( (0xFF, 0x01, 0x2D, 0x05), [0x89D2F6, 0x932394] ),
+		"CCav: Door in blue music sheet room" : ( (0x13, 0x02, 0x26, 0x04), [0x89D06A, 0x932378] ),
+		"CCav: Bottom right door of water room leading to OO" : ( (0xBF, 0x00, 0x03, 0x07), [0x89E41C, 0x932458] ),
+		"CCav: Left door of OO shortcut room 1" : ( (0x0B, 0x02, 0x2A, 0x13), [0x8A11CC, 0x932520] ),
+		"CCav: Left door of water room leading to OO" : ( (0x12, 0x02, 0x2C, 0x09), [0x89E40E, 0x932450] ),
+		"CCav: Right door of pointless Box Boxer room" : ( (0x0B, 0x02, 0x03, 0x0A), [0x89F7C6, 0x9324BC] ),
+		"CCav: Left door of pointless Box Boxer room" : ( (0x4F, 0x02, 0x0E, 0x09), [0x89FB6A, 0x9324C4] ),
+		"CCav: Right door of CCav shortcut room 2" : ( (0x12, 0x02, 0x03, 0x13), [0x8A115A, 0x932504] ),
+		"CCav: Right door of OO shortcut room 1" : ( (0x82, 0x00, 0x03, 0x08), [0x8A11DA, 0x932528] ),
+		"CCav: Left door of CCav shortcut room 2" : ( (0x05, 0x02, 0x2C, 0x13), [0x8A114C, 0x9324FC] ),
+		"CCav: Right door of chocolate spray paint room" : ( (0x4F, 0x02, 0x03, 0x09), [0x89E2D4, 0x932434] ),
+		"CCav: Left door of chocolate spray paint room" : ( (0x02, 0x02, 0x1B, 0x27), [0x89DF0C, 0x93242C] ),
+		"CCav: Bottom right door of Batafire roadblock room" : ( (0x05, 0x02, 0x04, 0x03), [0x89D93A, 0x9323EC] ),
+		"CCav: Top door of Batafire roadblock room" : ( (0xF5, 0x01, 0x1C, 0x0C), [0x89D8E4, 0x9323E4] ),
+		"CCav: Top right door of spike trap room" : ( (0x02, 0x02, 0x03, 0x05), [0x89CD54, 0x932354] ),
+		"CCav: Bottom left door of spike trap room" : ( (0x01, 0x02, 0x1B, 0x05), [0x89CF00, 0x93235C] ),
+		"CCav: Top right door of drowning Chip room" : ( (0xF5, 0x01, 0x05, 0x1D), [0x89D46E, 0x9323C0] ),
+		"CCav: Top door of spike trap room" : ( (0xFE, 0x01, 0x18, 0x1D), [0x89CD10, 0x93234C] ),
+		"CCav: Bottom right door of UFO room" : ( (0xF5, 0x01, 0x0E, 0x04), [0x89C69C, 0x9322F8] ),
+		"CCav: Top left door of UFO room" : ( (0xFD, 0x01, 0x29, 0x04), [0x89BD10, 0x9322F0] ),
+		"CCav: Top right door of grassy water room" : ( (0xFE, 0x01, 0x04, 0x06), [0x89B9B4, 0x9322C4] ),
+		"CCav: Left door of grassy water room" : ( (0xFC, 0x01, 0x2B, 0x1C), [0x89BBDA, 0x9322D4] ),
+		"CCav: Bottom right door of top left Bonkers room" : ( (0xFD, 0x01, 0x04, 0x13), [0x89B7A6, 0x9322B0] ),
+		"CCav: Water door in drowning Chip room" : ( (0xFD, 0x01, 0x2B, 0x11), [0x89D460, 0x9323B8] ),
+		"CCav: Door at bottom of drowning Chip room" : ( (0x03, 0x02, 0x0C, 0x03), [0x89D7EA, 0x9323D0] ),
+		"CCav: Door at top of bottom right Bonkers room" : ( (0x01, 0x02, 0x1B, 0x13), [0x89DAD8, 0x932408] ),
+		"CCav: Top left door of drowning Chip room" : ( (0x10, 0x02, 0x15, 0x20), [0x89D47C, 0x9323C8] ),
+		"CCav: Middle door of grassy room that leads to RRuins" : ( (0x01, 0x02, 0x04, 0x06), [0x89CBB4, 0x932328] ),
+		"CCav: Bottom door of top left Bonkers room" : ( (0x10, 0x02, 0x16, 0x0A), [0x89B786, 0x9322A8] ),
+		"CCav: Water current in grassy room that leads to RRuins" : ( (0xFC, 0x01, 0x26, 0x1C), [0x89CAB4, 0x89CAC2, 0x89CAD0, 0x89CADE, 0x89CAEC, 0x89CAFA, 0x89CB08, 0x89CB16, 0x932320] ),
+		"CCav: Bottom left door of grassy room that leads to RRuins" : ( (0x50, 0x02, 0x0E, 0x07), [0x89CBC2, 0x932330] ),
+		"CCav: Right door of RRuins shortcut room 1" : ( (0x10, 0x02, 0x04, 0x30), [0x8A87CC, 0x932868] ),
+		"CCav: Bottom right door of grassy room that leads to RRuins" : ( (0x0F, 0x02, 0x03, 0x11), [0x89CBD0, 0x932338] ),
+		"CCav: Left door of sapphire spray paint room" : ( (0x10, 0x02, 0x16, 0x30), [0x89E828, 0x93247C] ),
+		"CCav: Top right door of sapphire spray paint room" : ( (0x03, 0x02, 0x02, 0x03), [0x89E634, 0x932474] ),
+		"CCav: Bottom right door of sapphire spray paint room" : ( (0x03, 0x02, 0x05, 0x18), [0x89E920, 0x932484] ),
+		"CCav: Wind tunnel at bottom of bottom right Bonkers room" : ( (0xF4, 0x01, 0x03, 0x02), [0x89DCF0, 0x89DCFE, 0x89DD0C, 0x89DD1A, 0x89DD28, 0x89DD36, 0x89DD44, 0x89DD52, 0x932410] ),
+		"CCav: Door in Moley prep room" : ( (0x04, 0x02, 0x0F, 0x01), [0x89B4BC, 0x932294] ),
+		"CCav: Left door of RRuins shortcut room 1" : ( (0x6C, 0x02, 0x2C, 0x09), [0x8A87BE, 0x932860] ),
+		"MMoun: Bottom right door of bomb kirby switch puzzle room" : ( (0x16, 0x02, 0x05, 0x05), [0x88E1E8, 0x931CF0] ),
+		"MMoun: Map room door" : ( (0x16, 0x02, 0x3E, 0x06), [0x890206, 0x931E2C] ),
+		"MMoun: Left door of room leading to pointless Bombar" : ( (0x1A, 0x02, 0x1C, 0x03), [0x88E398, 0x931D04] ),
+		"MMoun: Lower door of mountain ascent first room" : ( (0x8D, 0x00, 0x22, 0x04), [0x88F4DE, 0x931D7C] ),
+		"MMoun: Middle door of room leading to pointless Bombar" : ( (0x1B, 0x02, 0x67, 0x04), [0x88E476, 0x931D1C] ),
+		"MMoun: Door in pointless Bombar room" : ( (0x1B, 0x02, 0x20, 0x03), [0x88E3B4, 0x931D14] ),
+		"MMoun: Right door of room leading to pointless Bombar" : ( (0x1C, 0x02, 0x03, 0x27), [0x88E3A6, 0x931D0C] ),
+		"MMoun: Bottom door of checkerboard mountain cave" : ( (0x1B, 0x02, 0x5D, 0x03), [0x88E82E, 0x931D38] ),
+		"MMoun: Top door of checkerboard mountain cave" : ( (0x1D, 0x02, 0x39, 0x13), [0x88E5E0, 0x931D30] ),
+		"MMoun: Bottom right door of big mountainous room with Giant Rockies" : ( (0x1C, 0x02, 0x04, 0x03), [0x88ED94, 0x931D54] ),
+		"MMoun: Top left door of big mountainous room with Giant Rockies" : ( (0x86, 0x01, 0x0E, 0x06), [0x88E9A8, 0x931D4C] ),
+		"MMoun: Right door of MMoun shortcut room 2" : ( (0x1D, 0x02, 0x05, 0x05), [0x892C08, 0x931F68] ),
+		"MMoun: Left door of MMoun shortcut room 2" : ( (0x30, 0x01, 0x1C, 0x27), [0x892BFA, 0x931F60] ),
+		"MMoun: Bottom door of first lava room on Kracko path" : ( (0x86, 0x01, 0x03, 0x06), [0x88FB82, 0x931DFC] ),
+		"MMoun: Top door of first lava room on Kracko path" : ( (0x41, 0x01, 0x02, 0x16), [0x88FB1A, 0x931DF4] ),
+		"MMoun: Top left door of lava Mini room" : ( (0x34, 0x01, 0x27, 0x1D), [0x89166C, 0x931ED0] ),
+		"MMoun: Bottom door of lava Mini room" : ( (0x20, 0x02, 0x03, 0x02), [0x891760, 0x931EE0] ),
+		"MMoun: Bottom door of mountain descent" : ( (0x1F, 0x02, 0x1F, 0x02), [0x88F2E4, 0x931D68] ),
+		"MMoun: Top right door of lava Mini room" : ( (0x34, 0x01, 0x2B, 0x1D), [0x89167A, 0x931ED8] ),
+		"MMoun: Top door of cupid room" : ( (0x3C, 0x01, 0x3C, 0x04), [0x88FD94, 0x931E10] ),
+		"MMoun: Door in cutter platform room with wheelie" : ( (0x42, 0x01, 0x21, 0x04), [0x890F3E, 0x931E94] ),
+		"MMoun: Door in quake locked 1ups room" : ( (0x3B, 0x01, 0x2C, 0x12), [0x89199E, 0x931EFC] ),
+		"MMoun: Upper door in shadow kirby room" : ( (0x43, 0x01, 0x0D, 0x24), [0x890D3E, 0x931E70] ),
+		"MMoun: Second Kracko prep room door" : ( (0x44, 0x01, 0x04, 0x13), [0x88F914, 0x931DD8] ),
+		"MMoun: Lower door in shadow kirby room" : ( (0x43, 0x01, 0x1E, 0x27), [0x890D70, 0x931E78] ),
+		"MMoun: Door in Batafire room" : ( (0x2C, 0x01, 0x0D, 0x12), [0x891C20, 0x931F10] ),
+		"MMoun: First Kracko prep room door" : ( (0x44, 0x01, 0x0B, 0x13), [0x88F922, 0x931DE0] ),
+		"MMoun: Upper door of mountain ascent first room" : ( (0x21, 0x02, 0x04, 0x17), [0x88F4D0, 0x931D94] ),
+		"MMoun: Left door of mountain ascent split" : ( (0x22, 0x02, 0x06, 0x4F), [0x88F47E, 0x931D84] ),
+		"MMoun: Right door of mountain ascent split" : ( (0x22, 0x02, 0x0B, 0x4F), [0x88F49E, 0x931D8C] ),
+		"MMoun: Left door of mountain top eruption room" : ( (0x41, 0x01, 0x1E, 0x13), [0x88F6B8, 0x931DA8] ),
+		"MMoun: Right door of mountain top eruption room" : ( (0x23, 0x02, 0x02, 0x03), [0x88F6C6, 0x931DB0] ),
+		"MMoun: Top right door of bomb kirby switch puzzle room" : ( (0x3D, 0x01, 0x05, 0x22), [0x88DF9E, 0x931CE0] ),
+		"MMoun: Top left door of bomb kirby switch puzzle room" : ( (0x45, 0x01, 0x04, 0x14), [0x88DFAC, 0x931CE8] ),
+		"MMoun: Door in explosive enemies room" : ( (0x3D, 0x01, 0x03, 0x13), [0x89264C, 0x931F30] ),
+		"MMoun: Door in Phan phan room" : ( (0x38, 0x01, 0x4A, 0x12), [0x89114C, 0x931EA8] ),
+		"MMoun: Mini locked door in fire temple" : ( (0x3E, 0x01, 0x03, 0x27), [0x890508, 0x931E48] ),
+		"MMoun: No Mini door in fire temple" : ( (0x39, 0x01, 0x02, 0x0B), [0x8904FA, 0x931E40] ),
+		"MMoun: Wind tunnel at end of fire temple tunnel" : ( (0x46, 0x01, 0x01, 0x02), [0x89070C, 0x89071A, 0x890728, 0x890736, 0x890744, 0x890752, 0x890760, 0x89076E, 0x89077C, 0x89078A, 0x8907E0, 0x8907EE, 0x8907FC, 0x89080A, 0x890896, 0x8908A4, 0x8908FA, 0x890908, 0x89093A, 0x890948, 0x89098C, 0x89099A, 0x931E5C] ),
+		"CCastle: RRoute door in grassy giant rocky room" : ( (0xAB, 0x00, 0x04, 0x05), [0x8AFCE6, 0x932C10] ),
+		"CCastle: Bottom door of grassy pick-a-path room" : ( (0x75, 0x00, 0x03, 0x09), [0x8AF6EC, 0x932BD0] ),
+		"CCastle: Top left door of grassy pick-a-path room" : ( (0x7A, 0x00, 0x68, 0x08), [0x8AF6DE, 0x932BC8] ),
+		"CCastle: Top right door of grassy pick-a-path room" : ( (0x79, 0x00, 0x68, 0x07), [0x8AF6D0, 0x932BC0] ),
+		"CCastle: Left door of grassy Heavy Knights room" : ( (0xE2, 0x00, 0x1D, 0x09), [0x8AF8D8, 0x932BE4] ),
+		"CCastle: Right door of PP front entrance" : ( (0x79, 0x00, 0x04, 0x05), [0x88A0B2, 0x931A40] ),
+		"CCastle: Bottom door of grassy Heavy Knights room" : ( (0x7A, 0x00, 0x04, 0x03), [0x8AFA2A, 0x932BEC] ),
+		"CCastle: Top left door of grassy giant rocky room" : ( (0x79, 0x00, 0x0A, 0x09), [0x8AFBAA, 0x932C08] ),
+		"CCastle: Middle door of PP front entrance" : ( (0xD3, 0x00, 0x08, 0x19), [0x88A088, 0x88A096, 0x931A30] ),
+		"CCastle: Left door of PP front entrance" : ( (0xDE, 0x00, 0x67, 0x03), [0x88A0A4, 0x931A38] ),
+		"CCastle: Bottom left door of grassy giant rocky room" : ( (0xC1, 0x00, 0x0E, 0x09), [0x8AFCB4, 0x932C00] ),
+		"CCastle: Right door of CCastle shortcut room 2" : ( (0x7A, 0x00, 0x04, 0x08), [0x8AFE26, 0x932C58] ),
+		"CCastle: Left door of CCastle shortcut room 2" : ( (0xAA, 0x00, 0x2C, 0x09), [0x8AFE18, 0x932C50] ),
+		"CCastle: Right door of CCastle front entrance" : ( (0xC1, 0x00, 0x03, 0x09), [0x8AFDA8, 0x932C3C] ),
+		"CCastle: Middle door of CCastle front entrance" : ( (0xCF, 0x02, 0x2B, 0x1D), [0x8AFD48, 0x8AFD56, 0x932C2C] ),
+		"CCastle: Mirra door in castle first room" : ( (0xCA, 0x02, 0x2B, 0x04), [0x8B17C6, 0x932CF4] ),
+		"CCastle: Middle door in Mirra 8cannon room" : ( (0xDF, 0x02, 0x4F, 0x07), [0x8B00E8, 0x932C88] ),
+		"CCastle: Door in spike hall" : ( (0xE0, 0x02, 0x18, 0x0F), [0x8B1C8C, 0x932D74] ),
+		"CCastle: Bottom left door in Mirra 8cannon room" : ( (0xCA, 0x02, 0x2C, 0x04), [0x8B00F6, 0x932C90] ),
+		"CCastle: Left door in castle first room" : ( (0xDE, 0x02, 0x0D, 0x0E), [0x8B1716, 0x932CEC] ),
+		"CCastle: Door in cupid room with 1up chest" : ( (0xCF, 0x02, 0x06, 0x0F), [0x8B1BF2, 0x932D60] ),
+		"CCastle: Top door of castle first room" : ( (0xCF, 0x02, 0x1A, 0x09), [0x8B1526, 0x932CDC] ),
+		"CCastle: Bottom door of castle 2nd half of first room" : ( (0xCF, 0x02, 0x13, 0x09), [0x8B1534, 0x932CD4] ),
+		"CCastle: Top door of castle 2nd half of first room" : ( (0xD0, 0x02, 0x77, 0x08), [0x8B1506, 0x932CD4] ),
+		"CCastle: Pit in castle roof" : ( (0xDE, 0x02, 0x0E, 0x05), [0x8B3AAE, 0x8B3ABC, 0x8B3ACA, 0x8B3AD8, 0x8B3AE6, 0x8B3AF4, 0x8B3B02, 0x8B3B10, 0x8B3B1E, 0x8B3B2C, 0x8B3B3A, 0x932E30] ),
+		"CCastle: Door in purple music sheet room" : ( (0xD0, 0x02, 0x0B, 0x08), [0x8B1BE4, 0x932D58] ),
+		"CCastle: Left door of castle roof" : ( (0xDA, 0x02, 0x1D, 0x04), [0x8B3938, 0x932E28] ),
+		"CCastle: Left chute in pick a wind chute room" : ( (0xDA, 0x02, 0x04, 0x12), [0x8B3DE0, 0x8B3DEE, 0x932E44] ),
+		"CCastle: Door in Big Waddle Dee wind chute room" : ( (0xDA, 0x02, 0x11, 0x18), [0x8B3E9A, 0x932E6C] ),
+		"CCastle: Door in Chip wind chute room" : ( (0xDA, 0x02, 0x04, 0x23), [0x8B3EBA, 0x932E74] ),
+		"CCastle: Door in Noddy and Gordo wind chute room" : ( (0xDA, 0x02, 0x0F, 0x2E), [0x8B3F74, 0x932E8C] ),
+		"CCastle: Door in Gordo and bomb block wind chute room" : ( (0xCD, 0x02, 0x47, 0x13), [0x8B4052, 0x932E5C] ),
+		"CCastle: Right chute in pick a wind chute room" : ( (0xDA, 0x02, 0x13, 0x1C), [0x8B3E18, 0x8B3E26, 0x932E54] ),
+		"CCastle: Door in free Smash wind chute room" : ( (0xDA, 0x02, 0x04, 0x29), [0x8B3EEC, 0x932E7C] ),
+		"CCastle: Door in Chip and Gordo wind chute room" : ( (0xDA, 0x02, 0x0F, 0x2E), [0x8B3F94, 0x932E8C] ),
+		"CCastle: Center chute in pick a wind chute room" : ( (0xDA, 0x02, 0x11, 0x13), [0x8B3DFC, 0x8B3E0A, 0x932E4C] ),
+		"CCastle: Door in Sparky and Gordo room" : ( (0xDA, 0x02, 0x1C, 0x25), [0x8B3F1E, 0x932E84] ),
+		"CCastle: Door in Noddy and Sparky room" : ( (0xDA, 0x02, 0x14, 0x2E), [0x8B3FB4, 0x932E94] ),
+		"CCastle: Door in goodies wind chute room" : ( (0xDD, 0x02, 0x03, 0x08), [0x8B4060, 0x932E64] ),
+		"CCastle: Left door in yellow spray paint room" : ( (0xDD, 0x02, 0x25, 0x08), [0x8B1B50, 0x932D34] ),
+		"CCastle: Right door in yellow spray paint room" : ( (0xDF, 0x02, 0x4F, 0x07), [0x8B1B42, 0x932D2C] ),
+		"CCastle: Door in wheelie room" : ( (0xCC, 0x02, 0x0E, 0x31), [0x8B12D0, 0x932CB8] ),
+		"CCastle: Door in checkerboard room" : ( (0xDB, 0x02, 0x14, 0x1D), [0x8B0378, 0x932CA4] ),
+		"CCastle: Right door at warp star room split" : ( (0xDC, 0x02, 0x04, 0x04), [0x8B4210, 0x932EA8] ),
+		"CCastle: Door in map room" : ( (0x58, 0x02, 0x2C, 0x04), [0x8B1894, 0x932D10] ),
+		"CCastle: Door in Mega Titan prep room" : ( (0xE2, 0x02, 0x0E, 0x07), [0x8AFE94, 0x932C74] ),
+		"CCastle: Up exit of hell crossroad" : ( (0xE0, 0x02, 0x12, 0x08), [0x8B23C2, 0x932D90] ),
+		"CCastle: Up right exit of hell crossroad" : ( (0xE0, 0x02, 0x2C, 0x03), [0x8B2434, 0x932DA0] ),
+		"CCastle: Right exit of hell crossroad" : ( (0xE0, 0x02, 0x20, 0x0F), [0x8B2500, 0x932DB0] ),
+		"CCastle: Down right exit of hell crossroad" : ( (0xE0, 0x02, 0x2C, 0x16), [0x8B25BA, 0x932DC0] ),
+		"CCastle: Down exit of hell crossroad" : ( (0xE0, 0x02, 0x1F, 0x17), [0x8B261E, 0x932DC8] ),
+		"CCastle: Down left exit of hell crossroad" : ( (0xE0, 0x02, 0x0E, 0x1B), [0x8B2576, 0x932DB8] ),
+		"CCastle: Left exit of hell crossroad" : ( (0xE0, 0x02, 0x10, 0x0F), [0x8B24CE, 0x932DA8] ),
+		"CCastle: Up left exit of hell crossroad" : ( (0xE0, 0x02, 0x10, 0x0B), [0x8B23F0, 0x932D98] ),
+		"CCastle: Door in checkerboard Gordo room" : ( (0xE0, 0x02, 0x18, 0x0E), [0x8B2198, 0x932DD0] ),
+		"CCastle: Door in spike trap room" : ( (0xE0, 0x02, 0x18, 0x0E), [0x8B23E2, 0x932DD0] ),
+		"CCastle: Door in sparky party room" : ( (0xE0, 0x02, 0x18, 0x0E), [0x8B2520, 0x932DD0] ),
+		"CCastle: Door in spike room" : ( (0xE0, 0x02, 0x18, 0x0E), [0x8B2648, 0x932DD0] ),
+		"CCastle: Top door in Mini room" : ( (0xE0, 0x02, 0x18, 0x0E), [0x8B262C, 0x932DD0] ),
+		"CCastle: Bottom door in Mini room" : ( (0xE3, 0x02, 0x04, 0x04), [0x8B263A, 0x932DD8] ),
+		"CCastle: Door in vitality heart room" : ( (0xE0, 0x02, 0x18, 0x0E), [0x8B378C, 0x932E14] ),
+		"CCastle: Door in phan phan room" : ( (0xE0, 0x02, 0x18, 0x0E), [0x8B2610, 0x932DD0] ),
+		"CCastle: Door in cherry room" : ( (0xE0, 0x02, 0x18, 0x0E), [0x8B24C0, 0x932DD0] ),
+		"CCastle: Door in progress room" : ( (0xE1, 0x02, 0x2C, 0x09), [0x8B210C, 0x932D88] ),
+		"CCastle: Top cannon in choose a cannon room" : ( (0x58, 0x02, 0x2C, 0x09), [0x8B3608, 0x932DEC] ),
+		"CCastle: Bottom cannon in choose a cannon room" : ( (0x58, 0x02, 0x2C, 0x09), [0x8B291C, 0x932DEC] ),
+		"CCastle: Lever door of CCastle front entrance" : ( (0xB5, 0x00, 0x05, 0x03), [0x8AFD88, 0x932C34] ),
+		"CCastle: Exit of left shaft of lever wind room" : ( (0x6B, 0x02, 0x04, 0x04), [0x87511E, 0x930F00] ),
+		"CCastle: Exit of right shaft of lever wind room" : ( (0xAA, 0x00, 0x03, 0x09), [0x8750BC, 0x930EF8] ),
+		"OO: Lever door in lever room" : ( (0xB4, 0x00, 0x0C, 0x31), [0x8A45D2, 0x9326CC] ),
+		"OO: Left door of first room of OO" : ( (0xBF, 0x00, 0x0E, 0x07), [0x8A1342, 0x93254C] ),
+		"OO: Right door of first room of OO" : ( (0x83, 0x00, 0x03, 0x06), [0x8A1350, 0x932554] ),
+		"OO: Left door of second room of OO" : ( (0x82, 0x00, 0x48, 0x08), [0x8A149E, 0x932570] ),
+		"OO: Middle door of second room of OO" : ( (0x3A, 0x03, 0x04, 0x04), [0x8A14E2, 0x932578] ),
+		"OO: Door in pep brew room" : ( (0x83, 0x00, 0x24, 0x09), [0x8A4760, 0x93270C] ),
+		"OO: Right door of second room of OO" : ( (0x84, 0x00, 0x03, 0x10), [0x8A1448, 0x932568] ),
+		"OO: Middle door of seaside split room" : ( (0x84, 0x00, 0x31, 0x0A), [0x8A162C, 0x93258C] ),
+		"OO: Door in shotzo path of split room" : ( (0x85, 0x00, 0x03, 0x12), [0x8A1648, 0x93259C] ),
+		"OO: Right door of seaside split room" : ( (0x85, 0x00, 0x02, 0x06), [0x8A163A, 0x932594] ),
+		"OO: Door in cherry temptation room" : ( (0x86, 0x00, 0x02, 0x07), [0x8A1750, 0x9325B0] ),
+		"OO: Door in Mini room" : ( (0x87, 0x00, 0x02, 0x04), [0x8A19DE, 0x9325D4] ),
+		"OO: Door in upper split room" : ( (0x3B, 0x03, 0x03, 0x04), [0x8A175E, 0x9325B8] ),
+		"OO: Right door in Boxy and troll cannon room" : ( (0x3C, 0x03, 0x03, 0x04), [0x8A5A64, 0x932720] ),
+		"OO: Left door of Leaps and waterfalls room" : ( (0x3B, 0x03, 0x2B, 0x1D), [0x8A5CD2, 0x932734] ),
+		"OO: Right door of Leaps and waterfalls room" : ( (0x37, 0x03, 0x04, 0x1D), [0x8A5D04, 0x93273C] ),
+		"OO: Bottom left door of fish trap room" : ( (0x3C, 0x03, 0x67, 0x06), [0x8A4536, 0x9326B0] ),
+		"OO: Right door of fish trap room" : ( (0x7A, 0x03, 0x03, 0x09), [0x8A4538, 0x9326A8] ),
+		"OO: Left door of OO shortcut room 2" : ( (0x37, 0x03, 0x2A, 0x1C), [0x8A6A44, 0x9327B0] ),
+		"OO: Right door of OO shortcut room 2" : ( (0x2B, 0x03, 0x04, 0x04), [0x8A6A52, 0x9327B8] ),
+		"OO: Left door of ocean split room" : ( (0x7A, 0x03, 0x0E, 0x09), [0x8A2C08, 0x93262C] ),
+		"OO: Right door of ocean split room" : ( (0x3D, 0x03, 0x03, 0x05), [0x8A2C5A, 0x932634] ),
+		"OO: Left door of Gordo hall" : ( (0x2B, 0x03, 0x39, 0x07), [0x8A5E48, 0x932750] ),
+		"OO: Mirra door in ocean split room" : ( (0x27, 0x02, 0x03, 0x04), [0x8A2C3A, 0x932644] ),
+		"OO: Bottom door of ocean split room" : ( (0x3E, 0x03, 0x0C, 0x02), [0x8A2E3C, 0x93263C] ),
+		"OO: Right door of Gordo hall" : ( (0x2E, 0x03, 0x04, 0x1D), [0x8A5F76, 0x932758] ),
+		"OO: Bottom left door of burning split room" : ( (0x3D, 0x03, 0x5C, 0x06), [0x8A3496, 0x932668] ),
+		"OO: Top left door of burning split room" : ( (0x38, 0x03, 0x04, 0x08), [0x8A300C, 0x932658] ),
+		"OO: Left door of lever room" : ( (0x2E, 0x03, 0x03, 0x03), [0x8A45E0, 0x9326D4] ),
+		"OO: Bottom right door of burning split room" : ( (0x40, 0x03, 0x0E, 0x04), [0x8A35A0, 0x932670] ),
+		"OO: Top door of pick a water chute room" : ( (0x2E, 0x03, 0x2C, 0x1D), [0x8A67BE, 0x932794] ),
+		"OO: Top right door of burning split room" : ( (0x3F, 0x03, 0x03, 0x12), [0x8A301A, 0x932660] ),
+		"OO: Door in water currents to Mr. Frosty room" : ( (0x39, 0x03, 0x12, 0x13), [0x8A63E8, 0x932780] ),
+		"OO: Door in shotzo purple cavern room" : ( (0x2F, 0x03, 0x05, 0x09), [0x8A22AE, 0x9325FC] ),
+		"OO: Door in vitality heart room" : ( (0x29, 0x02, 0x03, 0x04), [0x8A38C2, 0x93268C] ),
+		"OO: Door in cutter platform purple cavern room" : ( (0x40, 0x03, 0x03, 0x19), [0x8A2792, 0x932618] ),
+		"OO: Bottom right door of pick a water chute room" : ( (0x35, 0x03, 0x02, 0x02), [0x8A69D6, 0x93279C] ),
+		"OO: Door in Gobbler approach" : ( (0x20, 0x03, 0x0A, 0x04), [0x8A85E4, 0x932840] ),
+		"OO: Door at bottom of downward currents room" : ( (0x2A, 0x03, 0x03, 0x02), [0x8A61FE, 0x93276C] ),
+		"OO: Door in currents and Shooties room" : ( (0x22, 0x03, 0x0D, 0x03), [0x8A7400, 0x9327FC] ),
+		"OO: Water current in spike reveal room" : ( (0x30, 0x03, 0x02, 0x04), [0x8A72C2, 0x8A72D0, 0x8A72DE, 0x8A72EC, 0x8A72FA, 0x8A7308, 0x9327E8] ),
+		"OO: Door in OO map room" : ( (0x33, 0x03, 0x03, 0x05), [0x8A76C2, 0x932818] ),
+		"OO: Door in expected hammer room" : ( (0x35, 0x03, 0x02, 0x05), [0x8A8018, 0x93282C] ),
+		"OO: Door in Gobbler prep room" : ( (0x36, 0x03, 0x0C, 0x03), [0x8A6AF8, 0x9327D4] ),
+		"PP: Bottom left door of palace first room" : ( (0xE2, 0x00, 0x0C, 0x08), [0x88928C, 0x9319DC] ),
+		"PP: Right door of cavern first room" : ( (0xE2, 0x00, 0x03, 0x09), [0x88D17E, 0x931C5C] ),
+		"PP: Left door of cavern first room" : ( (0x23, 0x01, 0x0E, 0x09), [0x88D170, 0x931C54] ),
+		"PP: Right door of PP shortcut room 2" : ( (0xDE, 0x00, 0x11, 0x03), [0x88DDFA, 0x931CC4] ),
+		"PP: Left door of PP shortcut room 2" : ( (0xD7, 0x00, 0x1B, 0x1D), [0x88DDEC, 0x931CBC] ),
+		"PP: Bottom right door of Waddle Dee buckets room" : ( (0x23, 0x01, 0x03, 0x09), [0x88BD76, 0x931BAC] ),
+		"PP: Top left door of palace first room" : ( (0xCA, 0x00, 0x05, 0x0F), [0x888F54, 0x9319D4] ),
+		"PP: Bottom left door of Prank pool room" : ( (0xD3, 0x00, 0x04, 0x03), [0x886D7C, 0x931874] ),
+		"PP: Top left door of Prank pool room" : ( (0xD0, 0x00, 0x05, 0x13), [0x886D3C, 0x931864] ),
+		"PP: Bottom left door of laser slopes room" : ( (0xCA, 0x00, 0x03, 0x04), [0x888148, 0x931930] ),
+		"PP: Bottom right door of laser slopes room" : ( (0xCA, 0x00, 0x23, 0x05), [0x888156, 0x931938] ),
+		"PP: Door in fish trapped 1up room" : ( (0xD0, 0x00, 0x13, 0x13), [0x886D4A, 0x93186C] ),
+		"PP: Top right door of laser slopes room" : ( (0xD1, 0x00, 0x03, 0x27), [0x88813A, 0x931928] ),
+		"PP: Bottom left door of map room" : ( (0xD0, 0x00, 0x1D, 0x04), [0x888A00, 0x931974] ),
+		"PP: Top left door of laser slopes room" : ( (0x22, 0x01, 0x0E, 0x09), [0x88812C, 0x931920] ),
+		"PP: Right door of PP shortcut room 1" : ( (0xD0, 0x00, 0x0F, 0x03), [0x88B996, 0x931B64] ),
+		"PP: Left door of PP shortcut room 1" : ( (0xD2, 0x00, 0x1B, 0x31), [0x88B988, 0x931B5C] ),
+		"PP: Bottom right door of miniboss central" : ( (0x22, 0x01, 0x03, 0x09), [0x888D44, 0x9319B0] ),
+		"PP: Left door of miniboss central" : ( (0xE3, 0x00, 0x3A, 0x11), [0x888D16, 0x9319A0] ),
+		"PP: Right door of cutterlocked food room" : ( (0xD2, 0x00, 0x03, 0x18), [0x88A48E, 0x931A74] ),
+		"PP: Box Boxer door in miniboss central" : ( (0xE3, 0x00, 0x3B, 0x0A), [0x888CE8, 0x9319B8] ),
+		"PP: Bonkers door in miniboss central" : ( (0xD1, 0x00, 0x02, 0x09), [0x888D08, 0x9319C0] ),
+		"PP: Door below Leap and Sparky in map room" : ( (0xD2, 0x00, 0x1E, 0x2C), [0x8889F2, 0x93196C] ),
+		"PP: Mirra door in map room" : ( (0xD2, 0x00, 0x1E, 0x18), [0x8883FC, 0x93197C] ),
+		"PP: Door in snow spray paint room" : ( (0xD1, 0x00, 0x02, 0x14), [0x888D24, 0x9319A8] ),
+		"PP: Top door in miniboss central" : ( (0xCD, 0x00, 0x0A, 0x13), [0x888C80, 0x931998] ),
+		"PP: Bottom left door of breaklocked water passage room" : ( (0xD2, 0x00, 0x11, 0x03), [0x88744A, 0x9318E8] ),
+		"PP: Water passage door of breaklocked water passage room" : ( (0xD1, 0x00, 0x0B, 0x03), [0x88743C, 0x9318E0] ),
+		"PP: Top door of map room" : ( (0xCD, 0x00, 0x1D, 0x12), [0x8883DC, 0x931964] ),
+		"PP: Top left door of breaklocked water passage room" : ( (0xCB, 0x00, 0x3B, 0x05), [0x887300, 0x9318D0] ),
+		"PP: Right door of Boxin icy slopes room" : ( (0xCD, 0x00, 0x03, 0x03), [0x886F90, 0x931888] ),
+		"PP: Bottom right door of breaklocked water passage room" : ( (0xCE, 0x00, 0x04, 0x09), [0x887458, 0x9318F0] ),
+		"PP: Top right door of breaklocked water passage room" : ( (0xE4, 0x00, 0x1A, 0x1D), [0x88730E, 0x9318D8] ),
+		"PP: Door in 3way split room with wheelie" : ( (0xD6, 0x00, 0x02, 0x04), [0x888004, 0x93190C] ),
+		"PP: Left door of treasure room" : ( (0xE5, 0x00, 0x11, 0x1D), [0x88A7FC, 0x931A98] ),
+		"PP: Middle door of treasure room" : ( (0xE5, 0x00, 0x17, 0x1D), [0x88A80A, 0x931AA0] ),
+		"PP: Mirra door of treasure room" : ( (0xE5, 0x00, 0x1D, 0x1D), [0x88A82A, 0x931AA8] ),
+		"PP: Top door of Golem treasure room" : ( (0xE6, 0x00, 0x17, 0x13), [0x88AE60, 0x931AD4] ),
+		"PP: Top left door of cutterlocked food room" : ( (0xCC, 0x00, 0x38, 0x09), [0x88A318, 0x931A6C] ),
+		"PP: Middle door of Cookin room" : ( (0xE3, 0x00, 0x12, 0x03), [0x887176, 0x9318B4] ),
+		"PP: Left door of Boxin icy slopes room" : ( (0xCC, 0x00, 0x49, 0x04), [0x88700A, 0x931890] ),
+		"PP: Right door of Cookin room" : ( (0xCB, 0x00, 0x03, 0x13), [0x8870DC, 0x9318A4] ),
+		"PP: Hammer peg door in Cookin room" : ( (0xE3, 0x00, 0x1B, 0x02), [0x887184, 0x9318BC] ),
+		"PP: Left door of Cookin room" : ( (0xDC, 0x00, 0x3B, 0x05), [0x887168, 0x9318AC] ),
+		"PP: Right door of meat chest flying enemies room" : ( (0xCC, 0x00, 0x03, 0x08), [0x88A012, 0x931A14] ),
+		"PP: Water current in meat chest flying enemies room" : ( (0xE8, 0x00, 0x87, 0x07), [0x88A020, 0x88A02E, 0x88A03C, 0x88A04A, 0x931A1C] ),
+		"PP: Water current in Bombar flying enemies room" : ( (0xE7, 0x00, 0x0D, 0x02), [0x88B828, 0x88B836, 0x88B844, 0x88B852, 0x88B860, 0x88B86E, 0x88B87C, 0x88B88A, 0x88B898, 0x88B8A6, 0x88B8B4, 0x88B8C2, 0x88B8D0, 0x88B8DE, 0x88B8EC, 0x88B8FA, 0x931B28, 0x931B30, 0x931B38, 0x931B40] ),
+		"PP: Door in waterfall room" : ( (0xD7, 0x00, 0x1D, 0x03), [0x88B52C, 0x931AF4] ),
+		"PP: Left door of meat chest flying enemies room" : ( (0xE8, 0x00, 0x86, 0x05), [0x88A004, 0x931A0C] ),
+		"PP: Right door of Bombar flying enemies room" : ( (0xDC, 0x00, 0x13, 0x05), [0x88B7FE, 0x931B10] ),
+		"PP: Middle door of Bombar flying enemies room" : ( (0xE8, 0x00, 0x18, 0x09), [0x88B7CC, 0x931B48] ),
+		"PP: Door of Bombar room" : ( (0xE8, 0x00, 0x4D, 0x06), [0x88B81A, 0x931B20] ),
+		"PP: Left door of Bombar flying enemies room" : ( (0xE1, 0x00, 0x0D, 0x07), [0x88B80C, 0x931B18] ),
+		"PP: Top door of pachinko machine room" : ( (0xE8, 0x00, 0x23, 0x07), [0x88DD70, 0x931CA0] ),
+		"PP: Bottom door of pachinko machine room" : ( (0xDD, 0x00, 0x3A, 0x05), [0x88DD7E, 0x931CA8] ),
+		"PP: Top right door of pink spray paint room" : ( (0xE1, 0x00, 0x06, 0x59), [0x88C7F6, 0x931C38] ),
+		"PP: Bottom right door of pink spray paint room" : ( (0xD9, 0x00, 0x03, 0x04), [0x88CDC8, 0x931C40] ),
+		"PP: Left door of flamer and cutterlocked door room" : ( (0xDD, 0x00, 0x39, 0x13), [0x88C054, 0x931BE4] ),
+		"PP: Top left door of pink spray paint room" : ( (0xDA, 0x00, 0x0F, 0x03), [0x88C734, 0x931C30] ),
+		"PP: Top door of Wiz hammer peg room" : ( (0xC8, 0x00, 0x29, 0x09), [0x88C3D6, 0x931C08] ),
+		"PP: Door in Wiz prep room" : ( (0xDB, 0x00, 0x04, 0x09), [0x886BAC, 0x931840] ),
+		"PP: Top left door of Waddle Dee buckets room" : ( (0xD4, 0x00, 0x4A, 0x09), [0x88BD68, 0x931BA4] ),
+		"PP: Right door of drowning Boxin room" : ( (0xD7, 0x00, 0x03, 0x03), [0x88BBCC, 0x931B90] ),
+		"PP: Left door of drowning Boxin room" : ( (0xD8, 0x00, 0x2C, 0x12), [0x88BB64, 0x931B88] ),
+		"PP: Bottom right door of outdoor Prank room" : ( (0xD4, 0x00, 0x03, 0x03), [0x88BF78, 0x931BC8] ),
+		"PP: Bottom left door of outdoor Prank room" : ( (0xD9, 0x00, 0x0E, 0x09), [0x88BF86, 0x931BD0] ),
+		"PP: Right door of flamer and cutterlocked door room" : ( (0xD8, 0x00, 0x03, 0x13), [0x88C0DC, 0x931BF4] ),
+		"PP: Cutterlocked door of flamer and cutterlocked door room" : ( (0xDF, 0x00, 0x3B, 0x05), [0x88C0CE, 0x931BEC] ),
+		"PP: Door in Scarfies and Metal Guardian room" : ( (0xE0, 0x00, 0x87, 0x09), [0x88D354, 0x931C70] ),
+		"RRuins: Right door of first room of RRuins" : ( (0x50, 0x02, 0x03, 0x07), [0x8AB0FC, 0x932988] ),
+		"RRuins: Lever door of lever room" : ( (0xB5, 0x00, 0x0C, 0x31), [0x8ADA78, 0x932AD0] ),
+		"RRuins: Left door of first room of RRuins" : ( (0x6D, 0x02, 0x49, 0x03), [0x8AB050, 0x8AB070, 0x932990] ),
+		"RRuins: Door in second room of RRuins" : ( (0x5D, 0x02, 0x2C, 0x05), [0x8AB6F0, 0x9329A4] ),
+		"RRuins: Bottom left door of Waddle Doo room" : ( (0x59, 0x02, 0x70, 0x09), [0x8A9D3A, 0x932910] ),
+		"RRuins: Bottom right door of lollipop run room" : ( (0x5D, 0x02, 0x04, 0x19), [0x8A8EE6, 0x9328A4] ),
+		"RRuins: Top right door of lollipop run room" : ( (0x5D, 0x02, 0x03, 0x12), [0x8A8A38, 0x932894] ),
+		"RRuins: Top left door of Waddle Doo room" : ( (0x5E, 0x02, 0x10, 0x2C), [0x8A9B22, 0x932908] ),
+		"RRuins: Bottom door of staircase room" : ( (0x5D, 0x02, 0x07, 0x11), [0x8AA2CE, 0x932934] ),
+		"RRuins: Hammer peg door in Waddle Doo room" : ( (0x62, 0x02, 0x2A, 0x04), [0x8AA0CC, 0x932918] ),
+		"RRuins: Door in vitality heart room" : ( (0x63, 0x02, 0x0E, 0x13), [0x8AA33C, 0x932950] ),
+		"RRuins: Middle door in lollipop run room" : ( (0x6F, 0x02, 0x04, 0x0C), [0x8A89D4, 0x9328AC] ),
+		"RRuins: Door in pep brew chest room" : ( (0x59, 0x02, 0x30, 0x0A), [0x8AB986, 0x9329E4] ),
+		"RRuins: Top left door of lollipop run room" : ( (0x63, 0x02, 0x18, 0x08), [0x8A8A06, 0x93288C] ),
+		"RRuins: Right door of Mirra room" : ( (0x59, 0x02, 0x04, 0x09), [0x8AA40A, 0x93296C] ),
+		"RRuins: Bottom left door of lollipop run room" : ( (0x63, 0x02, 0x18, 0x09), [0x8A8DCA, 0x93289C] ),
+		"RRuins: Door at top of staircase room" : ( (0x5C, 0x02, 0x4E, 0x09), [0x8AA230, 0x93292C] ),
+		"RRuins: Right door of wheelie room" : ( (0x5E, 0x02, 0x04, 0x05), [0x8A9804, 0x9328EC] ),
+		"RRuins: Left door of wheelie room" : ( (0x6F, 0x02, 0x03, 0x03), [0x8A96E8, 0x9328F4] ),
+		"RRuins: Door in Bonkers room" : ( (0x5E, 0x02, 0x02, 0x1C), [0x8AB978, 0x9329DC] ),
+		"RRuins: Top door of Mirra room" : ( (0x5B, 0x02, 0x05, 0x31), [0x8AA3DC, 0x932964] ),
+		"RRuins: Bottom door of checkerboard room" : ( (0x63, 0x02, 0x11, 0x05), [0x8A91EA, 0x9328C8] ),
+		"RRuins: Top door of checkerboard room" : ( (0x5C, 0x02, 0x04, 0x06), [0x8A902C, 0x9328C0] ),
+		"RRuins: Left door of wheelie goal run room" : ( (0x5B, 0x02, 0x0B, 0x04), [0x8A964A, 0x9328E4] ),
+		"RRuins: Right door of wheelie goal run room" : ( (0x6E, 0x02, 0x03, 0x12), [0x8A9564, 0x9328DC] ),
+		"RRuins: Mirra door of Mirra room" : ( (0xB2, 0x02, 0x0E, 0x09), [0x8AA3FC, 0x932974] ),
+		"RRuins: Right door of RRuins shortcut room 2" : ( (0x63, 0x02, 0x04, 0x09), [0x8ADB16, 0x932AF4] ),
+		"RRuins: Left door of RRuins shortcut room 2" : ( (0x64, 0x02, 0x2B, 0x0E), [0x8ADB08, 0x932AEC] ),
+		"RRuins: Right door of Foley run room" : ( (0xB2, 0x02, 0x04, 0x09), [0x8ACD76, 0x932A40] ),
+		"RRuins: Left door of Foley run room" : ( (0x60, 0x02, 0x48, 0x12), [0x8ACD68, 0x932A38] ),
+		"RRuins: Right door of switch race room" : ( (0x64, 0x02, 0x04, 0x05), [0x8ABCD0, 0x932A10] ),
+		"RRuins: Top door of switch race room" : ( (0x6B, 0x02, 0x0C, 0x08), [0x8ABB16, 0x932A00] ),
+		"RRuins: Right door of lever room" : ( (0x60, 0x02, 0x48, 0x04), [0x8ADA98, 0x932AD8] ),
+		"RRuins: Left door of switch race room" : ( (0x65, 0x02, 0x0D, 0x1B), [0x8ABB7E, 0x932A08] ),
+		"RRuins: Top door of ruins split" : ( (0x68, 0x02, 0x28, 0x1B), [0x8ACEBE, 0x932A54] ),
+		"RRuins: Bottom door of ruins split" : ( (0x61, 0x02, 0x67, 0x03), [0x8AD1D2, 0x932A5C] ),
+		"RRuins: Door in burning kirby room" : ( (0x0C, 0x02, 0x03, 0x08), [0x8AD460, 0x932A84] ),
+		"RRuins: Door in Rolypoly and Hothead room" : ( (0xF6, 0x01, 0x02, 0x07), [0x8AEC96, 0x932B2C] ),
+		"RRuins: Bottom door of cannon room" : ( (0x69, 0x02, 0x04, 0x09), [0x8AE9DC, 0x932B18] ),
+		"RRuins: Door in map room" : ( (0xF6, 0x01, 0x36, 0x11), [0x8AD5F8, 0x932AA0] ),
+		"RRuins: Right door of cannon room" : ( (0x0D, 0x02, 0x02, 0x13), [0x8ADDEC, 0x932B10] ),
+		"RRuins: Door in cannon destination room" : ( (0x0E, 0x02, 0x04, 0x08), [0x8AEE5E, 0x932B40] ),
+		"RRuins: Door in master hand room" : ( (0x66, 0x02, 0x2C, 0x1D), [0x8AC1D6, 0x932A24] ),
+		"RRuins: Door in smash rampage room" : ( (0x6A, 0x02, 0x08, 0x4E), [0x8AD2F2, 0x932A70] ),
+		"RRuins: Door at top of ruins ascent" : ( (0x71, 0x00, 0x59, 0x07), [0x8AD9FC, 0x932AB4] ),
+		"RRuins: Door in first sunset room" : ( (0x66, 0x00, 0x4A, 0x08), [0x8AF426, 0x932B8C] ),
+		"RRuins: Door in shadow kirby room" : ( (0x72, 0x00, 0x0E, 0x08), [0x8AF0DC, 0x932B78] ),
+		"RRuins: Door in Metaknight prep room" : ( (0x81, 0x00, 0x02, 0x02), [0x8AF510, 0x932BA0] ),
+		"CandyC: Right door of free smash room" : ( (0x91, 0x01, 0x03, 0x31), [0x894F72, 0x932070] ),
+		"CandyC: Bottom left door of music player hammer peg room" : ( (0x97, 0x01, 0x29, 0x0D), [0x8933BC, 0x931FA0] ),
+		"CandyC: Bottom right door of music player hammer peg room" : ( (0x96, 0x01, 0x07, 0x08), [0x8933CA, 0x931FA8] ),
+		"CandyC: Door in music player room" : ( (0x91, 0x01, 0x1C, 0x31), [0x894BC4, 0x932054] ),
+		"CandyC: Top right door of music player hammer peg room" : ( (0x98, 0x01, 0x03, 0x04), [0x893018, 0x931F98] ),
+		"CandyC: Top left door of floating water blocks room" : ( (0x91, 0x01, 0x1C, 0x04), [0x8955CC, 0x93208C] ),
+		"CandyC: Bottom right door of floating water blocks room" : ( (0x99, 0x01, 0x03, 0x05), [0x89566A, 0x932094] ),
+		"CandyC: Left door of Boxin Hothead and Sparky room" : ( (0x98, 0x01, 0x4A, 0x10), [0x89588A, 0x9320A8] ),
+		"CandyC: Right door of Boxin Hothead and Sparky room" : ( (0xAB, 0x01, 0x03, 0x05), [0x895898, 0x9320B0] ),
+		"CandyC: Top left door of Rocky switch race room" : ( (0x99, 0x01, 0x77, 0x05), [0x89B346, 0x93224C] ),
+		"CandyC: Bottom right door of Rocky switch race room" : ( (0xA9, 0x01, 0x08, 0x05), [0x89B3CE, 0x93225C] ),
+		"CandyC: Door in max tomato chest room" : ( (0xAB, 0x01, 0x2B, 0x13), [0x89AF80, 0x932214] ),
+		"CandyC: Top right door of Rocky switch race room" : ( (0x94, 0x01, 0x03, 0x09), [0x89B354, 0x932254] ),
+		"CandyC: Left door of falling switch room" : ( (0xAB, 0x01, 0x2A, 0x05), [0x89427E, 0x932014] ),
+		"CandyC: Middle door of falling switch room" : ( (0x93, 0x01, 0x07, 0x09), [0x8940C4, 0x93201C] ),
+		"CandyC: Door in carbon spray paint room" : ( (0x94, 0x01, 0x15, 0x05), [0x893F66, 0x931FF8] ),
+		"CandyC: Right door of falling switch room" : ( (0x97, 0x01, 0x04, 0x1B), [0x894270, 0x93200C] ),
+		"CandyC: Bottom left door of free smash room" : ( (0x94, 0x01, 0x59, 0x08), [0x8952F2, 0x932078] ),
+		"CandyC: Top door of free smash room" : ( (0xEA, 0x01, 0x03, 0x06), [0x894DD8, 0x932068] ),
+		"CandyC: Left door of CandyC shortcut room" : ( (0x97, 0x01, 0x0C, 0x04), [0x89B432, 0x932270] ),
+		"CandyC: Right door of CandyC shortcut room" : ( (0x9B, 0x01, 0x03, 0x13), [0x89B440, 0x932278] ),
+		"CandyC: Bottom left door of vitality heart hammer peg room" : ( (0xEA, 0x01, 0x0E, 0x06), [0x895B14, 0x9320CC] ),
+		"CandyC: Top left door of vitality heart hammer peg room" : ( (0x95, 0x01, 0x4A, 0x09), [0x895AD0, 0x9320D4] ),
+		"CandyC: Right door of vitality heart connector room" : ( (0x9B, 0x01, 0x03, 0x08), [0x89492A, 0x932030] ),
+		"CandyC: Top right door of vitality heart hammer peg room" : ( (0xA2, 0x01, 0x03, 0x05), [0x895AB0, 0x9320C4] ),
+		"CandyC: Left door of first split room" : ( (0x9B, 0x01, 0x1C, 0x07), [0x898FE2, 0x932168] ),
+		"CandyC: Left door of vitality heart connector room" : ( (0x93, 0x01, 0x37, 0x04), [0x894938, 0x932038] ),
+		"CandyC: Door in vitality heart room" : ( (0x95, 0x01, 0x03, 0x0A), [0x893F58, 0x931FF0] ),
+		"CandyC: Middle door of first split room" : ( (0x9E, 0x01, 0x4A, 0x12), [0x898FC6, 0x932158] ),
+		"CandyC: Right door of first split room" : ( (0x92, 0x01, 0x04, 0x04), [0x898FD4, 0x932160] ),
+		"CandyC: Door in spark and burning room" : ( (0x9D, 0x01, 0x2C, 0x13), [0x897108, 0x932108] ),
+		"CandyC: Bottom right door of square chambers room" : ( (0xA3, 0x01, 0x03, 0x0F), [0x893E76, 0x931FCC] ),
+		"CandyC: Top right door of square chambers room" : ( (0xA3, 0x01, 0x03, 0x04), [0x893826, 0x931FC4] ),
+		"CandyC: Door in map connector room" : ( (0xAA, 0x01, 0x05, 0x04), [0x899B5A, 0x932184] ),
+		"CandyC: Door in map room" : ( (0xA4, 0x01, 0x03, 0x13), [0x89B0C8, 0x932230] ),
+		"CandyC: Door in double heavy knights room" : ( (0x9C, 0x01, 0x02, 0x1D), [0x8997C8, 0x93217C] ),
+		"CandyC: Door in master hand room" : ( (0xA6, 0x01, 0x03, 0x05), [0x897F40, 0x93211C] ),
+		"CandyC: Middle door of laser ball room" : ( (0xA8, 0x01, 0x04, 0x08), [0x89A87A, 0x9321C8] ),
+		"CandyC: Door in laser puzzle room" : ( (0xA6, 0x01, 0x2C, 0x08), [0x89ADF0, 0x9321F8] ),
+		"CandyC: Right door of laser ball room" : ( (0xA7, 0x01, 0x03, 0x09), [0x89A5F6, 0x9321C0] ),
+		"CandyC: Door in wheelie run room" : ( (0xA5, 0x01, 0x03, 0x05), [0x89ABF8, 0x9321DC] ),
+		"CandyC: Door in UFO room" : ( (0xA0, 0x01, 0x08, 0x60), [0x89A032, 0x9321AC] ),
+		"CandyC: Door in shadow kirby room" : ( (0x90, 0x01, 0x07, 0x1B), [0x898634, 0x932130] ),
+		"CandyC: Door in Master hand and Crazy hand prep room" : ( (0xA1, 0x01, 0x03, 0x07), [0x892C90, 0x931F84] )
+	},
+	static_edges: [
+		(
+			start: "RRoute: Entrance to 1st room",
+			end: "RRoute: Door in 1st room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Entrance to 2nd room",
+			end: "RRoute: 2nd room upper door",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Entrance to 2nd room",
+			end: "RRoute: 2nd room lower door",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Upper entrance to 3rd room",
+			end: "RRoute: Upper third room door",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Lower entrance to 3rd room",
+			end: "RRoute: Lower third room door",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Entrance to upper graveyard",
+			end: "RRoute: Upper graveyard door",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Entrance to lower graveyard",
+			end: "RRoute: Lower graveyard 1way door",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Bottom right door of lower graveyard",
+			end: "RRoute: Bottom left door of lower graveyard",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Bottom right door of lower graveyard",
+			end: "RRoute: Lower graveyard 1way door",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRoute: Entrance to first bangbang room",
+			end: "RRoute: Door in first bangbang room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Entrance to MoonM map room (warp star)",
+			end: "MoonM: Door in map room",
+			two_way: false,
+		),
+		(
+			start: "MoonM: Entrance to MoonM map room",
+			end: "MoonM: Door in map room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Entrance of 2nd big switch room",
+			end: "MoonM: Door of 2nd big switch room",
+			two_way: true,
+		),
+		(
+			start: "MoonM: Entrance of 2nd big switch room",
+			end: "RRoute: Left door of RRoute shortcut",
+			two_way: false,
+		),
+		(
+			start: "RRoute: Left door of RRoute shortcut",
+			end: "RRoute: Right door of RRoute shortcut",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Right door of wheelie room",
+			end: "RRoute: Left door of wheelie room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Bottom left door of cutter platforms room w/ heavy knight",
+			end: "RRoute: Top right door of cutter platforms room w/ heavy knight",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Bottom left door of cutter platforms room w/ heavy knight",
+			end: "RRoute: Top left door of cutter platforms room w/ heavy knight",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Bottom right door of forest crossroad",
+			end: "RRoute: Left door of forest crossroad",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Left door of forest crossroad",
+			end: "RRoute: Upper Mirra door of forest crossroad",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Upper Mirra door of forest crossroad",
+			end: "RRoute: Lower Mirra door of forest crossroad",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Top door of vertical shaft with water",
+			end: "RRoute: Bottom left door of vertical shaft with water",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Top door of vertical shaft with water",
+			end: "RRoute: Bottom right door of vertical shaft with water",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Top of vertical shaft with bangbangs",
+			end: "RRoute: Bottom door of vertical shaft with bangbangs",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Left door of rock kirby slide hill",
+			end: "RRoute: Right door of rock kirby slide hill",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Entrance to water cave with rolly hills and 1up",
+			end: "RRoute: Door in water cave with rolly hills and 1up",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Entrance to rolly hill purple cave",
+			end: "RRoute: Door in rolly hill purple cave",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Entrance to rolly hill purple cave",
+			end: "RRoute: Door in rolly hill purple cave",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Right door of wheel kirby slide hill",
+			end: "RRoute: Bottom door of wheel kirby slide hill",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Bottom door of wheel kirby slide hill",
+			end: "RRoute: Left door of wheel kirby slide hill",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Right door of canyon crossroad w/ cannon path",
+			end: "RRoute: Left door of canyon crossroad w/ cannon path",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Right door of canyon crossroad w/ cannon path",
+			end: "RRoute: Upper door of canyon crossroard w/ cannon path",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Right door of CCav shortcut room 1",
+			end: "RRoute: Left door of CCav shortcut room 1",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Entrance to tornado canyon room",
+			end: "RRoute: Door in tornado canyon room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Entrance to cannon room",
+			end: "RRoute: Left door of canyon cannon destination room",
+			two_way: false,
+		),
+		(
+			start: "RRoute: Left door of canyon cannon destination room",
+			end: "RRoute: Right door of canyon cannon destination room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Right door of laser ball canyon room",
+			end: "RRoute: Middle door of laser ball canyon room",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Middle door of laser ball canyon room",
+			end: "RRoute: Left door of laser ball canyon room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Bottom door of grassy vertical shaft with metal guardian",
+			end: "RRoute: Middle door of grassy vertical shaft with metal guardian",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Middle door of grassy vertical shaft with metal guardian",
+			end: "RRoute: Top door of grassy vertical shaft with metal guardian",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Right door of underground log room w/ foleys and rolypolys",
+			end: "RRoute: Bottom left door of underground log room w/ foleys and rolypolys",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Right door of underground log room w/ foleys and rolypolys",
+			end: "RRoute: Top left door of underground log room w/ foleys and rolypolys",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRoute: Bottom door of enemy prison tall room",
+			end: "RRoute: Top door of enemy prison tall room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Top right entrance of log room crossroad w/ small chest",
+			end: "RRoute: Top left door of log room crossroad w/ small chest",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Top right entrance of log room crossroad w/ small chest",
+			end: "RRoute: Lower right entrance of log room crossroad w/ small chest",
+			two_way: false,
+		),
+		(
+			start: "RRoute: Lower right entrance of log room crossroad w/ small chest",
+			end: "RRoute: Bottom right door of log room crossroad w/ small chest",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Lower right entrance of log room crossroad w/ small chest",
+			end: "RRoute: Bottom left door of log room crossroad w/ small chest",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Right door of random floating logs room",
+			end: "RRoute: Left door of random floating logs room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Bottom door of repetitive vertical shaft with gordos",
+			end: "RRoute: Top door of repetitive vertical shaft with gordos",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Right entrance of long log room w/ big enemies + mirra",
+			end: "RRoute: Top left door of long log room w/ big enemies + mirra",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Right entrance of long log room w/ big enemies + mirra",
+			end: "RRoute: Mirra door in long log room w/ big enemies + mirra",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Bottom door of lotsa star blocks room",
+			end: "RRoute: Top door of lotsa star blocks room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Right door of log room w/ mirra",
+			end: "RRoute: Mirra door in log room w/ mirra",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Right door of log room w/ mirra",
+			end: "RRoute: Middle door of log room w/ mirra",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Left door of CCastle shortcut room 1",
+			end: "RRoute: Right door of CCastle shortcut room 1",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Left door of lollipop/wheelie run room",
+			end: "RRoute: Right door of lollipop/wheelie run room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Bottom left door of Prank and Cookin room",
+			end: "RRoute: Top right door of Prank and Cookin room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Bottom left door of big mountainous room w/ Soarer",
+			end: "RRoute: Top left door of big mountainous room w/ Soarer",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Bottom left door of big mountainous room w/ Soarer",
+			end: "RRoute: Top right door of big mountainous room w/ Soarer",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Top right door of hit lower bomb block or lose the chest room",
+			end: "RRoute: Bottom left door of hit lower bomb block or lose the chest room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Entrance of tornado Kirby log room",
+			end: "RRoute: Left door of tornado Kirby log room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Left door of Foley valley",
+			end: "RRoute: Right door of Foley valley",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Left door of MMoun shortcut room 1",
+			end: "RRoute: Right door of MMoun shortcut room 1",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Bottom left door of big mountainous tornado room",
+			end: "RRoute: Top left door of big mountainous tornado room",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Bottom left door of big mountainous tornado room",
+			end: "RRoute: Top right door of big mountainous tornado room",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Bottom left door of big mountainous tornado room",
+			end: "RRoute: Bottom right door of big mountainous tornado room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Top left door of staircase mountain room",
+			end: "RRoute: Bottom right door of staircase mountain room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Top door of mountain crossroad",
+			end: "RRoute: Bottom door of mountain crossroad",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Left door of mountain crossroad",
+			end: "RRoute: Right door of mountain crossroad",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Middle door of cupid mountain room",
+			end: "RRoute: Left door of cupid mountain room",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Middle door of cupid mountain room",
+			end: "RRoute: Right door of cupid mountain room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Right door of mountain Cookin room",
+			end: "RRoute: Left door of mountain Cookin room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Top door of parasol mountainside",
+			end: "RRoute: Bottom right door of parasol mountainside",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRoute: Left door of parasol shotzo room",
+			end: "RRoute: Right door of parasol shotzo room",
+			two_way: true,
+		),
+		(
+			start: "RRoute: Left door of parasol shotzo room",
+			end: "RRoute: Mountain descent entrance of parasol shotzo room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Left door of Foley and Boxin hills",
+			end: "MoonM: Right door of Foley and Boxin hills",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Entrance of big first indoor room",
+			end: "MoonM: Top door of big first indoor room",
+			two_way: true,
+		),
+		(
+			start: "MoonM: Top door of big first indoor room",
+			end: "MoonM: Door at top right of big first indoor room",
+			two_way: true,
+		),
+		(
+			start: "MoonM: Door at top right of big first indoor room",
+			end: "MoonM: Right lower door of big first indoor room",
+			two_way: true,
+		),
+		(
+			start: "MoonM: Door at top right of big first indoor room",
+			end: "MoonM: Left lower door of big first indoor room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Left door of Mr. Frosty room",
+			end: "MoonM: Right door of Mr. Frosty room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Left door of MoonM shortcut room",
+			end: "MoonM: Right door of MoonM shortcut room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Left door of room right of MoonM shortcut",
+			end: "MoonM: Right door of room right of MoonM shortcut",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Entrance of bomb block puzzle room",
+			end: "MoonM: Left door of bomb block puzzle room",
+			two_way: true,
+		),
+		(
+			start: "MoonM: Entrance of bomb block puzzle room",
+			end: "MoonM: Bottom right door of bomb block puzzle room",
+			two_way: true,
+		),
+		(
+			start: "MoonM: Bottom right door of bomb block puzzle room",
+			end: "MoonM: Top right door of bomb block puzzle room",
+			two_way: false,
+		),
+
+
+		(
+			start: "MoonM: Entrance of lollipop run room",
+			end: "MoonM: Secret door of lollipop run room",
+			two_way: true,
+		),
+		(
+			start: "MoonM: Entrance of lollipop run room",
+			end: "MoonM: Door at end of lollipop run room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Entrance of King Golem prep room",
+			end: "MoonM: Door of King Golem prep room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Entrance of Boxy room",
+			end: "MoonM: Door at top of Boxy room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Entrance of Bonkers room",
+			end: "MoonM: Door at top of Bonkers room",
+			two_way: false,
+		),
+
+
+		(
+			start: "MoonM: Entrance of tall room before star room",
+			end: "MoonM: Boarded up door in tall room before star room",
+			two_way: false,
+		),
+		(
+			start: "MoonM: Entrance of tall room before star room",
+			end: "MoonM: Burner room entrance of tall room before star room",
+			two_way: false,
+		),
+		(
+			start: "MoonM: Burner room entrance of tall room before star room",
+			end: "MoonM: Boarded up door in tall room before star room",
+			two_way: true,
+		),
+		(
+			start: "MoonM: Boarded up door in tall room before star room",
+			end: "MoonM: Door at top of tall room before star room",
+			two_way: true,
+		),
+		(
+			start: "MoonM: Entrance of warp star room",
+			end: "CandyC: Left door of Boxin Hothead and Sparky room",
+			two_way: false,
+		),
+
+
+		(
+			start: "MoonM: Entrance of Burner room",
+			end: "MoonM: Door in Burner room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Left door of tiny hallway",
+			end: "MoonM: Right door of tiny hallway",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Top left door of lever room",
+			end: "MoonM: Lever door in lever room",
+			two_way: false,
+		),
+		(
+			start: "MoonM: Top left door of lever room",
+			end: "MoonM: Top right door of lever room",
+			two_way: false,
+		),
+		(
+			start: "MoonM: Lever door in lever room",
+			end: "MoonM: Destination at lever door in lever room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Entrance of left shaft of MoonM lever wind room",
+			end: "MoonM: Exit of left shaft of MoonM lever wind room",
+			two_way: false,
+		),
+
+
+		(
+			start: "MoonM: Entrance of right shaft of MoonM lever wind room",
+			end: "MoonM: Exit of right shaft of MoonM lever wind room",
+			two_way: false,
+		),
+
+
+		(
+			start: "MoonM: Left door of quake block room",
+			end: "MoonM: Top right door of quake block room",
+			two_way: true,
+		),
+		(
+			start: "MoonM: Left door of quake block room",
+			end: "MoonM: Right door of quake block room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Entrance of sword + machinery room",
+			end: "MoonM: Door in sword + machinery room",
+			two_way: true,
+		),
+
+		
+		(
+			start: "MoonM: Left door of outdoor lake room",
+			end: "MoonM: Right door of outdoor lake room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Bottom left door of MoonM crossroad",
+			end: "MoonM: Top left door of MoonM crossroad",
+			two_way: true,
+		),
+		(
+			start: "MoonM: Bottom left door of MoonM crossroad",
+			end: "MoonM: Top right door of MoonM crossroad",
+			two_way: true,
+		),
+		(
+			start: "MoonM: Bottom left door of MoonM crossroad",
+			end: "MoonM: Bottom right door of MoonM crossroad",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Entrance of cutter platform room w/ switch gate",
+			end: "MoonM: Bottom door of cutter platform room w/ switch gate",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Entrance of Cookin in graveyard room",
+			end: "MoonM: Right door of Cookin in graveyard room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MoonM: Entrance of hammer peg graveyard room",
+			end: "MoonM: Right door of hammer peg graveyard room",
+			two_way: true,
+		),
+		(
+			start: "MoonM: Right door of hammer peg graveyard room",
+			end: "MoonM: Left door of hammer peg graveyard room",
+			two_way: true,
+		),
+		(
+			start: "MoonM: Left door of hammer peg graveyard room",
+			end: "MoonM: Water current at bottom of hammer peg graveyard room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCav: Middle door of grassy water room",
+			end: "CCav: Top right door of grassy water room",
+			two_way: true,
+		),
+		(
+			start: "CCav: Middle door of grassy water room",
+			end: "CCav: Left door of grassy water room",
+			two_way: true,
+		),
+		(
+			start: "CCav: Water entrance of grassy water room",
+			end: "CCav: Top right door of grassy water room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCav: Top left door of UFO room",
+			end: "CCav: Bottom right door of UFO room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Bottom right door of top left Bonkers room",
+			end: "CCav: Top left entrance of top left Bonkers room",
+			two_way: true,
+		),
+		(
+			start: "CCav: Top left entrance of top left Bonkers room",
+			end: "CCav: Bottom door of top left Bonkers room",
+			two_way: true,
+		),
+		(
+			start: "CCav: Water current entrance of top left Bonkers room",
+			end: "CCav: Bottom right door of top left Bonkers room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCav: Lake entrance of grassy room that leads to RRuins",
+			end: "CCav: Water current in grassy room that leads to RRuins",
+			two_way: false,
+		),
+		(
+			start: "CCav: Bottom left door of grassy room that leads to RRuins",
+			end: "CCav: Lake entrance of grassy room that leads to RRuins",
+			two_way: false,
+		),
+		(
+			start: "CCav: Middle door of grassy room that leads to RRuins",
+			end: "CCav: Bottom left door of grassy room that leads to RRuins",
+			two_way: true,
+		),
+		(
+			start: "CCav: Bottom left door of grassy room that leads to RRuins",
+			end: "CCav: Bottom right door of grassy room that leads to RRuins",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Top door of spike trap room",
+			end: "CCav: Bottom left door of spike trap room",
+			two_way: true,
+		),
+		(
+			start: "CCav: Bottom left door of spike trap room",
+			end: "CCav: Top door of spike trap room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Top right door of drowning Chip room",
+			end: "CCav: Water door in drowning Chip room",
+			two_way: false,
+		),
+		(
+			start: "CCav: Top left door of drowning Chip room",
+			end: "CCav: Top right door of drowning Chip room",
+			two_way: true,
+		),
+		(
+			start: "CCav: Top left door of drowning Chip room",
+			end: "CCav: Door at bottom of drowning Chip room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Right door of RRuins shortcut room 1",
+			end: "CCav: Left door of RRuins shortcut room 1",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Left door of sapphire spray paint room",
+			end: "CCav: Top right door of sapphire spray paint room",
+			two_way: false,
+		),
+		(
+			start: "CCav: Left door of sapphire spray paint room",
+			end: "CCav: Bottom right door of sapphire spray paint room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Upper entrance of bottom right Bonkers room",
+			end: "CCav: Middle of bottom right Bonkers room",
+			two_way: false,
+		),
+		(
+			start: "CCav: Lower entrance of bottom right Bonkers room",
+			end: "CCav: Middle of bottom right Bonkers room",
+			two_way: false,
+		),
+		(
+			start: "CCav: Middle of bottom right Bonkers room",
+			end: "CCav: Door at top of bottom right Bonkers room",
+			two_way: false,
+		),
+		(
+			start: "CCav: Middle of bottom right Bonkers room",
+			end: "CCav: Wind tunnel at bottom of bottom right Bonkers room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCav: Entrance of Moley prep room",
+			end: "CCav: Door in Moley prep room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Top door of Batafire roadblock room",
+			end: "CCav: Bottom right door of Batafire roadblock room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Left door of chocolate spray paint room",
+			end: "CCav: Right door of chocolate spray paint room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Left door of CCav shortcut room 2",
+			end: "CCav: Right door of CCav shortcut room 2",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Left door of pointless Box Boxer room",
+			end: "CCav: Right door of pointless Box Boxer room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Left door of water room leading to OO",
+			end: "CCav: Bottom right door of water room leading to OO",
+			two_way: true,
+		),
+		(
+			start: "CCav: Left door of water room leading to OO",
+			end: "CCav: Top door of water room leading to OO",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Left door of OO shortcut room 1",
+			end: "CCav: Right door of OO shortcut room 1",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Bottom door of water room w/ hammer only shortcuts",
+			end: "CCav: Top right door of water room w/ hammer only shortcuts",
+			two_way: true,
+		),
+		(
+			start: "CCav: Bottom door of water room w/ hammer only shortcuts",
+			end: "CCav: Top left door of water room w/ hammer only shortcuts",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Left door of room with battery and pep brew behind break blocks",
+			end: "CCav: Bottom right door of room with battery and pep brew behind break blocks",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Left door of Sir Kibble Corridor",
+			end: "CCav: Bottom door of Sir Kibble Corridor",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCav: Entrance of blue music sheet room",
+			end: "CCav: Door in blue music sheet room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Entrance of pointless Bombar room",
+			end: "MMoun: Door in pointless Bombar room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Entrance of pointless Bombar room",
+			end: "MMoun: Door in pointless Bombar room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Entrance of pointless Bombar room",
+			end: "MMoun: Door in pointless Bombar room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Left door of room leading to pointless Bombar",
+			end: "MMoun: Middle door of room leading to pointless Bombar",
+			two_way: true,
+		),
+		(
+			start: "MMoun: Left door of room leading to pointless Bombar",
+			end: "MMoun: Peak in room leading to pointless Bombar",
+			two_way: true,
+		),
+		(
+			start: "MMoun: Left door of room leading to pointless Bombar",
+			end: "MMoun: Right door of room leading to pointless Bombar",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Bottom door of checkerboard mountain cave",
+			end: "MMoun: Top door of checkerboard mountain cave",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Bottom right door of big mountainous room with Giant Rockies",
+			end: "MMoun: Top left door of big mountainous room with Giant Rockies",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Right door of MMoun shortcut room 2",
+			end: "MMoun: Left door of MMoun shortcut room 2",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Bottom door of first lava room on Kracko path",
+			end: "MMoun: Top door of first lava room on Kracko path",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Bottom door of first lava room on Kracko path",
+			end: "MMoun: Top door of first lava room on Kracko path",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Top left door of lava Mini room",
+			end: "MMoun: Left entrance of lava Mini room",
+			two_way: true,
+		),
+		(
+			start: "MMoun: Left entrance of lava Mini room",
+			end: "MMoun: Bottom door of lava Mini room",
+			two_way: false,
+		),
+		(
+			start: "MMoun: Right entrance of lava Mini room",
+			end: "MMoun: Bottom door of lava Mini room",
+			two_way: false,
+		),
+		(
+			start: "MMoun: Left entrance of lava Mini room",
+			end: "MMoun: Right entrance of lava Mini room",
+			two_way: true,
+		),
+		(
+			start: "MMoun: Right entrance of lava Mini room",
+			end: "MMoun: Top right door of lava Mini room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Entrance of mountain descent",
+			end: "MMoun: Bottom door of mountain descent",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Left entrance of cupid room",
+			end: "MMoun: Top door of cupid room",
+			two_way: false,
+		),
+		(
+			start: "MMoun: Right entrance of cupid room",
+			end: "MMoun: Top door of cupid room",
+			two_way: false,
+		),
+
+
+		(
+			start: "MMoun: Entrance of cutter platform room with wheelie",
+			end: "MMoun: Door in cutter platform room with wheelie",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Entrance of quake locked 1ups room",
+			end: "MMoun: Door in quake locked 1ups room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Entrance of shadow kirby room",
+			end: "MMoun: Lower door in shadow kirby room",
+			two_way: true,
+		),
+		(
+			start: "MMoun: Entrance of shadow kirby room",
+			end: "MMoun: Upper door in shadow kirby room",
+			two_way: false,
+		),
+
+
+		(
+			start: "MMoun: Entrance of Batafire room",
+			end: "MMoun: Door in Batafire room",
+			two_way: false,
+		),
+
+
+		(
+			start: "MMoun: Entrance of first Kracko prep room",
+			end: "MMoun: First Kracko prep room door",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Entrance of cannon room",
+			end: "MMoun: Second Kracko prep room door",
+			two_way: false,
+		),
+
+
+		(
+			start: "MMoun: Lower door of mountain ascent first room",
+			end: "MMoun: Upper door of mountain ascent first room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Entrance of mountain ascent split",
+			end: "MMoun: Left door of mountain ascent split",
+			two_way: false,
+		),
+		(
+			start: "MMoun: Entrance of mountain ascent split",
+			end: "MMoun: Right door of mountain ascent split",
+			two_way: false,
+		),
+
+
+		(
+			start: "MMoun: Left entrance of mountain top eruption room",
+			end: "MMoun: Top of mountain top eruption room",
+			two_way: false,
+		),
+		(
+			start: "MMoun: Right entrance of mountain top eruption room",
+			end: "MMoun: Top of mountain top eruption room",
+			two_way: false,
+		),
+		(
+			start: "MMoun: Top of mountain top eruption room",
+			end: "MMoun: Left door of mountain top eruption room",
+			two_way: true,
+		),
+		(
+			start: "MMoun: Top of mountain top eruption room",
+			end: "MMoun: Right door of mountain top eruption room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Bottom right door of bomb kirby switch puzzle room",
+			end: "MMoun: Top right door of bomb kirby switch puzzle room",
+			two_way: false,
+		),
+		(
+			start: "MMoun: Bottom right door of bomb kirby switch puzzle room",
+			end: "MMoun: Top left door of bomb kirby switch puzzle room",
+			two_way: true,
+		),
+
+
+		(
+			start: "MMoun: Entrance of explosive enemies room",
+			end: "MMoun: Door in explosive enemies room",
+			two_way: false,
+		),
+
+
+		(
+			start: "MMoun: Right entrance of Phan phan room",
+			end: "MMoun: Door in Phan phan room",
+			two_way: false,
+		),
+		(
+			start: "MMoun: Left entrance of Phan phan room",
+			end: "MMoun: Door in Phan phan room",
+			two_way: false,
+		),
+
+
+		(
+			start: "MMoun: Fire temple entrance",
+			end: "MMoun: Mini locked door in fire temple",
+			two_way: false,
+		),
+		(
+			start: "MMoun: Fire temple entrance",
+			end: "MMoun: No Mini door in fire temple",
+			two_way: false,
+		),
+
+
+		(
+			start: "MMoun: Entrance of warp star room",
+			end: "CandyC: Bottom left door of music player hammer peg room",
+			two_way: false,
+		),
+
+
+		(
+			start: "MMoun: Entrance of fire temple tunnel",
+			end: "MMoun: Wind tunnel at end of fire temple tunnel",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCastle: Bottom door of grassy pick-a-path room",
+			end: "CCastle: Top left door of grassy pick-a-path room",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Bottom door of grassy pick-a-path room",
+			end: "CCastle: Top right door of grassy pick-a-path room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCastle: RRoute door in grassy giant rocky room",
+			end: "CCastle: Bottom left door of grassy giant rocky room",
+			two_way: true,
+		),
+		(
+			start: "CCastle: RRoute door in grassy giant rocky room",
+			end: "CCastle: Top left door of grassy giant rocky room",
+			two_way: true,
+		),
+		(
+			start: "CCastle: Right entrance of grassy giant rocky room",
+			end: "CCastle: RRoute door in grassy giant rocky room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCastle: Right entrance of grassy Heavy Knights room",
+			end: "CCastle: Left door of grassy Heavy Knights room",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Left door of grassy Heavy Knights room",
+			end: "CCastle: Bottom door of grassy Heavy Knights room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Right door of PP front entrance",
+			end: "CCastle: Middle door of PP front entrance",
+			two_way: true,
+		),
+		(
+			start: "CCastle: Middle door of PP front entrance",
+			end: "CCastle: Left door of PP front entrance",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Right door of CCastle shortcut room 2",
+			end: "CCastle: Left door of CCastle shortcut room 2",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Right door of CCastle front entrance",
+			end: "CCastle: Middle door of CCastle front entrance",
+			two_way: true,
+		),
+		(
+			start: "CCastle: Middle door of CCastle front entrance",
+			end: "CCastle: Lever door of CCastle front entrance",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Destination at lever door in lever room",
+			end: "CCastle: Lever door of CCastle front entrance",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of left shaft of lever wind room",
+			end: "CCastle: Exit of left shaft of lever wind room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCastle: Entrance of right shaft of lever wind room",
+			end: "CCastle: Exit of right shaft of lever wind room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCastle: Entrance of castle",
+			end: "CCastle: Mirra door in castle first room",
+			two_way: true,
+		),
+		(
+			start: "CCastle: Entrance of castle",
+			end: "CCastle: Left door in castle first room",
+			two_way: true,
+		),
+		(
+			start: "CCastle: Entrance of castle",
+			end: "CCastle: Top door of castle first room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of Mirra 8cannon room",
+			end: "CCastle: Middle door in Mirra 8cannon room",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of Mirra 8cannon room",
+			end: "CCastle: Bottom left door in Mirra 8cannon room",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of Mirra 8cannon room",
+			end: "CCastle: Redo entrance of Mirra 8cannon room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of spike hall",
+			end: "CCastle: Door in spike hall",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Bottom door of castle 2nd half of first room",
+			end: "CCastle: Top door of castle 2nd half of first room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Bottom door of castle 2nd half of first room",
+			end: "CCastle: Top door of castle 2nd half of first room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of castle roof",
+			end: "CCastle: Pit in castle roof",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of castle roof",
+			end: "CCastle: Left door of castle roof",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Left door of castle roof",
+			end: "CCastle: Pit exit",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of purple music sheet room",
+			end: "CCastle: Door in purple music sheet room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of pick a wind chute room",
+			end: "CCastle: Left chute in pick a wind chute room",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of pick a wind chute room",
+			end: "CCastle: Right chute in pick a wind chute room",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of pick a wind chute room",
+			end: "CCastle: Center chute in pick a wind chute room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCastle: Entrance of Big Waddle Dee wind chute room",
+			end: "CCastle: Door in Big Waddle Dee wind chute room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of Chip wind chute room",
+			end: "CCastle: Door in Chip wind chute room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of Noddy and Gordo wind chute room",
+			end: "CCastle: Door in Noddy and Gordo wind chute room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of Gordo and bomb block wind chute room",
+			end: "CCastle: Door in Gordo and bomb block wind chute room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of free Smash wind chute room",
+			end: "CCastle: Door in free Smash wind chute room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of Chip and Gordo wind chute room",
+			end: "CCastle: Door in Chip and Gordo wind chute room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of Sparky and Gordo room",
+			end: "CCastle: Door in Sparky and Gordo room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of Noddy and Sparky room",
+			end: "CCastle: Door in Noddy and Sparky room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of goodies wind chute room",
+			end: "CCastle: Door in goodies wind chute room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of yellow spray paint room",
+			end: "CCastle: Left door in yellow spray paint room",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of yellow spray paint room",
+			end: "CCastle: Left door exit of yellow spray paint room",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of yellow spray paint room",
+			end: "CCastle: Right door in yellow spray paint room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCastle: Entrance of wheelie room",
+			end: "CCastle: Door in wheelie room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCastle: Entrance of checkerboard room",
+			end: "CCastle: Door in checkerboard room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCastle: Entrance of warp star room split",
+			end: "CCastle: Right door at warp star room split",
+			two_way: true,
+		),
+		(
+			start: "CCastle: Entrance of warp star room split",
+			end: "CCastle: Warp star at warp star room split",
+			two_way: true,
+		),
+		(
+			start: "CCastle: Warp star at warp star room split",
+			end: "PP: Warp star entrance of cavern first room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCastle: Entrance of map room",
+			end: "CCastle: Door in map room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Upper entrance of Mega Titan prep room",
+			end: "CCastle: Door in Mega Titan prep room",
+			two_way: true,
+		),
+		(
+			start: "CCastle: Upper entrance of Mega Titan prep room",
+			end: "CCastle: Lower entrance of Mega Titan prep room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of hell crossroad",
+			end: "CCastle: Up exit of hell crossroad",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of hell crossroad",
+			end: "CCastle: Up right exit of hell crossroad",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of hell crossroad",
+			end: "CCastle: Right exit of hell crossroad",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of hell crossroad",
+			end: "CCastle: Down right exit of hell crossroad",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of hell crossroad",
+			end: "CCastle: Down exit of hell crossroad",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of hell crossroad",
+			end: "CCastle: Down exit of hell crossroad",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of hell crossroad",
+			end: "CCastle: Down left exit of hell crossroad",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of hell crossroad",
+			end: "CCastle: Left exit of hell crossroad",
+			two_way: false,
+		),
+		(
+			start: "CCastle: Entrance of hell crossroad",
+			end: "CCastle: Up left exit of hell crossroad",
+			two_way: false,
+		),
+
+
+		(
+			start: "CCastle: Entrance of checkerboard Gordo room",
+			end: "CCastle: Door in checkerboard Gordo room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of spike trap room",
+			end: "CCastle: Door in spike trap room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of sparky party room",
+			end: "CCastle: Door in sparky party room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of spike room",
+			end: "CCastle: Door in spike room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of Mini room",
+			end: "CCastle: Top door in Mini room",
+			two_way: true,
+		),
+		(
+			start: "CCastle: Entrance of Mini room",
+			end: "CCastle: Bottom door in Mini room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of vitality heart room",
+			end: "CCastle: Door in vitality heart room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of phan phan room",
+			end: "CCastle: Door in phan phan room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of cherry room",
+			end: "CCastle: Door in cherry room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of progress room",
+			end: "CCastle: Door in progress room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CCastle: Entrance of choose a cannon room",
+			end: "CCastle: Top cannon in choose a cannon room",
+			two_way: true,
+		),
+		(
+			start: "CCastle: Entrance of choose a cannon room",
+			end: "CCastle: Bottom cannon in choose a cannon room",
+			two_way: true,
+		),
+
+
+		(
+			start: "OO: Left door of first room of OO",
+			end: "OO: Right door of first room of OO",
+			two_way: true,
+		),
+
+
+		(
+			start: "OO: Left door of second room of OO",
+			end: "OO: Middle door of second room of OO",
+			two_way: true,
+		),
+		(
+			start: "OO: Middle door of second room of OO",
+			end: "OO: Right door of second room of OO",
+			two_way: true,
+		),
+
+
+		(
+			start: "OO: Entrance of seaside split room",
+			end: "OO: Middle door of seaside split room",
+			two_way: true,
+		),
+		(
+			start: "OO: Entrance of seaside split room",
+			end: "OO: Right door of seaside split room",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Entrance of shotzo path of split room",
+			end: "OO: Door in shotzo path of split room",
+			two_way: true,
+		),
+
+
+		(
+			start: "OO: Entrance of cherry temptation room",
+			end: "OO: Door in cherry temptation room",
+			two_way: false,
+		),
+		(
+			start: "OO: Door in cherry temptation room",
+			end: "OO: Troll cannon destination",
+			two_way: true,
+		),
+
+
+		(
+			start: "OO: Entrance of Mini room",
+			end: "OO: Door in Mini room",
+			two_way: true,
+		),
+
+
+		(
+			start: "OO: Entrance of upper split room",
+			end: "OO: Door in upper split room",
+			two_way: true,
+		),
+
+
+		(
+			start: "OO: Entrance of Boxy and troll cannon room",
+			end: "OO: Right door in Boxy and troll cannon room",
+			two_way: false,
+		),
+		(
+			start: "OO: Right door in Boxy and troll cannon room",
+			end: "OO: Troll cannon",
+			two_way: true,
+		),
+		(
+			start: "OO: Troll cannon",
+			end: "OO: Troll cannon destination",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Left door of Leaps and waterfalls room",
+			end: "OO: Right door of Leaps and waterfalls room",
+			two_way: true,
+		),
+
+
+		(
+			start: "OO: Bottom left door of fish trap room",
+			end: "OO: Right door of fish trap room",
+			two_way: true,
+		),
+
+
+		(
+			start: "OO: Left door of OO shortcut room 2",
+			end: "OO: Right door of OO shortcut room 2",
+			two_way: true,
+		),
+
+
+		(
+			start: "OO: Left door of ocean split room",
+			end: "OO: Right door of ocean split room",
+			two_way: true,
+		),
+		(
+			start: "OO: Left door of ocean split room",
+			end: "OO: Mirra door in ocean split room",
+			two_way: true,
+		),
+		(
+			start: "OO: Left door of ocean split room",
+			end: "OO: Bottom door of ocean split room",
+			two_way: true,
+		),
+
+
+		(
+			start: "OO: Entrance of downward currents room",
+			end: "OO: Door at bottom of downward currents room",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Entrance of currents and Shooties room",
+			end: "OO: Door in currents and Shooties room",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Entrance of spike reveal room",
+			end: "OO: Water current in spike reveal room",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Entrance of spike reveal room",
+			end: "OO: Water current in spike reveal room",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Entrance of OO map room",
+			end: "OO: Door in OO map room",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Entrance of expected hammer room",
+			end: "OO: Door in expected hammer room",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Entrance of Gobbler approach",
+			end: "OO: UFO entrance of Gobbler approach",
+			two_way: true,
+		),
+		(
+			start: "OO: Entrance of Gobbler approach",
+			end: "OO: Door in Gobbler approach",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Entrance of Gobbler prep room",
+			end: "OO: Door in Gobbler prep room",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Entrance of shotzo purple cavern room",
+			end: "OO: Door in shotzo purple cavern room",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Entrance of vitality heart room",
+			end: "OO: Door in vitality heart room",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Entrance of cutter platform purple cavern room",
+			end: "OO: Door in cutter platform purple cavern room",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Entrance of pick a water chute room",
+			end: "OO: Top door of pick a water chute room",
+			two_way: false,
+		),
+		(
+			start: "OO: Top door of pick a water chute room",
+			end: "OO: Bottom right door of pick a water chute room",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Left door of Gordo hall",
+			end: "OO: Right door of Gordo hall",
+			two_way: true,
+		),
+
+
+		(
+			start: "OO: Bottom left door of burning split room",
+			end: "OO: Top left door of burning split room",
+			two_way: true,
+		),
+		(
+			start: "OO: Top left door of burning split room",
+			end: "OO: Bottom right door of burning split room",
+			two_way: true,
+		),
+		(
+			start: "OO: Bottom right door of burning split room",
+			end: "OO: Top right door of burning split room",
+			two_way: false,
+		),
+
+
+		(
+			start: "OO: Left door of lever room",
+			end: "OO: Lever door in lever room",
+			two_way: false,
+		),
+		(
+			start: "OO: Lever door in lever room",
+			end: "OO: Destination at lever door in lever room",
+			two_way: true,
+		),
+
+
+		(
+			start: "OO: Entrance of water currents to Mr. Frosty room",
+			end: "OO: Door in water currents to Mr. Frosty room",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Right door of cavern first room",
+			end: "PP: Left door of cavern first room",
+			two_way: true,
+		),
+		(
+			start: "PP: Warp star entrance of cavern first room",
+			end: "PP: Left door of cavern first room",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Right door of PP shortcut room 2",
+			end: "PP: Left door of PP shortcut room 2",
+			two_way: true,
+		),
+
+
+		(
+			start: "PP: Bottom right door of Waddle Dee buckets room",
+			end: "PP: Top left door of Waddle Dee buckets room",
+			two_way: true,
+		),
+		(
+			start: "PP: Bottom right door of Waddle Dee buckets room",
+			end: "PP: Top right entrance of Waddle Dee buckets room",
+			two_way: true,
+		),
+
+
+		(
+			start: "PP: Right door of drowning Boxin room",
+			end: "PP: Left door of drowning Boxin room",
+			two_way: true,
+		),
+
+
+		(
+			start: "PP: Bottom right door of outdoor Prank room",
+			end: "PP: Bottom left door of outdoor Prank room",
+			two_way: true,
+		),
+
+
+		(
+			start: "PP: Right door of flamer and cutterlocked door room",
+			end: "PP: Cutterlocked door of flamer and cutterlocked door room",
+			two_way: false,
+		),
+		(
+			start: "PP: Right door of flamer and cutterlocked door room",
+			end: "PP: Left door of flamer and cutterlocked door room",
+			two_way: true,
+		),
+
+
+		(
+			start: "PP: Entrance of Scarfies and Metal Guardian room",
+			end: "PP: Door in Scarfies and Metal Guardian room",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Bottom left door of palace first room",
+			end: "PP: Top left door of palace first room",
+			two_way: true,
+		),
+
+
+		(
+			start: "PP: Bottom left door of Prank pool room",
+			end: "PP: Top left door of Prank pool room",
+			two_way: true,
+		),
+
+
+		(
+			start: "PP: Bottom left door of laser slopes room",
+			end: "PP: Bottom right door of laser slopes room",
+			two_way: true,
+		),
+		(
+			start: "PP: Bottom left door of laser slopes room",
+			end: "PP: Top right door of laser slopes room",
+			two_way: true,
+		),
+		(
+			start: "PP: Bottom left door of laser slopes room",
+			end: "PP: Top left door of laser slopes room",
+			two_way: true,
+		),
+
+
+
+		(
+			start: "PP: Right door of PP shortcut room 1",
+			end: "PP: Left door of PP shortcut room 1",
+			two_way: true,
+		),
+
+
+		(
+			start: "PP: Bottom right door of miniboss central",
+			end: "PP: Left door of miniboss central",
+			two_way: true,
+		),
+		(
+			start: "PP: Bottom right door of miniboss central",
+			end: "PP: Box Boxer door in miniboss central",
+			two_way: false,
+		),
+		(
+			start: "PP: Bottom right door of miniboss central",
+			end: "PP: Bonkers door in miniboss central",
+			two_way: false,
+		),
+		(
+			start: "PP: Bottom right door of miniboss central",
+			end: "PP: Top door in miniboss central",
+			two_way: true,
+		),
+		(
+			start: "PP: Map room entrance of miniboss central",
+			end: "PP: Bottom right door of miniboss central",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Right door of cutterlocked food room",
+			end: "PP: Top left door of cutterlocked food room",
+			two_way: true,
+		),
+		(
+			start: "PP: Box Boxer entrance of cutterlocked food room",
+			end: "PP: Top left door of cutterlocked food room",
+			two_way: false,
+		),
+		(
+			start: "PP: Hammer peg entrance of cutterlocked food room",
+			end: "PP: Top left door of cutterlocked food room",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Bonkers entrance of map room",
+			end: "PP: Door below Leap and Sparky in map room",
+			two_way: false,
+		),
+		(
+			start: "PP: Bonkers entrance of map room",
+			end: "PP: Mirra door in map room",
+			two_way: false,
+		),
+		(
+			start: "PP: Snow spray paint entrance of map room",
+			end: "PP: Door below Leap and Sparky in map room",
+			two_way: false,
+		),
+		(
+			start: "PP: Snow spray paint entrance of map room",
+			end: "PP: Mirra door in map room",
+			two_way: false,
+		),
+		(
+			start: "PP: Snow spray paint entrance of map room",
+			end: "PP: Bottom left door of map room",
+			two_way: false,
+		),
+		(
+			start: "PP: Top door of map room",
+			end: "PP: Door below Leap and Sparky in map room",
+			two_way: false,
+		),
+		(
+			start: "PP: Top door of map room",
+			end: "PP: Mirra door in map room",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Map room entrance of snow spray paint",
+			end: "PP: Door in snow spray paint room",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Bottom left door of breaklocked water passage room",
+			end: "PP: Top left door of breaklocked water passage room",
+			two_way: true,
+		),
+		(
+			start: "PP: Top left door of breaklocked water passage room",
+			end: "PP: Water passage door of breaklocked water passage room",
+			two_way: true,
+		),
+		(
+			start: "PP: Top left door of breaklocked water passage room",
+			end: "PP: Top right door of breaklocked water passage room",
+			two_way: false,
+		),
+		(
+			start: "PP: Top left door of breaklocked water passage room",
+			end: "PP: Bottom right door of breaklocked water passage room",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Entrance of 3way split room with wheelie",
+			end: "PP: Door in 3way split room with wheelie",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Right door of Boxin icy slopes room",
+			end: "PP: Left door of Boxin icy slopes room",
+			two_way: true,
+		),
+
+
+		(
+			start: "PP: Entrance of treasure room",
+			end: "PP: Left door of treasure room",
+			two_way: false,
+		),
+		(
+			start: "PP: Entrance of treasure room",
+			end: "PP: Middle door of treasure room",
+			two_way: false,
+		),
+		(
+			start: "PP: Entrance of treasure room",
+			end: "PP: Mirra door of treasure room",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Left entrance of Golem treasure room",
+			end: "PP: Top door of Golem treasure room",
+			two_way: false,
+		),
+		(
+			start: "PP: Middle entrance of Golem treasure room",
+			end: "PP: Top door of Golem treasure room",
+			two_way: false,
+		),
+		(
+			start: "PP: Right entrance of Golem treasure room",
+			end: "PP: Top door of Golem treasure room",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Entrance of warp star room",
+			end: "CandyC: Left door of falling switch room",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Right door of Cookin room",
+			end: "PP: Middle door of Cookin room",
+			two_way: true,
+		),
+		(
+			start: "PP: Right door of Cookin room",
+			end: "PP: Left door of Cookin room",
+			two_way: true,
+		),
+		(
+			start: "PP: Right door of Cookin room",
+			end: "PP: Hammer peg door in Cookin room",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Right door of meat chest flying enemies room",
+			end: "PP: Water current in meat chest flying enemies room",
+			two_way: false,
+		),
+		(
+			start: "PP: Right door of meat chest flying enemies room",
+			end: "PP: Left door of meat chest flying enemies room",
+			two_way: true,
+		),
+
+
+		(
+			start: "PP: Right door of Bombar flying enemies room",
+			end: "PP: Middle door of Bombar flying enemies room",
+			two_way: true,
+		),
+		(
+			start: "PP: Right door of Bombar flying enemies room",
+			end: "PP: Left door of Bombar flying enemies room",
+			two_way: true,
+		),
+		(
+			start: "PP: Water current entrance of Bombar flying enemies room",
+			end: "PP: Right door of Bombar flying enemies room",
+			two_way: false,
+		),
+		(
+			start: "PP: Water current entrance of Bombar flying enemies room",
+			end: "PP: Water current in Bombar flying enemies room",
+			two_way: false,
+		),
+		(
+			start: "PP: Right door of Bombar flying enemies room",
+			end: "PP: Water current in Bombar flying enemies room",
+			two_way: false,
+		),
+		(
+			start: "PP: Middle entrance of Bombar flying enemies room",
+			end: "PP: Right door of Bombar flying enemies room",
+			two_way: true,
+		),
+
+
+		(
+			start: "PP: Entrance of waterfall room",
+			end: "PP: Door in waterfall room",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Entrance of Bombar room",
+			end: "PP: Door of Bombar room",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Top door of pachinko machine room",
+			end: "PP: Bottom door of pachinko machine room",
+			two_way: true,
+		),
+
+
+		(
+			start: "PP: Top right door of pink spray paint room",
+			end: "PP: Bottom right door of pink spray paint room",
+			two_way: true,
+		),
+		(
+			start: "PP: Top right door of pink spray paint room",
+			end: "PP: Top left door of pink spray paint room",
+			two_way: true,
+		),
+
+
+		(
+			start: "PP: Entrance of Wiz hammer peg room",
+			end: "PP: Top door of Wiz hammer peg room",
+			two_way: false,
+		),
+
+
+		(
+			start: "PP: Entrance of Wiz prep room",
+			end: "PP: Door in Wiz prep room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Right door of first room of RRuins",
+			end: "RRuins: Left door of first room of RRuins",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Entrance of second room of RRuins",
+			end: "RRuins: Door in second room of RRuins",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Top right entrance of Waddle Doo room",
+			end: "RRuins: Bottom left door of Waddle Doo room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Top right entrance of Waddle Doo room",
+			end: "RRuins: Hammer peg door in Waddle Doo room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Bottom left door of Waddle Doo room",
+			end: "RRuins: Hammer peg door in Waddle Doo room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Top left entrance of Waddle Doo room",
+			end: "RRuins: Top left door of Waddle Doo room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Top left door of Waddle Doo room",
+			end: "RRuins: Bottom left door of Waddle Doo room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Bottom right door of lollipop run room",
+			end: "RRuins: Middle door in lollipop run room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Bottom right door of lollipop run room",
+			end: "RRuins: Top left door of lollipop run room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Middle door in lollipop run room",
+			end: "RRuins: Top left door of lollipop run room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Middle door in lollipop run room",
+			end: "RRuins: Top right door of lollipop run room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Bottom left door of lollipop run room",
+			end: "RRuins: Top right door of lollipop run room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Bottom left door of lollipop run room",
+			end: "RRuins: Middle door in lollipop run room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Entrance of vitality heart room",
+			end: "RRuins: Door in vitality heart room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Bottom door of staircase room",
+			end: "RRuins: Door at top of staircase room",
+			two_way: true,
+		),
+		(
+			start: "RRuins: Bonkers entrance of staircase room",
+			end: "RRuins: Door at top of staircase room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRuins: Right door of wheelie room",
+			end: "RRuins: Left door of wheelie room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Entrance of Bonkers room",
+			end: "RRuins: Door in Bonkers room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Hidden right entrance of Mirra room",
+			end: "RRuins: Right door of Mirra room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Right door of Mirra room",
+			end: "RRuins: Top door of Mirra room",
+			two_way: true,
+		),
+		(
+			start: "RRuins: Right door of Mirra room",
+			end: "RRuins: Mirra door of Mirra room",
+			two_way: true,
+		),
+		(
+			start: "RRuins: Bottom entrance of Mirra room",
+			end: "RRuins: Mirra door of Mirra room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Bottom door of checkerboard room",
+			end: "RRuins: Top door of checkerboard room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRuins: Left door of wheelie goal run room",
+			end: "RRuins: Right door of wheelie goal run room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Right door of RRuins shortcut room 2",
+			end: "RRuins: Left door of RRuins shortcut room 2",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRuins: Right door of Foley run room",
+			end: "RRuins: Left door of Foley run room",
+			two_way: true,
+		),
+
+
+		(
+			start: "RRuins: Right door of switch race room",
+			end: "RRuins: Top door of switch race room",
+			two_way: true,
+		),
+		(
+			start: "RRuins: Right door of switch race room",
+			end: "RRuins: Left door of switch race room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Destination at lever door in lever room",
+			end: "RRuins: Lever door of lever room",
+			two_way: true,
+		),
+		(
+			start: "RRuins: Right door of lever room",
+			end: "RRuins: Lever door of lever room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Entrance of ruins split",
+			end: "RRuins: Top door of ruins split",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Entrance of ruins split",
+			end: "RRuins: Bottom door of ruins split",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Entrance of burning kirby room",
+			end: "RRuins: Door in burning kirby room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Entrance of Rolypoly and Hothead room",
+			end: "RRuins: Door in Rolypoly and Hothead room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Entrance of cannon room",
+			end: "RRuins: Bottom door of cannon room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Map room entrance of cannon room",
+			end: "RRuins: Bottom door of cannon room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Entrance of cannon room",
+			end: "RRuins: Right door of cannon room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Map room entrance of cannon room",
+			end: "RRuins: Right door of cannon room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Right door of cannon room",
+			end: "RRuins: Cannon of cannon room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Entrance of map room",
+			end: "RRuins: Door in map room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Cannon of cannon room",
+			end: "RRuins: Door in cannon destination room",
+			two_way: false,
+		),
+		(
+			start: "RRuins: Entrance of cannon destination room",
+			end: "RRuins: Door in cannon destination room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Entrance of master hand room",
+			end: "RRuins: Door in master hand room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Entrance of smash rampage room",
+			end: "RRuins: Door in smash rampage room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Entrance of ruins ascent",
+			end: "RRuins: Door at top of ruins ascent",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Entrance of first sunset room",
+			end: "RRuins: Door in first sunset room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Entrance of shadow kirby room",
+			end: "RRuins: Door in shadow kirby room",
+			two_way: false,
+		),
+
+
+		(
+			start: "RRuins: Entrance of Metaknight prep room",
+			end: "RRuins: Door in Metaknight prep room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CandyC: Right door of free smash room",
+			end: "CandyC: Bottom left door of free smash room",
+			two_way: true,
+		),
+		(
+			start: "CandyC: Right door of free smash room",
+			end: "CandyC: Top door of free smash room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CandyC: Bottom left door of music player hammer peg room",
+			end: "CandyC: Bottom right door of music player hammer peg room",
+			two_way: true,
+		),
+		(
+			start: "CandyC: Bottom left door of music player hammer peg room",
+			end: "CandyC: Top right door of music player hammer peg room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CandyC: Top left door of floating water blocks room",
+			end: "CandyC: Bottom right door of floating water blocks room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CandyC: Left door of Boxin Hothead and Sparky room",
+			end: "CandyC: Right door of Boxin Hothead and Sparky room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CandyC: Top left door of Rocky switch race room",
+			end: "CandyC: Bottom right door of Rocky switch race room",
+			two_way: true,
+		),
+		(
+			start: "CandyC: Top left door of Rocky switch race room",
+			end: "CandyC: Top right door of Rocky switch race room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CandyC: Left door of falling switch room",
+			end: "CandyC: Middle door of falling switch room",
+			two_way: true,
+		),
+		(
+			start: "CandyC: Left door of falling switch room",
+			end: "CandyC: Right door of falling switch room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CandyC: Left door of CandyC shortcut room",
+			end: "CandyC: Right door of CandyC shortcut room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CandyC: Bottom left door of vitality heart hammer peg room",
+			end: "CandyC: Top left door of vitality heart hammer peg room",
+			two_way: true,
+		),
+		(
+			start: "CandyC: Bottom left door of vitality heart hammer peg room",
+			end: "CandyC: Top right door of vitality heart hammer peg room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CandyC: Right door of vitality heart connector room",
+			end: "CandyC: Left door of vitality heart connector room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CandyC: Right door of vitality heart connector room",
+			end: "CandyC: Left door of vitality heart connector room",
+			two_way: true,
+		),
+
+
+		(
+			start: "CandyC: Left door of first split room",
+			end: "CandyC: Middle door of first split room",
+			two_way: false,
+		),
+		(
+			start: "CandyC: Left door of first split room",
+			end: "CandyC: Right door of first split room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CandyC: Entrance of spark and burning room",
+			end: "CandyC: Door in spark and burning room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CandyC: Entrance of square chambers room",
+			end: "CandyC: Bottom right door of square chambers room",
+			two_way: false,
+		),
+		(
+			start: "CandyC: Entrance of square chambers room",
+			end: "CandyC: Top right door of square chambers room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CandyC: Entrance of map connector room",
+			end: "CandyC: Door in map connector room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CandyC: Entrance of map room",
+			end: "CandyC: Door in map room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CandyC: Entrance of double heavy knights room",
+			end: "CandyC: Door in double heavy knights room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CandyC: Entrance of warp star room",
+			end: "CandyC: Door in master hand room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CandyC: Entrance of laser ball room",
+			end: "CandyC: Middle door of laser ball room",
+			two_way: false,
+		),
+		(
+			start: "CandyC: Middle door of laser ball room",
+			end: "CandyC: Right door of laser ball room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CandyC: Entrance of wheelie run room",
+			end: "CandyC: Door in wheelie run room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CandyC: Entrance of UFO room",
+			end: "CandyC: Door in UFO room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CandyC: Entrance of shadow kirby room",
+			end: "CandyC: Door in shadow kirby room",
+			two_way: false,
+		),
+
+
+		(
+			start: "CandyC: Entrance of Master hand and Crazy hand prep room",
+			end: "CandyC: Door in Master hand and Crazy hand prep room",
+			two_way: false,
+		)
+	],
+	dynamic_edges: [
+		(
+			start: "RRoute: First door in main hub",
+			end: "RRoute: Entrance to 1st room",
+			two_way: false
+		),
+		(
+			start: "RRoute: Door in 1st room",
+			end: "RRoute: Entrance to 2nd room",
+			two_way: false
+		),
+		(
+			start: "RRoute: 2nd room upper door",
+			end: "RRoute: Upper entrance to 3rd room",
+			two_way: false
+		),
+		(
+			start: "RRoute: 2nd room lower door",
+			end: "RRoute: Lower entrance to 3rd room",
+			two_way: false
+		),
+		(
+			start: "RRoute: Upper third room door",
+			end: "RRoute: Entrance to upper graveyard",
+			two_way: false
+		),
+		(
+			start: "RRoute: Lower third room door",
+			end: "RRoute: Entrance to lower graveyard",
+			two_way: false
+		),
+		(
+			start: "RRoute: Lower graveyard 1way door",
+			end: "RRoute: Entrance to first bangbang room",
+			two_way: false
+		),
+		(
+			start: "RRoute: Upper graveyard door",
+			end: "RRoute: Entrance to first bangbang room",
+			two_way: false
+		),
+		(
+			start: "RRoute: Door in first bangbang room",
+			end: "RRoute: Entrance to MoonM map room (warp star)",
+			two_way: false
+		),
+		(
+			start: "RRoute: Left door of RRoute shortcut",
+			end: "RRoute: Right door of wheelie room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Right door of RRoute shortcut",
+			end: "RRoute: Bottom left door of cutter platforms room w/ heavy knight",
+			two_way: true
+		),
+		(
+			start: "RRoute: Top right door of cutter platforms room w/ heavy knight",
+			end: "MoonM: Left door of outdoor lake room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Top left door of cutter platforms room w/ heavy knight",
+			end: "RRoute: Bottom right door of forest crossroad",
+			two_way: true
+		),
+		(
+			start: "RRoute: Left door of wheelie room",
+			end: "RRoute: Bottom right door of lower graveyard",
+			two_way: true
+		),
+		(
+			start: "RRoute: Bottom left door of lower graveyard",
+			end: "RRoute: Top door of vertical shaft with water",
+			two_way: true
+		),
+		(
+			start: "RRoute: Bottom left door of vertical shaft with water",
+			end: "RRoute: Top of vertical shaft with bangbangs",
+			two_way: true
+		),
+		(
+			start: "RRoute: Bottom right door of vertical shaft with water",
+			end: "RRoute: Left door of rock kirby slide hill",
+			two_way: true
+		),
+		(
+			start: "RRoute: Right door of rock kirby slide hill",
+			end: "RRoute: Entrance to water cave with rolly hills and 1up",
+			two_way: false
+		),
+		(
+			start: "RRoute: Door in water cave with rolly hills and 1up",
+			end: "RRoute: Entrance to rolly hill purple cave",
+			two_way: false
+		),
+		(
+			start: "RRoute: Door in rolly hill purple cave",
+			end: "RRoute: Entrance to master hand goal room",
+			two_way: false
+		),
+		(
+			start: "RRoute: Bottom door of vertical shaft with bangbangs",
+			end: "RRoute: Right door of wheel kirby slide hill",
+			two_way: true
+		),
+		(
+			start: "RRoute: Bottom door of wheel kirby slide hill",
+			end: "CCav: Left door of room with battery and pep brew behind break blocks",
+			two_way: true
+		),
+		(
+			start: "RRoute: Left door of wheel kirby slide hill",
+			end: "RRoute: Right door of canyon crossroad w/ cannon path",
+			two_way: true
+		),
+		(
+			start: "RRoute: Left door of canyon crossroad w/ cannon path",
+			end: "RRoute: Right door of CCav shortcut room 1",
+			two_way: true
+		),
+		(
+			start: "RRoute: Upper door of canyon crossroard w/ cannon path",
+			end: "RRoute: Entrance to tornado canyon room",
+			two_way: false
+		),
+		(
+			start: "RRoute: Door in tornado canyon room",
+			end: "RRoute: Entrance to cannon room",
+			two_way: false
+		),
+		(
+			start: "RRoute: Left door of CCav shortcut room 1",
+			end: "RRoute: Right door of laser ball canyon room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Middle door of laser ball canyon room",
+			end: "CCav: Middle door of grassy water room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Left door of laser ball canyon room",
+			end: "RRoute: Bottom door of grassy vertical shaft with metal guardian",
+			two_way: true
+		),
+		(
+			start: "RRoute: Middle door of grassy vertical shaft with metal guardian",
+			end: "RRoute: Right door of underground log room w/ foleys and rolypolys",
+			two_way: true
+		),
+		(
+			start: "RRoute: Top door of grassy vertical shaft with metal guardian",
+			end: "RRoute: Bottom door of enemy prison tall room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Top left door of underground log room w/ foleys and rolypolys",
+			end: "RRoute: Top right entrance of log room crossroad w/ small chest",
+			two_way: false
+		),
+		(
+			start: "RRoute: Top left door of log room crossroad w/ small chest",
+			end: "RRoute: Right door of random floating logs room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Left door of random floating logs room",
+			end: "RRoute: Bottom door of repetitive vertical shaft with gordos",
+			two_way: true
+		),
+		(
+			start: "RRoute: Top door of repetitive vertical shaft with gordos",
+			end: "CCastle: RRoute door in grassy giant rocky room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Bottom left door of underground log room w/ foleys and rolypolys",
+			end: "RRoute: Lower right entrance of log room crossroad w/ small chest",
+			two_way: false
+		),
+		(
+			start: "RRoute: Bottom right door of log room crossroad w/ small chest",
+			end: "CCav: Top left entrance of top left Bonkers room",
+			two_way: false
+		),
+		(
+			start: "RRoute: Bottom left door of log room crossroad w/ small chest",
+			end: "RRoute: Right entrance of long log room w/ big enemies + mirra",
+			two_way: false
+		),
+		(
+			start: "RRoute: Top left door of long log room w/ big enemies + mirra",
+			end: "RRoute: Top entrance of batafire goal room",
+			two_way: false
+		),
+		(
+			start: "RRoute: Mirra door in long log room w/ big enemies + mirra",
+			end: "RRoute: Lower entrance of batafire goal room",
+			two_way: false
+		),
+		(
+			start: "RRoute: Top door of enemy prison tall room",
+			end: "RRoute: Bottom door of lotsa star blocks room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Top door of lotsa star blocks room",
+			end: "RRoute: Right door of log room w/ mirra",
+			two_way: true
+		),
+		(
+			start: "RRoute: Mirra door in log room w/ mirra",
+			end: "CCastle: Bottom door of grassy pick-a-path room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Middle door of log room w/ mirra",
+			end: "RRoute: Left door of CCastle shortcut room 1",
+			two_way: true
+		),
+		(
+			start: "RRoute: Right door of CCastle shortcut room 1",
+			end: "RRoute: Left door of lollipop/wheelie run room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Right door of lollipop/wheelie run room",
+			end: "RRoute: Bottom left door of Prank and Cookin room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Top right door of Prank and Cookin room",
+			end: "RRoute: Bottom left door of big mountainous room w/ Soarer",
+			two_way: true
+		),
+		(
+			start: "RRoute: Top left door of big mountainous room w/ Soarer",
+			end: "RRoute: Top right door of hit lower bomb block or lose the chest room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Bottom left door of hit lower bomb block or lose the chest room",
+			end: "RRoute: Entrance of tornado Kirby log room",
+			two_way: false
+		),
+		(
+			start: "RRoute: Left door of tornado Kirby log room",
+			end: "RRoute: Entrance of Box Boxer goal room",
+			two_way: false
+		),
+		(
+			start: "RRoute: Top right door of big mountainous room w/ Soarer",
+			end: "RRoute: Left door of Foley valley",
+			two_way: true
+		),
+		(
+			start: "RRoute: Right door of Foley valley",
+			end: "RRoute: Left door of canyon cannon destination room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Right door of canyon cannon destination room",
+			end: "RRoute: Left door of MMoun shortcut room 1",
+			two_way: true
+		),
+		(
+			start: "RRoute: Right door of MMoun shortcut room 1",
+			end: "RRoute: Bottom left door of big mountainous tornado room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Top left door of big mountainous tornado room",
+			end: "MMoun: Bottom right door of bomb kirby switch puzzle room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Top right door of big mountainous tornado room",
+			end: "MMoun: Map room door",
+			two_way: true
+		),
+		(
+			start: "RRoute: Bottom right door of big mountainous tornado room",
+			end: "RRoute: Top left door of staircase mountain room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Bottom right door of staircase mountain room",
+			end: "RRoute: Top door of mountain crossroad",
+			two_way: true
+		),
+		(
+			start: "RRoute: Bottom door of mountain crossroad",
+			end: "RRoute: Middle door of cupid mountain room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Left door of mountain crossroad",
+			end: "RRoute: Right door of mountain Cookin room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Right door of mountain crossroad",
+			end: "MMoun: Left door of room leading to pointless Bombar",
+			two_way: true
+		),
+		(
+			start: "RRoute: Left door of mountain Cookin room",
+			end: "RRoute: Top door of parasol mountainside",
+			two_way: true
+		),
+		(
+			start: "RRoute: Bottom right door of parasol mountainside",
+			end: "RRoute: Left door of cupid mountain room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Right door of cupid mountain room",
+			end: "RRoute: Left door of parasol shotzo room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Right door of parasol shotzo room",
+			end: "RRoute: Left door of forest crossroad",
+			two_way: true
+		),
+		(
+			start: "RRoute: Upper Mirra door of forest crossroad",
+			end: "MMoun: Lower door of mountain ascent first room",
+			two_way: true
+		),
+		(
+			start: "RRoute: Lower Mirra door of forest crossroad",
+			end: "MoonM: Left door of Foley and Boxin hills",
+			two_way: true
+		),
+		(
+			start: "MoonM: Door in map room",
+			end: "MoonM: Entrance of big first indoor room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Top door of big first indoor room",
+			end: "MoonM: Left door of Mr. Frosty room",
+			two_way: true
+		),
+		(
+			start: "MoonM: Right door of Mr. Frosty room",
+			end: "MoonM: Left door of MoonM shortcut room",
+			two_way: true
+		),
+		(
+			start: "MoonM: Right door of MoonM shortcut room",
+			end: "MoonM: Left door of room right of MoonM shortcut",
+			two_way: true
+		),
+		(
+			start: "MoonM: Right door of room right of MoonM shortcut",
+			end: "MoonM: Left door of bomb block puzzle room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Left door of bomb block puzzle room",
+			end: "MoonM: Top left door of bonus room",
+			two_way: true
+		),
+		(
+			start: "MoonM: Bottom right door of bomb block puzzle room",
+			end: "MoonM: Entrance of lollipop run room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Secret door of lollipop run room",
+			end: "MoonM: Top right door of bonus room",
+			two_way: true
+		),
+		(
+			start: "MoonM: Door at end of lollipop run room",
+			end: "MoonM: Entrance of 2nd big switch room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Door of 2nd big switch room",
+			end: "MoonM: Entrance of King Golem prep room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Door of King Golem prep room",
+			end: "MoonM: Entrance of King Golem room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Top right door of bomb block puzzle room",
+			end: "MoonM: Entrance of Boxy room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Door at top of Boxy room",
+			end: "MoonM: Entrance of Bonkers room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Door at top of Bonkers room",
+			end: "MoonM: Entrance of tall room before star room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Boarded up door in tall room before star room",
+			end: "MoonM: Entrance of Burner room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Door in Burner room",
+			end: "MoonM: Burner room entrance of tall room before star room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Door at top of tall room before star room",
+			end: "MoonM: Entrance of warp star room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Door at top right of big first indoor room",
+			end: "MoonM: Left door of tiny hallway",
+			two_way: true
+		),
+		(
+			start: "MoonM: Right lower door of big first indoor room",
+			end: "MoonM: Top right door of lever room",
+			two_way: true
+		),
+		(
+			start: "MoonM: Left lower door of big first indoor room",
+			end: "MoonM: Top left door of lever room",
+			two_way: true
+		),
+		(
+			start: "MoonM: Lever door in lever room",
+			end: "MoonM: Entrance of left shaft of MoonM lever wind room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Exit of left shaft of MoonM lever wind room",
+			end: "OO: Destination at lever door in lever room",
+			two_way: false
+		),
+		(
+			start: "OO: Lever door in lever room",
+			end: "MoonM: Entrance of right shaft of MoonM lever wind room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Exit of right shaft of MoonM lever wind room",
+			end: "MoonM: Destination at lever door in lever room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Right door of tiny hallway",
+			end: "MoonM: Left door of quake block room",
+			two_way: true
+		),
+		(
+			start: "MoonM: Top right door of quake block room",
+			end: "MoonM: Bottom door of bonus room",
+			two_way: true
+		),
+		(
+			start: "MoonM: Right door of quake block room",
+			end: "MoonM: Entrance of sword + machinery room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Door in sword + machinery room",
+			end: "MoonM: Entrance of Batafire goal room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Right door of outdoor lake room",
+			end: "MoonM: Bottom left door of MoonM crossroad",
+			two_way: true
+		),
+		(
+			start: "MoonM: Top left door of MoonM crossroad",
+			end: "MoonM: Right door of Foley and Boxin hills",
+			two_way: true
+		),
+		(
+			start: "MoonM: Bottom right door of MoonM crossroad",
+			end: "MoonM: Door in chalk spray paint chest room",
+			two_way: true
+		),
+		(
+			start: "MoonM: Top right door of MoonM crossroad",
+			end: "MoonM: Entrance of cutter platform room w/ switch gate",
+			two_way: false
+		),
+		(
+			start: "MoonM: Bottom door of cutter platform room w/ switch gate",
+			end: "MoonM: Entrance of Cookin in graveyard room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Right door of Cookin in graveyard room",
+			end: "MoonM: Entrance of hammer peg graveyard room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Right door of hammer peg graveyard room",
+			end: "MoonM: Entrance to MoonM map room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Left door of hammer peg graveyard room",
+			end: "MoonM: Upper entrance of Boxy goal room",
+			two_way: false
+		),
+		(
+			start: "MoonM: Water current at bottom of hammer peg graveyard room",
+			end: "MoonM: Lower entrance of Boxy goal room",
+			two_way: false
+		),
+		(
+			start: "CCav: Bottom door of top left Bonkers room",
+			end: "CCav: Lake entrance of grassy room that leads to RRuins",
+			two_way: false
+		),
+		(
+			start: "CCav: Left door of grassy water room",
+			end: "CCav: Bottom right door of top left Bonkers room",
+			two_way: true
+		),
+		(
+			start: "CCav: Top right door of grassy water room",
+			end: "CCav: Top left door of UFO room",
+			two_way: true
+		),
+		(
+			start: "CCav: Bottom right door of UFO room",
+			end: "CCav: Top door of spike trap room",
+			two_way: true
+		),
+		(
+			start: "CCav: Bottom left door of spike trap room",
+			end: "CCav: Top right door of drowning Chip room",
+			two_way: true
+		),
+		(
+			start: "CCav: Top right door of spike trap room",
+			end: "CCav: Top door of Batafire roadblock room",
+			two_way: true
+		),
+		(
+			start: "CCav: Water door in drowning Chip room",
+			end: "CCav: Water entrance of grassy water room",
+			two_way: false
+		),
+		(
+			start: "CCav: Top left door of drowning Chip room",
+			end: "CCav: Middle door of grassy room that leads to RRuins",
+			two_way: true
+		),
+		(
+			start: "CCav: Door at bottom of drowning Chip room",
+			end: "CCav: Door at top of bottom right Bonkers room",
+			two_way: true
+		),
+		(
+			start: "CCav: Water current in grassy room that leads to RRuins",
+			end: "CCav: Water current entrance of top left Bonkers room",
+			two_way: false
+		),
+		(
+			start: "CCav: Bottom left door of grassy room that leads to RRuins",
+			end: "CCav: Right door of RRuins shortcut room 1",
+			two_way: true
+		),
+		(
+			start: "CCav: Bottom right door of grassy room that leads to RRuins",
+			end: "CCav: Left door of sapphire spray paint room",
+			two_way: true
+		),
+		(
+			start: "CCav: Top right door of sapphire spray paint room",
+			end: "CCav: Upper entrance of bottom right Bonkers room",
+			two_way: false
+		),
+		(
+			start: "CCav: Bottom right door of sapphire spray paint room",
+			end: "CCav: Lower entrance of bottom right Bonkers room",
+			two_way: false
+		),
+		(
+			start: "CCav: Wind tunnel at bottom of bottom right Bonkers room",
+			end: "CCav: Entrance of Moley prep room",
+			two_way: false
+		),
+		(
+			start: "CCav: Door in Moley prep room",
+			end: "CCav: Entrance of Moley room",
+			two_way: false
+		),
+		(
+			start: "CCav: Left door of RRuins shortcut room 1",
+			end: "RRuins: Right door of first room of RRuins",
+			two_way: true
+		),
+		(
+			start: "CCav: Bottom right door of Batafire roadblock room",
+			end: "CCav: Left door of chocolate spray paint room",
+			two_way: true
+		),
+		(
+			start: "CCav: Right door of chocolate spray paint room",
+			end: "CCav: Left door of CCav shortcut room 2",
+			two_way: true
+		),
+		(
+			start: "CCav: Right door of CCav shortcut room 2",
+			end: "CCav: Left door of pointless Box Boxer room",
+			two_way: true
+		),
+		(
+			start: "CCav: Right door of pointless Box Boxer room",
+			end: "CCav: Left door of water room leading to OO",
+			two_way: true
+		),
+		(
+			start: "CCav: Bottom right door of water room leading to OO",
+			end: "CCav: Left door of OO shortcut room 1",
+			two_way: true
+		),
+		(
+			start: "CCav: Right door of OO shortcut room 1",
+			end: "OO: Left door of first room of OO",
+			two_way: true
+		),
+		(
+			start: "CCav: Top door of water room leading to OO",
+			end: "CCav: Bottom door of water room w/ hammer only shortcuts",
+			two_way: true
+		),
+		(
+			start: "CCav: Top right door of water room w/ hammer only shortcuts",
+			end: "CCav: Bottom right door of room with battery and pep brew behind break blocks",
+			two_way: true
+		),
+		(
+			start: "CCav: Top left door of water room w/ hammer only shortcuts",
+			end: "CCav: Bottom door of Sir Kibble Corridor",
+			two_way: true
+		),
+		(
+			start: "CCav: Left door of Sir Kibble Corridor",
+			end: "CCav: Entrance of blue music sheet room",
+			two_way: false
+		),
+		(
+			start: "CCav: Door in blue music sheet room",
+			end: "CCav: Entrance of map room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Middle door of room leading to pointless Bombar",
+			end: "MMoun: Entrance of pointless Bombar room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Door in pointless Bombar room",
+			end: "MMoun: Peak in room leading to pointless Bombar",
+			two_way: false
+		),
+		(
+			start: "MMoun: Right door of room leading to pointless Bombar",
+			end: "MMoun: Bottom door of checkerboard mountain cave",
+			two_way: true
+		),
+		(
+			start: "MMoun: Top door of checkerboard mountain cave",
+			end: "MMoun: Bottom right door of big mountainous room with Giant Rockies",
+			two_way: true
+		),
+		(
+			start: "MMoun: Top left door of big mountainous room with Giant Rockies",
+			end: "MMoun: Right door of MMoun shortcut room 2",
+			two_way: true
+		),
+		(
+			start: "MMoun: Left door of MMoun shortcut room 2",
+			end: "MMoun: Bottom door of first lava room on Kracko path",
+			two_way: true
+		),
+		(
+			start: "MMoun: Top door of first lava room on Kracko path",
+			end: "MMoun: Left entrance of lava Mini room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Bottom door of lava Mini room",
+			end: "MMoun: Entrance of mountain descent",
+			two_way: false
+		),
+		(
+			start: "MMoun: Bottom door of mountain descent",
+			end: "RRoute: Mountain descent entrance of parasol shotzo room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Top left door of lava Mini room",
+			end: "MMoun: Left entrance of cupid room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Top right door of lava Mini room",
+			end: "MMoun: Right entrance of cupid room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Top door of cupid room",
+			end: "MMoun: Entrance of cutter platform room with wheelie",
+			two_way: false
+		),
+		(
+			start: "MMoun: Door in cutter platform room with wheelie",
+			end: "MMoun: Entrance of quake locked 1ups room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Door in quake locked 1ups room",
+			end: "MMoun: Entrance of shadow kirby room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Upper door in shadow kirby room",
+			end: "MMoun: Entrance of cannon room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Lower door in shadow kirby room",
+			end: "MMoun: Entrance of Batafire room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Door in Batafire room",
+			end: "MMoun: Entrance of first Kracko prep room",
+			two_way: false
+		),
+		(
+			start: "MMoun: First Kracko prep room door",
+			end: "MMoun: Entrance of Kracko's room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Second Kracko prep room door",
+			end: "MMoun: Entrance of Kracko's room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Upper door of mountain ascent first room",
+			end: "MMoun: Entrance of mountain ascent split",
+			two_way: false
+		),
+		(
+			start: "MMoun: Left door of mountain ascent split",
+			end: "MMoun: Left entrance of mountain top eruption room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Right door of mountain ascent split",
+			end: "MMoun: Right entrance of mountain top eruption room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Left door of mountain top eruption room",
+			end: "MMoun: Right entrance of lava Mini room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Right door of mountain top eruption room",
+			end: "MMoun: Entrance of Boxy goal room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Top left door of bomb kirby switch puzzle room",
+			end: "MMoun: Entrance of explosive enemies room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Top right door of bomb kirby switch puzzle room",
+			end: "MMoun: Right entrance of Phan phan room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Door in explosive enemies room",
+			end: "MMoun: Left entrance of Phan phan room",
+			two_way: false
+		),
+		(
+			start: "MMoun: Door in Phan phan room",
+			end: "MMoun: Fire temple entrance",
+			two_way: false
+		),
+		(
+			start: "MMoun: Mini locked door in fire temple",
+			end: "MMoun: Entrance of warp star room",
+			two_way: false
+		),
+		(
+			start: "MMoun: No Mini door in fire temple",
+			end: "MMoun: Entrance of fire temple tunnel",
+			two_way: false
+		),
+		(
+			start: "MMoun: Wind tunnel at end of fire temple tunnel",
+			end: "MMoun: Entrance of Bombar goal room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Top left door of grassy pick-a-path room",
+			end: "CCastle: Right entrance of grassy giant rocky room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Top right door of grassy pick-a-path room",
+			end: "CCastle: Right entrance of grassy Heavy Knights room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Left door of grassy Heavy Knights room",
+			end: "CCastle: Right door of PP front entrance",
+			two_way: true
+		),
+		(
+			start: "CCastle: Bottom door of grassy Heavy Knights room",
+			end: "CCastle: Top left door of grassy giant rocky room",
+			two_way: true
+		),
+		(
+			start: "CCastle: Middle door of PP front entrance",
+			end: "PP: Bottom left door of palace first room",
+			two_way: true
+		),
+		(
+			start: "CCastle: Left door of PP front entrance",
+			end: "PP: Right door of cavern first room",
+			two_way: true
+		),
+		(
+			start: "CCastle: Bottom left door of grassy giant rocky room",
+			end: "CCastle: Right door of CCastle shortcut room 2",
+			two_way: true
+		),
+		(
+			start: "CCastle: Left door of CCastle shortcut room 2",
+			end: "CCastle: Right door of CCastle front entrance",
+			two_way: true
+		),
+		(
+			start: "CCastle: Lever door of CCastle front entrance",
+			end: "CCastle: Entrance of left shaft of lever wind room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Exit of left shaft of lever wind room",
+			end: "RRuins: Destination at lever door in lever room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Lever door of lever room",
+			end: "CCastle: Entrance of right shaft of lever wind room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Middle door of CCastle front entrance",
+			end: "CCastle: Entrance of castle",
+			two_way: false
+		),
+		(
+			start: "CCastle: Mirra door in castle first room",
+			end: "CCastle: Entrance of Mirra 8cannon room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Middle door in Mirra 8cannon room",
+			end: "CCastle: Entrance of spike hall",
+			two_way: false
+		),
+		(
+			start: "CCastle: Bottom left door in Mirra 8cannon room",
+			end: "CCastle: Redo entrance of Mirra 8cannon room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in spike hall",
+			end: "CCastle: Entrance of hell crossroad",
+			two_way: false
+		),
+		(
+			start: "CCastle: Left door in castle first room",
+			end: "CCastle: Door in cupid room with 1up chest",
+			two_way: true
+		),
+		(
+			start: "CCastle: Top door of castle first room",
+			end: "CCastle: Bottom door of castle 2nd half of first room",
+			two_way: true
+		),
+		(
+			start: "CCastle: Top door of castle 2nd half of first room",
+			end: "CCastle: Entrance of castle roof",
+			two_way: false
+		),
+		(
+			start: "CCastle: Pit in castle roof",
+			end: "CCastle: Entrance of purple music sheet room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in purple music sheet room",
+			end: "CCastle: Pit exit",
+			two_way: false
+		),
+		(
+			start: "CCastle: Left door of castle roof",
+			end: "CCastle: Entrance of pick a wind chute room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Left chute in pick a wind chute room",
+			end: "CCastle: Entrance of Big Waddle Dee wind chute room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in Big Waddle Dee wind chute room",
+			end: "CCastle: Entrance of Chip wind chute room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in Chip wind chute room",
+			end: "CCastle: Entrance of Noddy and Gordo wind chute room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in Noddy and Gordo wind chute room",
+			end: "CCastle: Entrance of Gordo and bomb block wind chute room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in Gordo and bomb block wind chute room",
+			end: "CCastle: Entrance of wheelie room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Right chute in pick a wind chute room",
+			end: "CCastle: Entrance of free Smash wind chute room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in free Smash wind chute room",
+			end: "CCastle: Entrance of Chip and Gordo wind chute room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in Chip and Gordo wind chute room",
+			end: "CCastle: Entrance of Gordo and bomb block wind chute room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Center chute in pick a wind chute room",
+			end: "CCastle: Entrance of Sparky and Gordo room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in Sparky and Gordo room",
+			end: "CCastle: Entrance of Noddy and Sparky room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in Noddy and Sparky room",
+			end: "CCastle: Entrance of goodies wind chute room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in goodies wind chute room",
+			end: "CCastle: Entrance of yellow spray paint room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Left door in yellow spray paint room",
+			end: "CCastle: Left door exit of yellow spray paint room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Right door in yellow spray paint room",
+			end: "CCastle: Entrance of spike hall",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in wheelie room",
+			end: "CCastle: Entrance of checkerboard room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in checkerboard room",
+			end: "CCastle: Entrance of warp star room split",
+			two_way: false
+		),
+		(
+			start: "CCastle: Right door at warp star room split",
+			end: "CCastle: Entrance of map room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in map room",
+			end: "CCastle: Upper entrance of Mega Titan prep room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in Mega Titan prep room",
+			end: "CCastle: Entrance of Mega Titan room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Up exit of hell crossroad",
+			end: "CCastle: Entrance of checkerboard Gordo room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in checkerboard Gordo room",
+			end: "CCastle: Entrance of hell crossroad",
+			two_way: false
+		),
+		(
+			start: "CCastle: Up right exit of hell crossroad",
+			end: "CCastle: Entrance of spike trap room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in spike trap room",
+			end: "CCastle: Entrance of hell crossroad",
+			two_way: false
+		),
+		(
+			start: "CCastle: Right exit of hell crossroad",
+			end: "CCastle: Entrance of sparky party room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in sparky party room",
+			end: "CCastle: Entrance of hell crossroad",
+			two_way: false
+		),
+		(
+			start: "CCastle: Down right exit of hell crossroad",
+			end: "CCastle: Entrance of spike room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in spike room",
+			end: "CCastle: Entrance of hell crossroad",
+			two_way: false
+		),
+		(
+			start: "CCastle: Down exit of hell crossroad",
+			end: "CCastle: Entrance of Mini room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Top door in Mini room",
+			end: "CCastle: Entrance of hell crossroad",
+			two_way: false
+		),
+		(
+			start: "CCastle: Bottom door in Mini room",
+			end: "CCastle: Entrance of vitality heart room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in vitality heart room",
+			end: "CCastle: Entrance of hell crossroad",
+			two_way: false
+		),
+		(
+			start: "CCastle: Down left exit of hell crossroad",
+			end: "CCastle: Entrance of phan phan room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in phan phan room",
+			end: "CCastle: Entrance of hell crossroad",
+			two_way: false
+		),
+		(
+			start: "CCastle: Left exit of hell crossroad",
+			end: "CCastle: Entrance of cherry room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in cherry room",
+			end: "CCastle: Entrance of hell crossroad",
+			two_way: false
+		),
+		(
+			start: "CCastle: Up left exit of hell crossroad",
+			end: "CCastle: Entrance of progress room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Door in progress room",
+			end: "CCastle: Entrance of choose a cannon room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Top cannon in choose a cannon room",
+			end: "CCastle: Lower entrance of Mega Titan prep room",
+			two_way: false
+		),
+		(
+			start: "CCastle: Bottom cannon in choose a cannon room",
+			end: "CCastle: Lower entrance of Mega Titan prep room",
+			two_way: false
+		),
+		(
+			start: "OO: Right door of first room of OO",
+			end: "OO: Left door of second room of OO",
+			two_way: true
+		),
+		(
+			start: "OO: Middle door of second room of OO",
+			end: "OO: Door in pep brew room",
+			two_way: true
+		),
+		(
+			start: "OO: Right door of second room of OO",
+			end: "OO: Entrance of seaside split room",
+			two_way: false
+		),
+		(
+			start: "OO: Middle door of seaside split room",
+			end: "OO: Entrance of shotzo path of split room",
+			two_way: false
+		),
+		(
+			start: "OO: Right door of seaside split room",
+			end: "OO: Entrance of upper split room",
+			two_way: false
+		),
+		(
+			start: "OO: Door in shotzo path of split room",
+			end: "OO: Entrance of cherry temptation room",
+			two_way: false
+		),
+		(
+			start: "OO: Door in cherry temptation room",
+			end: "OO: Entrance of Mini room",
+			two_way: false
+		),
+		(
+			start: "OO: Door in Mini room",
+			end: "OO: Entrance of seaside goal room",
+			two_way: false
+		),
+		(
+			start: "OO: Door in upper split room",
+			end: "OO: Entrance of Boxy and troll cannon room",
+			two_way: false
+		),
+		(
+			start: "OO: Right door in Boxy and troll cannon room",
+			end: "OO: Left door of Leaps and waterfalls room",
+			two_way: true
+		),
+		(
+			start: "OO: Right door of Leaps and waterfalls room",
+			end: "OO: Bottom left door of fish trap room",
+			two_way: true
+		),
+		(
+			start: "OO: Right door of fish trap room",
+			end: "OO: Left door of OO shortcut room 2",
+			two_way: true
+		),
+		(
+			start: "OO: Right door of OO shortcut room 2",
+			end: "OO: Left door of ocean split room",
+			two_way: true
+		),
+		(
+			start: "OO: Bottom door of ocean split room",
+			end: "OO: Entrance of downward currents room",
+			two_way: false
+		),
+		(
+			start: "OO: Door at bottom of downward currents room",
+			end: "OO: Entrance of currents and Shooties room",
+			two_way: false
+		),
+		(
+			start: "OO: Door in currents and Shooties room",
+			end: "OO: Entrance of spike reveal room",
+			two_way: false
+		),
+		(
+			start: "OO: Water current in spike reveal room",
+			end: "OO: Entrance of OO map room",
+			two_way: false
+		),
+		(
+			start: "OO: Door in OO map room",
+			end: "OO: Entrance of expected hammer room",
+			two_way: false
+		),
+		(
+			start: "OO: Door in expected hammer room",
+			end: "OO: Entrance of Gobbler approach",
+			two_way: false
+		),
+		(
+			start: "OO: Door in Gobbler approach",
+			end: "OO: Entrance of Gobbler prep room",
+			two_way: false
+		),
+		(
+			start: "OO: Door in Gobbler prep room",
+			end: "OO: Entrance of Gobbler room",
+			two_way: false
+		),
+		(
+			start: "OO: Mirra door in ocean split room",
+			end: "OO: Entrance of shotzo purple cavern room",
+			two_way: false
+		),
+		(
+			start: "OO: Door in shotzo purple cavern room",
+			end: "OO: Entrance of vitality heart room",
+			two_way: false
+		),
+		(
+			start: "OO: Door in vitality heart room",
+			end: "OO: Entrance of cutter platform purple cavern room",
+			two_way: false
+		),
+		(
+			start: "OO: Door in cutter platform purple cavern room",
+			end: "OO: Entrance of pick a water chute room",
+			two_way: false
+		),
+		(
+			start: "OO: Bottom right door of pick a water chute room",
+			end: "OO: UFO entrance of Gobbler approach",
+			two_way: false
+		),
+		(
+			start: "OO: Right door of ocean split room",
+			end: "OO: Left door of Gordo hall",
+			two_way: true
+		),
+		(
+			start: "OO: Right door of Gordo hall",
+			end: "OO: Bottom left door of burning split room",
+			two_way: true
+		),
+		(
+			start: "OO: Top left door of burning split room",
+			end: "OO: Left door of lever room",
+			two_way: true
+		),
+		(
+			start: "OO: Bottom right door of burning split room",
+			end: "OO: Top door of pick a water chute room",
+			two_way: true
+		),
+		(
+			start: "OO: Top right door of burning split room",
+			end: "OO: Entrance of water currents to Mr. Frosty room",
+			two_way: false
+		),
+		(
+			start: "OO: Door in water currents to Mr. Frosty room",
+			end: "OO: Entrance of Mr. Frosty goal room",
+			two_way: false
+		),
+		(
+			start: "PP: Left door of cavern first room",
+			end: "PP: Right door of PP shortcut room 2",
+			two_way: true
+		),
+		(
+			start: "PP: Left door of PP shortcut room 2",
+			end: "PP: Bottom right door of Waddle Dee buckets room",
+			two_way: true
+		),
+		(
+			start: "PP: Top left door of Waddle Dee buckets room",
+			end: "PP: Right door of drowning Boxin room",
+			two_way: true
+		),
+		(
+			start: "PP: Left door of drowning Boxin room",
+			end: "PP: Bottom right door of outdoor Prank room",
+			two_way: true
+		),
+		(
+			start: "PP: Bottom left door of outdoor Prank room",
+			end: "PP: Right door of flamer and cutterlocked door room",
+			two_way: true
+		),
+		(
+			start: "PP: Cutterlocked door of flamer and cutterlocked door room",
+			end: "PP: Entrance of Scarfies and Metal Guardian room",
+			two_way: false
+		),
+		(
+			start: "PP: Door in Scarfies and Metal Guardian room",
+			end: "PP: Entrance of phan phan goal room",
+			two_way: false
+		),
+		(
+			start: "PP: Top left door of palace first room",
+			end: "PP: Bottom left door of Prank pool room",
+			two_way: true
+		),
+		(
+			start: "PP: Top left door of Prank pool room",
+			end: "PP: Bottom left door of laser slopes room",
+			two_way: true
+		),
+		(
+			start: "PP: Bottom right door of laser slopes room",
+			end: "PP: Door in fish trapped 1up room",
+			two_way: true
+		),
+		(
+			start: "PP: Top right door of laser slopes room",
+			end: "PP: Bottom left door of map room",
+			two_way: true
+		),
+		(
+			start: "PP: Top left door of laser slopes room",
+			end: "PP: Right door of PP shortcut room 1",
+			two_way: true
+		),
+		(
+			start: "PP: Left door of PP shortcut room 1",
+			end: "PP: Bottom right door of miniboss central",
+			two_way: true
+		),
+		(
+			start: "PP: Left door of miniboss central",
+			end: "PP: Right door of cutterlocked food room",
+			two_way: true
+		),
+		(
+			start: "PP: Box Boxer door in miniboss central",
+			end: "PP: Box Boxer entrance of cutterlocked food room",
+			two_way: false
+		),
+		(
+			start: "PP: Bonkers door in miniboss central",
+			end: "PP: Bonkers entrance of map room",
+			two_way: false
+		),
+		(
+			start: "PP: Door below Leap and Sparky in map room",
+			end: "PP: Map room entrance of miniboss central",
+			two_way: false
+		),
+		(
+			start: "PP: Mirra door in map room",
+			end: "PP: Map room entrance of snow spray paint",
+			two_way: false
+		),
+		(
+			start: "PP: Door in snow spray paint room",
+			end: "PP: Snow spray paint entrance of map room",
+			two_way: false
+		),
+		(
+			start: "PP: Top door in miniboss central",
+			end: "PP: Bottom left door of breaklocked water passage room",
+			two_way: true
+		),
+		(
+			start: "PP: Water passage door of breaklocked water passage room",
+			end: "PP: Top door of map room",
+			two_way: true
+		),
+		(
+			start: "PP: Bottom right door of breaklocked water passage room",
+			end: "PP: Entrance of 3way split room with wheelie",
+			two_way: false
+		),
+		(
+			start: "PP: Door in 3way split room with wheelie",
+			end: "PP: Entrance of eastern goal room",
+			two_way: false
+		),
+		(
+			start: "PP: Top right door of breaklocked water passage room",
+			end: "PP: Entrance of treasure room",
+			two_way: false
+		),
+		(
+			start: "PP: Left door of treasure room",
+			end: "PP: Left entrance of Golem treasure room",
+			two_way: false
+		),
+		(
+			start: "PP: Middle door of treasure room",
+			end: "PP: Middle entrance of Golem treasure room",
+			two_way: false
+		),
+		(
+			start: "PP: Mirra door of treasure room",
+			end: "PP: Right entrance of Golem treasure room",
+			two_way: false
+		),
+		(
+			start: "PP: Top door of Golem treasure room",
+			end: "PP: Entrance of warp star room",
+			two_way: false
+		),
+		(
+			start: "PP: Top left door of breaklocked water passage room",
+			end: "PP: Right door of Boxin icy slopes room",
+			two_way: true
+		),
+		(
+			start: "PP: Left door of Boxin icy slopes room",
+			end: "PP: Right door of Cookin room",
+			two_way: true
+		),
+		(
+			start: "PP: Top left door of cutterlocked food room",
+			end: "PP: Middle door of Cookin room",
+			two_way: true
+		),
+		(
+			start: "PP: Hammer peg door in Cookin room",
+			end: "PP: Hammer peg entrance of cutterlocked food room",
+			two_way: false
+		),
+		(
+			start: "PP: Left door of Cookin room",
+			end: "PP: Right door of meat chest flying enemies room",
+			two_way: true
+		),
+		(
+			start: "PP: Water current in meat chest flying enemies room",
+			end: "PP: Water current entrance of Bombar flying enemies room",
+			two_way: false
+		),
+		(
+			start: "PP: Left door of meat chest flying enemies room",
+			end: "PP: Right door of Bombar flying enemies room",
+			two_way: true
+		),
+		(
+			start: "PP: Water current in Bombar flying enemies room",
+			end: "PP: Entrance of waterfall room",
+			two_way: false
+		),
+		(
+			start: "PP: Door in waterfall room",
+			end: "PP: Top right entrance of Waddle Dee buckets room",
+			two_way: false
+		),
+		(
+			start: "PP: Middle door of Bombar flying enemies room",
+			end: "PP: Entrance of Bombar room",
+			two_way: false
+		),
+		(
+			start: "PP: Door of Bombar room",
+			end: "PP: Middle entrance of Bombar flying enemies room",
+			two_way: false
+		),
+		(
+			start: "PP: Left door of Bombar flying enemies room",
+			end: "PP: Top door of pachinko machine room",
+			two_way: true
+		),
+		(
+			start: "PP: Bottom door of pachinko machine room",
+			end: "PP: Top right door of pink spray paint room",
+			two_way: true
+		),
+		(
+			start: "PP: Bottom right door of pink spray paint room",
+			end: "PP: Left door of flamer and cutterlocked door room",
+			two_way: true
+		),
+		(
+			start: "PP: Top left door of pink spray paint room",
+			end: "PP: Entrance of Wiz hammer peg room",
+			two_way: false
+		),
+		(
+			start: "PP: Top door of Wiz hammer peg room",
+			end: "PP: Entrance of Wiz prep room",
+			two_way: false
+		),
+		(
+			start: "PP: Door in Wiz prep room",
+			end: "PP: Entrance of Wiz room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Left door of first room of RRuins",
+			end: "RRuins: Entrance of second room of RRuins",
+			two_way: false
+		),
+		(
+			start: "RRuins: Door in second room of RRuins",
+			end: "RRuins: Top right entrance of Waddle Doo room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Bottom left door of Waddle Doo room",
+			end: "RRuins: Bottom right door of lollipop run room",
+			two_way: true
+		),
+		(
+			start: "RRuins: Top right door of lollipop run room",
+			end: "RRuins: Top left entrance of Waddle Doo room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Top left door of Waddle Doo room",
+			end: "RRuins: Bottom door of staircase room",
+			two_way: true
+		),
+		(
+			start: "RRuins: Door at top of staircase room",
+			end: "RRuins: Right door of wheelie room",
+			two_way: true
+		),
+		(
+			start: "RRuins: Left door of wheelie room",
+			end: "RRuins: Entrance of Bonkers room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Door in Bonkers room",
+			end: "RRuins: Bonkers entrance of staircase room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Hammer peg door in Waddle Doo room",
+			end: "RRuins: Entrance of vitality heart room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Door in vitality heart room",
+			end: "RRuins: Bottom entrance of Mirra room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Middle door in lollipop run room",
+			end: "RRuins: Door in pep brew chest room",
+			two_way: true
+		),
+		(
+			start: "RRuins: Top left door of lollipop run room",
+			end: "RRuins: Hidden right entrance of Mirra room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Bottom left door of lollipop run room",
+			end: "RRuins: Right door of Mirra room",
+			two_way: true
+		),
+		(
+			start: "RRuins: Top door of Mirra room",
+			end: "RRuins: Bottom door of checkerboard room",
+			two_way: true
+		),
+		(
+			start: "RRuins: Top door of checkerboard room",
+			end: "RRuins: Left door of wheelie goal run room",
+			two_way: true
+		),
+		(
+			start: "RRuins: Right door of wheelie goal run room",
+			end: "RRuins: Entrance of emerald spray paint goal room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Mirra door of Mirra room",
+			end: "RRuins: Right door of RRuins shortcut room 2",
+			two_way: true
+		),
+		(
+			start: "RRuins: Left door of RRuins shortcut room 2",
+			end: "RRuins: Right door of Foley run room",
+			two_way: true
+		),
+		(
+			start: "RRuins: Left door of Foley run room",
+			end: "RRuins: Right door of switch race room",
+			two_way: true
+		),
+		(
+			start: "RRuins: Top door of switch race room",
+			end: "RRuins: Right door of lever room",
+			two_way: true
+		),
+		(
+			start: "RRuins: Left door of switch race room",
+			end: "RRuins: Entrance of ruins split",
+			two_way: false
+		),
+		(
+			start: "RRuins: Top door of ruins split",
+			end: "RRuins: Entrance of burning kirby room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Door in burning kirby room",
+			end: "RRuins: Entrance of Rolypoly and Hothead room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Door in Rolypoly and Hothead room",
+			end: "RRuins: Entrance of cannon room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Bottom door of cannon room",
+			end: "RRuins: Entrance of map room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Door in map room",
+			end: "RRuins: Map room entrance of cannon room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Right door of cannon room",
+			end: "RRuins: Entrance of cannon destination room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Door in cannon destination room",
+			end: "RRuins: Entrance of Boxy goal room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Bottom door of ruins split",
+			end: "RRuins: Entrance of master hand room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Door in master hand room",
+			end: "RRuins: Entrance of smash rampage room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Door in smash rampage room",
+			end: "RRuins: Entrance of ruins ascent",
+			two_way: false
+		),
+		(
+			start: "RRuins: Door at top of ruins ascent",
+			end: "RRuins: Entrance of first sunset room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Door in first sunset room",
+			end: "RRuins: Entrance of shadow kirby room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Door in shadow kirby room",
+			end: "RRuins: Entrance of Metaknight prep room",
+			two_way: false
+		),
+		(
+			start: "RRuins: Door in Metaknight prep room",
+			end: "RRuins: Entrance of Metaknight room",
+			two_way: false
+		),
+		(
+			start: "CandyC: Right door of free smash room",
+			end: "CandyC: Bottom left door of music player hammer peg room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Right door of falling switch room",
+			end: "CandyC: Bottom left door of free smash room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Top door of free smash room",
+			end: "CandyC: Left door of CandyC shortcut room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Bottom right door of music player hammer peg room",
+			end: "CandyC: Door in music player room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Top right door of music player hammer peg room",
+			end: "CandyC: Top left door of floating water blocks room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Bottom right door of floating water blocks room",
+			end: "CandyC: Left door of Boxin Hothead and Sparky room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Right door of Boxin Hothead and Sparky room",
+			end: "CandyC: Top left door of Rocky switch race room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Bottom right door of Rocky switch race room",
+			end: "CandyC: Door in max tomato chest room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Top right door of Rocky switch race room",
+			end: "CandyC: Left door of falling switch room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Middle door of falling switch room",
+			end: "CandyC: Door in carbon spray paint room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Right door of CandyC shortcut room",
+			end: "CandyC: Bottom left door of vitality heart hammer peg room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Top left door of vitality heart hammer peg room",
+			end: "CandyC: Right door of vitality heart connector room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Top right door of vitality heart hammer peg room",
+			end: "CandyC: Left door of first split room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Left door of vitality heart connector room",
+			end: "CandyC: Door in vitality heart room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Middle door of first split room",
+			end: "CandyC: Entrance of spark and burning room",
+			two_way: false
+		),
+		(
+			start: "CandyC: Right door of first split room",
+			end: "CandyC: Entrance of square chambers room",
+			two_way: false
+		),
+		(
+			start: "CandyC: Door in spark and burning room",
+			end: "CandyC: Entrance of Box Boxer goal room",
+			two_way: false
+		),
+		(
+			start: "CandyC: Bottom right door of square chambers room",
+			end: "CandyC: Entrance of map connector room",
+			two_way: false
+		),
+		(
+			start: "CandyC: Top right door of square chambers room",
+			end: "CandyC: Entrance of double heavy knights room",
+			two_way: false
+		),
+		(
+			start: "CandyC: Door in map connector room",
+			end: "CandyC: Entrance of map room",
+			two_way: false
+		),
+		(
+			start: "CandyC: Door in map room",
+			end: "CandyC: Entrance of Bonkers goal room",
+			two_way: false
+		),
+		(
+			start: "CandyC: Door in double heavy knights room",
+			end: "CandyC: Entrance of warp star room",
+			two_way: false
+		),
+		(
+			start: "CandyC: Door in master hand room",
+			end: "CandyC: Entrance of laser ball room",
+			two_way: false
+		),
+		(
+			start: "CandyC: Middle door of laser ball room",
+			end: "CandyC: Door in laser puzzle room",
+			two_way: true
+		),
+		(
+			start: "CandyC: Right door of laser ball room",
+			end: "CandyC: Entrance of wheelie run room",
+			two_way: false
+		),
+		(
+			start: "CandyC: Door in wheelie run room",
+			end: "CandyC: Entrance of UFO room",
+			two_way: false
+		),
+		(
+			start: "CandyC: Door in UFO room",
+			end: "CandyC: Entrance of shadow kirby room",
+			two_way: false
+		),
+		(
+			start: "CandyC: Door in shadow kirby room",
+			end: "CandyC: Entrance of Master hand and Crazy hand prep room",
+			two_way: false
+		),
+		(
+			start: "CandyC: Door in Master hand and Crazy hand prep room",
+			end: "CandyC: Entrance of Master hand and Crazy hand room",
+			two_way: false
+		)
+	]
+)
