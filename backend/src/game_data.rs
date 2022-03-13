@@ -35,7 +35,7 @@ impl GameData {
 
 fn build_rom_data_maps(
     graph_data: &mut game_graph::GraphData<StringID>,
-) -> std::result::Result<RomDataMaps, RomDataMapError> {
+) -> Result<RomDataMaps, RomDataMapError> {
     // for each dyn edge: map endpoint of dynamic_edge to start's destination and start
     // to start's addresses to replace
     let mut start_map: HashMap<StringID, Vec<Address>> = HashMap::new();
