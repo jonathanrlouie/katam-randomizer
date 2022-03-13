@@ -14,7 +14,6 @@ use std::{
 use thiserror::Error;
 
 mod config;
-mod game_data;
 mod game_graph;
 mod graph;
 mod katam_rng;
@@ -24,7 +23,6 @@ mod rom;
 mod rom_file;
 
 use config::{Config, EntranceShuffleType};
-use game_data::GameData;
 
 const RANDOMIZED_ROM_NAME: &str = "katam_randomized.gba";
 
@@ -80,7 +78,7 @@ async fn submit<'a>(
         rom_file: &mut rom_file,
     };
     let mut gd = (*game_data_state).clone();
-    randomizer::randomize_katam(config, rng, rom, &gd.rom_data_maps, &mut gd.graph)?;
+    randomizer::randomize_katam(config, rng, rom, &mut gd.graph)?;
 
     let content_disposition = Header::new(
         "Content-Disposition",
@@ -91,6 +89,15 @@ async fn submit<'a>(
         file: rom_file,
         content_disposition,
     })
+}
+
+type NodeID = String;
+
+fn load_game_data(path: &str) -> game_graph::GameGraph {
+    let file_contents = std::fs::read_to_string(path).expect("Error opening KatAM game data file.");
+    let graph_data: game_graph::GraphData<NodeID> = ron::from_str(&file_contents)
+        .unwrap_or_else(|e| panic!("Error deserializing KatAM game data: {}", e));
+    game_graph::GameGraph::new(graph_data)
 }
 
 #[rocket::launch]

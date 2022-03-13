@@ -1,10 +1,14 @@
 use crate::{
     config::{self, EntranceShuffleType},
-    graph::Graph,
+    graph::{DoorData, Graph},
     rng::{ChooseMultipleFill, RandomBool},
-    rom::{Rom, RomDataMaps},
+    rom::Rom,
 };
-use std::fmt::Debug;
+use std::{
+    cmp::Eq,
+    hash::Hash,
+    fmt::Debug
+};
 use thiserror::Error;
 
 #[derive(Error, Debug)]
@@ -15,18 +19,17 @@ pub enum KatamRandoError {
 
 pub type Result<T> = std::result::Result<T, KatamRandoError>;
 
-pub fn randomize_katam<N: Debug, E, G: Graph<N, E>>(
+pub fn randomize_katam<N: Debug + Eq + Hash, E, G: Graph<N, E> + DoorData<N>>(
     config: config::Config,
     mut rng: impl RandomBool + ChooseMultipleFill,
     mut rom: impl Rom,
-    rom_data_maps: &RomDataMaps,
     graph: &mut G,
 ) -> Result<()> {
     match config.entrance_shuffle {
         EntranceShuffleType::Standard => standard_shuffle(graph, &mut rng),
         EntranceShuffleType::Chaos => chaos_shuffle(graph, &mut rng),
     };
-    rom.write_data(rom_data_maps, graph)?;
+    rom.write_data(graph)?;
     Ok(())
 }
 

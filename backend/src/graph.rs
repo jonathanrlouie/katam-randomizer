@@ -1,8 +1,15 @@
 use crate::rng::{ChooseMultipleFill, RandomBool};
-use std::fmt::Debug;
+use std::{
+    cmp::Eq,
+    hash::Hash,
+    collections::HashMap,
+    fmt::Debug
+};
 use thiserror::Error;
 
-type NodeID = u32;
+type NodeID = String;
+type Address = usize;
+type Destination = [u8; 4];
 
 #[derive(Copy, Clone, Debug)]
 pub enum SwapEdgeIndices {
@@ -38,22 +45,17 @@ pub enum EdgeSwapError {
     BaseEdgeSwap(#[from] BaseEdgeSwapError),
 }
 
-#[derive(Error, Debug)]
-pub enum GetStringIDsError {
-    #[error("Error getting string IDs: {0}")]
-    EdgeEndpoints(#[from] GetEdgeEndpointsError),
-    #[error("Could not get string ID for node with ID {0} of edge with index {1}")]
-    MissingStringID(NodeID, usize),
-}
-
 pub trait Graph<N, E> {
-    fn swap_edges(&mut self, edge1: E, edge2: E) -> std::result::Result<(E, E), EdgeSwapError>;
+    fn swap_edges(&mut self, edge1: E, edge2: E) -> Result<(E, E), EdgeSwapError>;
     fn pick_random_edges<R>(&self, rng: &mut R) -> Option<(E, E)>
     where
         R: RandomBool + ChooseMultipleFill;
-    // TODO: Change this to return Vec<(N, N)> once string IDs are moved to descriptions
-    fn get_edges(&self) -> Vec<(String, String)>;
+    fn get_edges(&self) -> Vec<(N, N)>;
     fn get_unreachable_regions(&self) -> Vec<Vec<N>>
     where
         N: Debug;
+}
+
+pub trait DoorData<N: Eq + Hash> {
+    fn door_data(&self) -> HashMap<N, (Destination, Vec<Address>)>;
 }
