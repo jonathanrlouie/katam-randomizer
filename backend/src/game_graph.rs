@@ -1,7 +1,6 @@
 use crate::{
     graph::{
-        BaseEdgeSwapError, EdgeSwapError, GetEdgeEndpointsError, Graph,
-        SwapEdgeIndices, DoorData
+        BaseEdgeSwapError, DoorData, EdgeSwapError, GetEdgeEndpointsError, Graph, SwapEdgeIndices,
     },
     rng::{ChooseMultipleFill, RandomBool},
 };
@@ -71,7 +70,7 @@ fn build_base_graph(
 ) -> (StableDiGraph<NodeID, ()>, HashMap<NodeID, NodeIndex>) {
     let mut base_graph_edges: Vec<(NodeID, NodeID)> = vec![];
     for edge in static_edges {
-        base_graph_edges.push((edge.start, edge.end));
+        base_graph_edges.push((edge.start.clone(), edge.end.clone()));
         if edge.two_way {
             base_graph_edges.push((edge.end, edge.start));
         }
@@ -112,7 +111,7 @@ fn add_node(
     node_map: &mut HashMap<NodeID, NodeIndex>,
     node_id: NodeID,
 ) -> NodeIndex {
-    let node_index = graph.add_node(node_id);
+    let node_index = graph.add_node(node_id.clone());
     node_map.insert(node_id, node_index);
     node_index
 }
@@ -132,7 +131,7 @@ fn add_swappable_edges(
     }
 
     for e in two_ways.into_iter() {
-        let idx1 = insert_edge(base_graph, node_map, e.start, e.end);
+        let idx1 = insert_edge(base_graph, node_map, e.start.clone(), e.end.clone());
         let idx2 = insert_edge(base_graph, node_map, e.end, e.start);
         swappable_edges.insert(SwapEdge::TwoWay(idx1, idx2));
     }
@@ -142,9 +141,9 @@ fn add_swappable_edges(
 
 impl GameGraph {
     pub fn new(graph_data: GraphData<NodeID>) -> Self {
-
         let (mut base_graph, mut node_map) = build_base_graph(graph_data.static_edges);
-        let swappable_edges = add_swappable_edges(&mut base_graph, &mut node_map, graph_data.dynamic_edges);
+        let swappable_edges =
+            add_swappable_edges(&mut base_graph, &mut node_map, graph_data.dynamic_edges);
 
         Self {
             door_data: graph_data.door_data,
@@ -170,7 +169,7 @@ impl GameGraph {
             .base_graph
             .node_weight(node2)
             .ok_or_else(|| GetEdgeEndpointsError::MissingNodeID(idx.index(), node2.index()))?;
-        Ok((*node1_id, *node2_id))
+        Ok((node1_id.clone(), node2_id.clone()))
     }
 
     fn swap_one_ways(
@@ -212,12 +211,12 @@ impl GameGraph {
             .edge_node_ids(idx2)
             .map_err(BaseEdgeSwapError::EdgeEndpoints)?;
 
-        self.base_graph
-            .remove_edge(idx1)
-            .ok_or_else(|| BaseEdgeSwapError::MissingBaseEdge(edge1a, edge1b, idx1.index()))?;
-        self.base_graph
-            .remove_edge(idx2)
-            .ok_or_else(|| BaseEdgeSwapError::MissingBaseEdge(edge2a, edge2b, idx2.index()))?;
+        self.base_graph.remove_edge(idx1).ok_or_else(|| {
+            BaseEdgeSwapError::MissingBaseEdge(edge1a.clone(), edge1b.clone(), idx1.index())
+        })?;
+        self.base_graph.remove_edge(idx2).ok_or_else(|| {
+            BaseEdgeSwapError::MissingBaseEdge(edge2a.clone(), edge2b.clone(), idx2.index())
+        })?;
 
         let new_edge_idx1 = insert_edge(&mut self.base_graph, &mut self.node_map, edge1a, edge2b);
         let new_edge_idx2 = insert_edge(&mut self.base_graph, &mut self.node_map, edge2a, edge1b);
@@ -231,11 +230,9 @@ impl Graph<NodeID, SwapEdge> for GameGraph {
         let mut res: Vec<(NodeID, NodeID)> = vec![];
         for edge in &self.swappable_edges {
             match edge {
-                SwapEdge::OneWay(idx) => {
-                    res.push(self.edge_node_ids(*idx).unwrap_or_else(|e| {
-                        panic!("Error extracting string IDs for one way edge: {}", e)
-                    }))
-                }
+                SwapEdge::OneWay(idx) => res.push(self.edge_node_ids(*idx).unwrap_or_else(|e| {
+                    panic!("Error extracting string IDs for one way edge: {}", e)
+                })),
                 SwapEdge::TwoWay(idx1, idx2) => {
                     res.push(self.edge_node_ids(*idx1).unwrap_or_else(|e| {
                         panic!(
@@ -335,7 +332,7 @@ impl Graph<NodeID, SwapEdge> for GameGraph {
                         )
                     })
                     .iter()
-                    .map(|idx| **idx)
+                    .map(|idx| (*idx).clone())
                     .collect::<Vec<NodeID>>()
             })
             .collect()
@@ -343,8 +340,7 @@ impl Graph<NodeID, SwapEdge> for GameGraph {
 }
 
 impl DoorData<NodeID> for GameGraph {
-    fn door_data(&self) -> HashMap<NodeID, (Destination, Vec<Address>)> {
-        self.door_data
+    fn door_data(&self) -> &HashMap<NodeID, (Destination, Vec<Address>)> {
+        &self.door_data
     }
 }
-

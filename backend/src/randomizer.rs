@@ -4,11 +4,7 @@ use crate::{
     rng::{ChooseMultipleFill, RandomBool},
     rom::Rom,
 };
-use std::{
-    cmp::Eq,
-    hash::Hash,
-    fmt::Debug
-};
+use std::{cmp::Eq, fmt::Debug, hash::Hash};
 use thiserror::Error;
 
 #[derive(Error, Debug)]

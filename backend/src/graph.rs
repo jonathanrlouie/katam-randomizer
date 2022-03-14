@@ -1,10 +1,5 @@
 use crate::rng::{ChooseMultipleFill, RandomBool};
-use std::{
-    cmp::Eq,
-    hash::Hash,
-    collections::HashMap,
-    fmt::Debug
-};
+use std::{cmp::Eq, collections::HashMap, fmt::Debug, hash::Hash};
 use thiserror::Error;
 
 type NodeID = String;
@@ -57,5 +52,5 @@ pub trait Graph<N, E> {
 }
 
 pub trait DoorData<N: Eq + Hash> {
-    fn door_data(&self) -> HashMap<N, (Destination, Vec<Address>)>;
+    fn door_data(&self) -> &HashMap<N, (Destination, Vec<Address>)>;
 }

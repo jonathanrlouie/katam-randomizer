@@ -23,6 +23,7 @@ mod rom;
 mod rom_file;
 
 use config::{Config, EntranceShuffleType};
+use game_graph::GameGraph;
 
 const RANDOMIZED_ROM_NAME: &str = "katam_randomized.gba";
 
@@ -67,7 +68,7 @@ impl<'r, 'o: 'r> rocket::response::Responder<'r, 'o> for randomizer::KatamRandoE
 #[post("/api/submit", data = "<form>")]
 async fn submit<'a>(
     mut form: Form<Submit<'_>>,
-    game_data_state: &State<GameData>,
+    graph: &State<GameGraph>,
 ) -> Result<RomResponder<'a>, Error> {
     let rom_path = format!("{}{}", relative!("/rom"), "katam_rom.gba");
     form.rom_file.persist_to(&rom_path).await?;
@@ -77,8 +78,8 @@ async fn submit<'a>(
     let rom = rom_file::RomFile {
         rom_file: &mut rom_file,
     };
-    let mut gd = (*game_data_state).clone();
-    randomizer::randomize_katam(config, rng, rom, &mut gd.graph)?;
+    let mut graph_copy = (*graph).clone();
+    randomizer::randomize_katam(config, rng, rom, &mut graph_copy)?;
 
     let content_disposition = Header::new(
         "Content-Disposition",
@@ -93,16 +94,16 @@ async fn submit<'a>(
 
 type NodeID = String;
 
-fn load_game_data(path: &str) -> game_graph::GameGraph {
+fn load_game_data(path: &str) -> GameGraph {
     let file_contents = std::fs::read_to_string(path).expect("Error opening KatAM game data file.");
     let graph_data: game_graph::GraphData<NodeID> = ron::from_str(&file_contents)
         .unwrap_or_else(|e| panic!("Error deserializing KatAM game data: {}", e));
-    game_graph::GameGraph::new(graph_data)
+    GameGraph::new(graph_data)
 }
 
 #[rocket::launch]
 fn rocket() -> _ {
-    let game_data = GameData::load_game_data(&env::var("KATAM_DATA_PATH").expect("Environment variable KATAM_DATA_PATH not set. Please set it to the path where the KatAM data file is located."));
+    let game_data = load_game_data(&env::var("KATAM_DATA_PATH").expect("Environment variable KATAM_DATA_PATH not set. Please set it to the path where the KatAM data file is located."));
 
     rocket::build()
         .mount("/", rocket::routes![submit])

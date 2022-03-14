@@ -4,9 +4,9 @@ use crate::{
 };
 use std::{
     cmp::Eq,
-    hash::Hash,
     fmt::Debug,
     fs::File,
+    hash::Hash,
     io::{Read, Write},
 };
 
@@ -38,14 +38,11 @@ impl RomWrite for File {
 }
 
 impl<'a, R: RomRead + RomWrite> Rom for RomFile<'a, R> {
-    fn write_data<N, E, G>(
-        &mut self,
-        graph: &mut G,
-    ) -> Result<(), std::io::Error> 
-        where 
-            N: Debug + Eq + Hash,
-            G: Graph<N, E> + DoorData<N>
-        {
+    fn write_data<N, E, G>(&mut self, graph: &mut G) -> Result<(), std::io::Error>
+    where
+        N: Debug + Eq + Hash,
+        G: Graph<N, E> + DoorData<N>,
+    {
         let mut buffer = Vec::new();
         self.rom_file.read_rom(&mut buffer)?;
 
@@ -53,20 +50,27 @@ impl<'a, R: RomRead + RomWrite> Rom for RomFile<'a, R> {
             // TODO: Debug log level
             println!("edge: {:?}, {:?}", start_node_id, end_node_id);
 
-            let addresses_to_replace =
-                graph.door_data()
-                    .get(&start_node_id)
-                    .map(|t| t.1)
-                    .unwrap_or_else(|| {
-                        panic!("No ROM addresses found for start node ID {:?}", start_node_id)
-                    });
+            let addresses_to_replace = graph
+                .door_data()
+                .get(&start_node_id)
+                .map(|t| t.1.clone())
+                .unwrap_or_else(|| {
+                    panic!(
+                        "No ROM addresses found for start node ID {:?}",
+                        start_node_id
+                    )
+                });
 
-            let dest = graph.door_data()
+            let dest = graph
+                .door_data()
                 .get(&end_node_id)
                 .map(|t| t.0)
                 .unwrap_or_else(|| {
-                panic!("No destination data found for end node ID {:?}", end_node_id)
-            });
+                    panic!(
+                        "No destination data found for end node ID {:?}",
+                        end_node_id
+                    )
+                });
 
             write_addresses(&mut buffer, &dest, &addresses_to_replace)
                 .unwrap_or_else(|e| panic!("Failed to write to rom addresses: {:?}", e));
