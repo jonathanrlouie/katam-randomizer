@@ -1,0 +1,44 @@
+{% import "macros" as m %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Kirby and the Amazing Mirror Randomizer</title>
+    <link rel="stylesheet" href="/chota.min.css">
+    <style>
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Form Example</h1>
+
+
+      <form action="/" method="post" enctype="multipart/form-data">
+        <fieldset>
+          <legend>Randomizer Settings</legend>
+	  {{ m::input(label="ROM File to Upload: ", type="file", name="submit.rom_file") }}
+	  <!-- required -->
+	  <div>
+	    {{ m::input(label="Seed: ", type="text", name="submit.seed", value="4") }}
+	    <!-- required -->
+	  </div>
+	  <div>
+	    {{ m::input(label="Standard Shuffle", type="radio", name="submit.entrance_shuffle_type", value="Standard") }}
+	    <br />
+	    {{ m::input(label="Chaos Shuffle", type="radio", name="submit.entrance_shuffle_type", value="Chaos") }}
+	    <br />
+	  </div>
+        </fieldset>
+        <input type="submit" value="Submit" class="is-full-width" />
+      </form>
+    </div>
+  </body>
+</html>
+
