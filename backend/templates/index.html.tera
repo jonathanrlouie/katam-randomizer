@@ -23,17 +23,11 @@
       <form action="/" method="post" enctype="multipart/form-data">
         <fieldset>
           <legend>Randomizer Settings</legend>
-	  {{ m::input(label="ROM File to Upload: ", type="file", name="submit.rom_file") }}
-	  <!-- required -->
+	  {{ m::input(label="ROM File to Upload: ", type="file", name="rom_file") }}
+	  <!-- <input type="file" name="rom_file" id="file" required accept=".gba"> -->
 	  <div>
-	    {{ m::input(label="Seed: ", type="text", name="submit.seed", value="4") }}
+	    {{ m::input(label="Seed: ", type="text", name="seed", value="4") }}
 	    <!-- required -->
-	  </div>
-	  <div>
-	    {{ m::input(label="Standard Shuffle", type="radio", name="submit.entrance_shuffle_type", value="Standard") }}
-	    <br />
-	    {{ m::input(label="Chaos Shuffle", type="radio", name="submit.entrance_shuffle_type", value="Chaos") }}
-	    <br />
 	  </div>
         </fieldset>
         <input type="submit" value="Submit" class="is-full-width" />
@@ -41,4 +35,3 @@
     </div>
   </body>
 </html>
-

@@ -35,14 +35,14 @@ struct Submit<'v> {
     #[field(validate = ext(ContentType::Binary))]
     rom_file: TempFile<'v>,
     seed: u64,
-    entrance_shuffle_type: EntranceShuffleType,
+    //entrance_shuffle_type: EntranceShuffleType,
 }
 
 impl From<&mut Submit<'_>> for Config {
     fn from(submission: &mut Submit<'_>) -> Self {
         Config {
             seed: submission.seed,
-            entrance_shuffle: submission.entrance_shuffle_type,
+            entrance_shuffle: EntranceShuffleType::Standard,
         }
     }
 }
@@ -60,7 +60,7 @@ impl<'a, 'o: 'a> Responder<'a, 'o> for FormResponse<'o> {
         match self {
             Template(status, template) => (status, template).respond_to(request),
             TemplateWithRom(status, template, randomized_rom) => {
-                (status, template).respond_to(request)?;
+                //(status, template).respond_to(request)?;
                 randomized_rom.respond_to(request)
             }
         }
@@ -95,17 +95,21 @@ fn index() -> Template {
 
 #[post("/", data = "<form>")]
 async fn submit<'a>(
-    mut form: Form<Contextual<'a, Submit<'a>>>,
+    mut form: Form<Contextual<'a, Submit<'_>>>,
     graph: &State<GameGraph>,
 ) -> Result<FormResponse<'a>, Error> {
     match form.value {
         Some(ref mut submission) => {
+            println!("submission received");
             let randomized_rom = run_randomizer(submission, graph).await?;
             let template = Template::render("success", &form.context);
             let status = form.context.status();
             Ok(FormResponse::TemplateWithRom(status, template, randomized_rom))
         }
-        None => Ok(FormResponse::Template(form.context.status(), Template::render("index", &form.context))),
+        None => {
+		println!("submission was None");
+		Ok(FormResponse::Template(form.context.status(), Template::render("index", &form.context)))
+        }
     }
 }
 
