@@ -54,9 +54,16 @@ impl From<SwapEdge> for SwapEdgeIndices {
     }
 }
 
+// maps for converting randomized game data back into ROM addresses
+#[derive(Clone)]
+pub struct RomDataMaps {
+    pub start_map: HashMap<NodeID, Vec<Address>>,
+    pub end_map: HashMap<NodeID, Destination>,
+}
+
 #[derive(Clone)]
 pub struct GameGraph {
-    door_data: HashMap<NodeID, (Destination, Vec<Address>)>,
+    rom_data: RomDataMaps,
     base_graph: StableDiGraph<NodeID, ()>,
     node_map: HashMap<NodeID, NodeIndex>,
 
@@ -140,13 +147,35 @@ fn add_swappable_edges(
 }
 
 impl GameGraph {
-    pub fn new(graph_data: GraphData<NodeID>) -> Self {
+    pub fn new(mut graph_data: GraphData<NodeID>) -> Self {
+        let mut start_map: HashMap<NodeID, Vec<Address>> = HashMap::new();
+        let mut end_map: HashMap<NodeID, Destination> = HashMap::new();
+
+        for edge in &graph_data.dynamic_edges {
+            println!("Dyn Edge: {}, {}", edge.start, edge.end);
+            if edge.two_way {
+                let (end_destination, start_addresses) = graph_data.door_data.remove(&edge.start).unwrap_or_else(|| panic!("Missing door data for start node: {}", edge.start.clone()));
+                let (start_destination, end_addresses) = graph_data.door_data.remove(&edge.end).unwrap_or_else(|| panic!("Missing door data for end node: {}", edge.end.clone()));
+
+                start_map.insert(edge.start.clone(), start_addresses);
+                end_map.insert(edge.end.clone(), end_destination);
+
+                start_map.insert(edge.end.clone(), end_addresses);
+                end_map.insert(edge.start.clone(), start_destination);
+            } else {
+                let (end_destination, start_addresses) = graph_data.door_data.remove(&edge.start).unwrap_or_else(|| panic!("Missing door data for start node: {}", edge.start.clone()));
+
+                start_map.insert(edge.start.clone(), start_addresses);
+                end_map.insert(edge.end.clone(), end_destination);
+            }
+        }
+
         let (mut base_graph, mut node_map) = build_base_graph(graph_data.static_edges);
         let swappable_edges =
             add_swappable_edges(&mut base_graph, &mut node_map, graph_data.dynamic_edges);
 
         Self {
-            door_data: graph_data.door_data,
+            rom_data: RomDataMaps { start_map, end_map },
             base_graph,
             node_map,
             swappable_edges,
@@ -340,7 +369,11 @@ impl Graph<NodeID, SwapEdge> for GameGraph {
 }
 
 impl DoorData<NodeID> for GameGraph {
-    fn door_data(&self) -> &HashMap<NodeID, (Destination, Vec<Address>)> {
-        &self.door_data
+    fn start_map(&self) -> &HashMap<NodeID, Vec<Address>> {
+        &self.rom_data.start_map
+    }
+
+    fn end_map(&self) -> &HashMap<NodeID, Destination> {
+        &self.rom_data.end_map
     }
 }

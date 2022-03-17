@@ -51,9 +51,8 @@ impl<'a, R: RomRead + RomWrite> Rom for RomFile<'a, R> {
             println!("edge: {:?}, {:?}", start_node_id, end_node_id);
 
             let addresses_to_replace = graph
-                .door_data()
+                .start_map()
                 .get(&start_node_id)
-                .map(|t| t.1.clone())
                 .unwrap_or_else(|| {
                     panic!(
                         "No ROM addresses found for start node ID {:?}",
@@ -62,9 +61,8 @@ impl<'a, R: RomRead + RomWrite> Rom for RomFile<'a, R> {
                 });
 
             let dest = graph
-                .door_data()
+                .end_map()
                 .get(&end_node_id)
-                .map(|t| t.0)
                 .unwrap_or_else(|| {
                     panic!(
                         "No destination data found for end node ID {:?}",
@@ -72,7 +70,7 @@ impl<'a, R: RomRead + RomWrite> Rom for RomFile<'a, R> {
                     )
                 });
 
-            write_addresses(&mut buffer, &dest, &addresses_to_replace)
+            write_addresses(&mut buffer, dest, &addresses_to_replace)
                 .unwrap_or_else(|e| panic!("Failed to write to rom addresses: {:?}", e));
         }
 

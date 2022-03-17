@@ -52,5 +52,6 @@ pub trait Graph<N, E> {
 }
 
 pub trait DoorData<N: Eq + Hash> {
-    fn door_data(&self) -> &HashMap<N, (Destination, Vec<Address>)>;
+    fn start_map(&self) -> &HashMap<N, Vec<Address>>;
+    fn end_map(&self) -> &HashMap<N, Destination>;
 }
